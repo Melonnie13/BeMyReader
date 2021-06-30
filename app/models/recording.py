@@ -15,6 +15,7 @@ class Recording(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     users = db.relationship('User', back_populates='recordings')
     comments = db.relationship('Comment', secondary=recordings_comments, back_populates='recordings')
     categories = db.relationship('Category', secondary=recordings_categories, back_populates='recordings')
@@ -28,6 +29,5 @@ class Recording(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'username': [user.username for user in self.users],
-            'comment_id': [comment.id for comment in self.comments],
-            'category_id': [category.id for category in self.categories]
+            'comment_id': [comment.id for comment in self.comments]
         }
