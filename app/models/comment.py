@@ -1,4 +1,5 @@
 from .db import db
+from recording_comment_join import recordings_comments
 from sqlalchemy import func
 
 class Comment(db.Model):
@@ -13,7 +14,7 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     recording_id = db.Column(db.Integer, db.ForeignKey('recordings.id'))
     users = db.relationship('User', back_populates='comments')
-    recordings = db.relationship('Recording', back_populates='comments')
+    recordings = db.relationship('Recording', secondary=recordings_comments, back_populates='comments')
 
     def to_dict(self):
         return {
