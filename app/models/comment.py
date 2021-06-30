@@ -22,6 +22,4 @@ class Comment(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'user_id': self.user_id,
-            'username': self.users.username,
-
         }
