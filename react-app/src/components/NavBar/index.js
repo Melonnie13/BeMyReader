@@ -29,7 +29,7 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li className='nav-bar-item'>
-              <NavLink to={`/users/${user.id}/recording/upload/`} exact={true} activeClassName='active'>
+              <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>
                 Record Audio
               </NavLink>
             </li>

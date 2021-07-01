@@ -21,16 +21,18 @@ export const renderCategories = () => async(dispatch) => {
 
 // initial state
 
-const initialState = {categories: {}};
+const initialState = {};
 
 // reducer
 
 export default function reducer(state = initialState, action){
     switch (action.type){
         case SET_CATEGORIES:
-            return {
-                categories: action.payload
-            }
+            const all_categories = {};
+            action.payload.forEach(category => {
+                all_categories[category.id] = category;
+            })
+            return all_categories;
         default:
             return state;
     }

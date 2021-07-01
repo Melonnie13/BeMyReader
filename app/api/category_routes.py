@@ -10,5 +10,3 @@ def get_categories():
     categories = Category.query.all()
     print('***********************', categories)
     return {'categories': [category.to_dict() for category in categories]}
-
-

@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactMic } from 'react-mic';
-import { ReactAudioPlayer } from 'react-audio-player';
+import ReactAudioPlayer from 'react-audio-player';
 import { uploadRecording } from '../../store/recording';
 import './UploadRecording.css'
+import { renderCategories } from '../../store/category';
 
 const UploadRecording = () => {
     const history = useHistory();
@@ -22,6 +23,10 @@ const UploadRecording = () => {
 
     const categories = useSelector((state) => Object.values(state.category));
 
+    useEffect(() => {
+        dispatch(renderCategories())
+    }, [dispatch])
+
     const startRecording = () => {
         setRecord(true);
     }
@@ -29,7 +34,7 @@ const UploadRecording = () => {
         setRecord(false);
     }
     const onStop = audio => {
-        setRecordingBlob(audio.blobURL)
+        setRecordingBlob(audio)
         setAudioExists(true);
     }
     const onDelete = () => {
@@ -43,10 +48,15 @@ const UploadRecording = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('title', title);
+        // console.log(title, 'title from UploadRecording component')
         formData.append('description', description);
-        formData.append('audio', recordingBlob);
-        console.log(recordingBlob, 'akdjshfkjahsdkghaeshdlgjaos[dj;lghalsdkj')
+        // console.log(description, 'description from UploadRecording component')
+        formData.append('audio', recordingBlob.blobURL);
+
+        console.log(recordingBlob, 'recording blob from UploadRecording component')
+
         formData.append('category', category);
+        // console.log(category, 'category from UploadRecording component')
 
         dispatch(uploadRecording(formData));
         history.push(`/users/${user.id}/recordings`);
@@ -54,8 +64,10 @@ const UploadRecording = () => {
 
     return (
         <div>
+            <label htmlFor='recorder'></label>
             <ReactMic
                 record={record}
+                name='recorder'
                 className='audio-recorder'
                 onStop={onStop}
                 backgroundColor='#6495ed'
@@ -66,32 +78,33 @@ const UploadRecording = () => {
                 // I feel like this fits my needs at the moment, and will change if I find that it does not.
                 // https://stackoverflow.com/questions/51368252/setting-blob-mime-type-to-wav-still-results-in-webm
             />
-            <label for='start-recording'>Start Recording</label>
+            <label htmlFor='start-recording'>Start Recording</label>
             <button onClick={startRecording}
                     type='button'
                     name='start-recording'
                     className='audioBtn'
             >Start Recording
             </button>
-            <label for='stop-recording'>Stop Recording</label>
+            <label htmlFor='stop-recording'>Stop Recording</label>
             <button onClick={stopRecording}
                     type='button'
                     name='stop-recording'
                     className='audioBtn'
             >Stop Recording</button>
 
-            {/* <ReactAudioPlayer
-                src={recordingBlob}
+            <ReactAudioPlayer
+                src={recordingBlob.blobURL}
                 controls
                 style={audioExists ? { display: 'block' } : { display: 'none' }}
-            /> */}
-            <label for='upload-recording'></label>
+            />
+            <label htmlFor='upload-recording'></label>
             <button onClick={onUpload}
                     type='button'
                     name='upload-recording'
                     className='audioBtn'
+                    style={audioExists ? { display: 'block' } : { display: 'none' }}
             >Happy? Upload Recording</button>
-            <label for='delete-recording'></label>
+            <label htmlFor='delete-recording'></label>
             <button onClick={onDelete}
                     type='button'
                     name='delete-recording'
@@ -101,7 +114,7 @@ const UploadRecording = () => {
             <div>
                 {formOpen &&
                     <form className='recording-input-form' onSubmit={onSubmit}>
-                        <label for='title'>Title</label>
+                        <label htmlFor='title'>Title</label>
                         <input
                         type='text'
                         name='title'
@@ -109,7 +122,7 @@ const UploadRecording = () => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         />
-                        <label for='description'>Description</label>
+                        <label htmlFor='description'>Description</label>
                         <input
                         type='text'
                         name='description'
@@ -117,23 +130,23 @@ const UploadRecording = () => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         />
-                        <label for='category'>Category</label>
+                        <label htmlFor='category'>Category</label>
                         <select
                         name='category'
                         className='recording-form-input'
                         onChange={(e) => setCategory(e.target.value)}
                         value={category}
-                        >
+                        > Choose a Category
                             {categories.map(category => (
                                 <option
-                                key={category}
-                                value={category}
+                                key={category.id}
+                                value={category.name}
                                 >
-                                    {category}
+                                    {category.name}
                                 </option>
                             ))}
                         </select>
-                        <label for='submit-form'>Submit Recording</label>
+                        <label htmlFor='submit-form'>Submit Recording</label>
                         <button type='submit' name='submit-form' className='audioBtn'>Submit</button>
                     </form>
                 }
