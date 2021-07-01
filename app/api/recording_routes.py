@@ -13,7 +13,7 @@ def upload_recording():
         description=request.form['description'],
         audio=request.form['audio'],
         user_id=current_user.id,
-        category_id=request.form['category'.id]
+        category_id=request.form['category']
     )
     db.session.add(new_recording)
     db.session.commit()
