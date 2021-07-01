@@ -6,7 +6,7 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
-  const [visionImpaired, setVisionImpaired] = useState(false)
+  const [visionImpaired, setVisionImpaired] = useState(true)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -35,8 +35,9 @@ const SignUpForm = () => {
     setPassword(e.target.value);
   };
 
-  const updateVisionImpaired = (e) => {
-    setVisionImpaired(e.target.value);
+  const updateVisionImpaired = () => {
+    setVisionImpaired(false);
+    // console.log(visionImpaired, "from signup form component*****************")
   };
 
   const updateRepeatPassword = (e) => {
@@ -73,11 +74,11 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Vision Impaired?</label>
+        <label for='vision-impaired'>Vision Impaired?</label>
         <input
           type='checkbox'
           name='vision-impaired'
-          onChange={updateVisionImpaired}
+          onClick={updateVisionImpaired}
           value={visionImpaired}
         ></input>
       </div>

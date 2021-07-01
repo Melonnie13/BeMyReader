@@ -24,5 +24,5 @@ class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists])
-    vision_impaired = BooleanField('vision_impaired', validators=[DataRequired()])
+    vision_impaired = BooleanField('vision_impaired')
     password = StringField('password', validators=[DataRequired()])
