@@ -13,8 +13,10 @@ class Recording(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    users = db.relationship("User", back_populates="recordings")
-    comments = db.relationship("Comment", back_populates="recordings")
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
+    users = db.relationship('User', back_populates='recordings')
+    comments = db.relationship('Comment', back_populates='recordings')
+    categories = db.relationship('Category', back_populates='recordings')
 
     def to_dict(self):
         return {
@@ -25,5 +27,6 @@ class Recording(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'username': [user.username for user in self.users],
-            'comment_id': [comment.id for comment in self.comments]
+            'comment_id': [comment.id for comment in self.comments],
+            'category': [category.name for category in self.categories]
         }
