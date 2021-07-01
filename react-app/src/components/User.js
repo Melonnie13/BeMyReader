@@ -26,7 +26,7 @@ function User() {
         <strong>User Id</strong> {userId}
       </li> */}
       <div>
-        <strong>Username</strong> {user.username}
+        <strong>{`${user.username}'s Page`}</strong>
       </div>
       {/* <li>
         <strong>Email</strong> {user.email}
