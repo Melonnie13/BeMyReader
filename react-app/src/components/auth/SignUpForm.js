@@ -56,16 +56,16 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label htmlFor='enter-username'>User Name</label>
         <input
           type='text'
-          name='username'
+          name='enter-username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label htmlFor='email'>Email</label>
         <input
           type='text'
           name='email'
@@ -74,16 +74,16 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label for='vision-impaired'>Vision Impaired?</label>
+        <label htmlFor='vision-impaired-checkbox'>Vision Impaired Check Box For Yes</label>
         <input
           type='checkbox'
-          name='vision-impaired'
+          name='vision-impaired-checkbox'
           onClick={updateVisionImpaired}
           value={visionImpaired}
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label htmlFor='password'>Password</label>
         <input
           type='password'
           name='password'
@@ -92,7 +92,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label htmlFor='repeat_password'>Repeat Password</label>
         <input
           type='password'
           name='repeat_password'
@@ -101,7 +101,8 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <label htmlFor='sign_up_button'></label>
+      <button name='sign_up_button' type='submit'>Sign Up</button>
     </form>
   );
 };

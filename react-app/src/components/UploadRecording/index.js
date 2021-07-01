@@ -83,13 +83,13 @@ const UploadRecording = () => {
                 controls
                 style={audioExists ? { display: 'block' } : { display: 'none' }}
             /> */}
-            <label for='upload-recording'>Happy? Upload Recording</label>
+            <label for='upload-recording'></label>
             <button onClick={onUpload}
                     type='button'
                     name='upload-recording'
                     className='audioBtn'
             >Happy? Upload Recording</button>
-            <label for='delete-recording'>Not Happy? Delete Recording</label>
+            <label for='delete-recording'></label>
             <button onClick={onDelete}
                     type='button'
                     name='delete-recording'
