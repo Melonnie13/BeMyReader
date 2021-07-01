@@ -18,6 +18,7 @@ const UploadRecording = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
+    const [audio, setAudio] = useState('');
 
     const startRecording = () => {
         setRecord(true);
@@ -50,7 +51,7 @@ const UploadRecording = () => {
 
     return (
         <div>
-            <ReactMic
+            {/* <ReactMic
                 record={record}
                 className='audio'
                 onStop={onStop}
@@ -60,7 +61,7 @@ const UploadRecording = () => {
                 // when it sends to a server, but it doesn't change the content from a blob to an actual .wav file.
                 // I feel like this fits my needs at the moment, and will change if I find that it does not.
                 // https://stackoverflow.com/questions/51368252/setting-blob-mime-type-to-wav-still-results-in-webm
-            />
+            /> */}
             <label for='start-recording'>Start Recording</label>
             <button onClick={startRecording}
                     type='button'
@@ -75,11 +76,11 @@ const UploadRecording = () => {
                     className='audioBtn'
             >Stop Recording</button>
 
-            <ReactAudioPlayer
+            {/* <ReactAudioPlayer
                 src={recordingBlob}
                 controls
                 style={audioExists ? { display: 'block' } : { display: 'none' }}
-            />
+            /> */}
             <label for='upload-recording'>Happy? Upload Recording</label>
             <button onClick={onUpload}
                     type='button'
