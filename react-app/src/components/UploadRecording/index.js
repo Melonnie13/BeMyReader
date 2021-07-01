@@ -20,6 +20,8 @@ const UploadRecording = () => {
     const [category, setCategory] = useState('');
     const [audio, setAudio] = useState('');
 
+    const categories = useSelector((state) => Object.values(state.category));
+
     const startRecording = () => {
         setRecord(true);
     }
@@ -119,12 +121,17 @@ const UploadRecording = () => {
                         <select
                         name='category'
                         className='recording-form-input'
-                        value={category}
                         onChange={(e) => setCategory(e.target.value)}
+                        value={category}
                         >
-                            <option value='ingredients'>Ingredients</option>
-                            <option value='2'>Dog Food</option>
-                            <option value='newspaper'>Newspaper</option>
+                            {categories.map(category => (
+                                <option
+                                key={category}
+                                value={category}
+                                >
+                                    {category}
+                                </option>
+                            ))}
                         </select>
                         <label for='submit-form'>Submit Recording</label>
                         <button type='submit' name='submit-form' className='audioBtn'>Submit</button>
