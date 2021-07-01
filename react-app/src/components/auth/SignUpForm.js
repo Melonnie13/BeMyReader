@@ -6,6 +6,7 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
+  const [visionImpaired, setVisionImpaired] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,7 +16,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, visionImpaired, password));
       if (data) {
         setErrors(data)
       }
@@ -32,6 +33,10 @@ const SignUpForm = () => {
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const updateVisionImpaired = (e) => {
+    setVisionImpaired(e.target.value);
   };
 
   const updateRepeatPassword = (e) => {
@@ -65,6 +70,15 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>Vision Impaired?</label>
+        <input
+          type='checkbox'
+          name='vision-impaired'
+          onChange={updateVisionImpaired}
+          value={visionImpaired}
         ></input>
       </div>
       <div>

@@ -42,7 +42,8 @@ const UploadRecording = () => {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('description', description);
-        formData.append('audio', recordingBlob.blobURL);
+        formData.append('audio', recordingBlob);
+        console.log(recordingBlob, 'akdjshfkjahsdkghaeshdlgjaos[dj;lghalsdkj')
         formData.append('category', category);
 
         dispatch(uploadRecording(formData));
@@ -77,11 +78,11 @@ const UploadRecording = () => {
                     className='audioBtn'
             >Stop Recording</button>
 
-            <ReactAudioPlayer
+            {/* <ReactAudioPlayer
                 src={recordingBlob}
                 controls
                 style={audioExists ? { display: 'block' } : { display: 'none' }}
-            />
+            /> */}
             <label for='upload-recording'>Happy? Upload Recording</label>
             <button onClick={onUpload}
                     type='button'
@@ -122,7 +123,7 @@ const UploadRecording = () => {
                         onChange={(e) => setCategory(e.target.value)}
                         >
                             <option value='ingredients'>Ingredients</option>
-                            <option value='dog food'>Dog Food</option>
+                            <option value='2'>Dog Food</option>
                             <option value='newspaper'>Newspaper</option>
                         </select>
                         <label for='submit-form'>Submit Recording</label>

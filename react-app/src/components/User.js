@@ -21,17 +21,17 @@ function User() {
   }
 
   return (
-    <ul>
-      <li>
+      <div>
+      {/* <li>
         <strong>User Id</strong> {userId}
-      </li>
-      <li>
+      </li> */}
+      <div>
         <strong>Username</strong> {user.username}
-      </li>
-      <li>
+      </div>
+      {/* <li>
         <strong>Email</strong> {user.email}
-      </li>
-    </ul>
+      </li> */}
+      </div>
   );
 }
 export default User;

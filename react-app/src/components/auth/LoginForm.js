@@ -6,7 +6,6 @@ import { login } from '../../store/session';
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
-  const [visionImpaired, setVisionImpaired] = useState(false);
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -46,15 +45,6 @@ const LoginForm = () => {
           placeholder='Email'
           value={email}
           onChange={updateEmail}
-        />
-      </div>
-      <div>
-      <label htmlFor='vision-impaired'>Vision-Impaired?</label>
-        <input
-          name='vision-impaired'
-          type='checkbox'
-          value={visionImpaired}
-          onChange={(e) => setVisionImpaired(!visionImpaired)}
         />
       </div>
       <div>
