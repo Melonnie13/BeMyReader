@@ -27,7 +27,7 @@ const UploadRecording = () => {
         setRecord(false);
     }
     const onStop = audio => {
-        setRecordingBlob(audio)
+        setRecordingBlob(audio.blobURL)
         setAudioExists(true);
     }
     const onDelete = () => {
@@ -42,7 +42,7 @@ const UploadRecording = () => {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('description', description);
-        formData.append('audio', audio);
+        formData.append('audio', recordingBlob.blobURL);
         formData.append('category', category);
 
         dispatch(uploadRecording(formData));
@@ -51,17 +51,18 @@ const UploadRecording = () => {
 
     return (
         <div>
-            {/* <ReactMic
+            <ReactMic
                 record={record}
-                className='audio'
+                className='audio-recorder'
                 onStop={onStop}
+                backgroundColor='#6495ed'
                 mimeType='audio/wav' // Upon researching react-mic, I came across this sandbox:
                 // https://codesandbox.io/s/625fb?file=/src/App.js:926-946. In it, there was this mimetype.
                 // Upon further research, I found that this tells the browser how it should set the mimetype
                 // when it sends to a server, but it doesn't change the content from a blob to an actual .wav file.
                 // I feel like this fits my needs at the moment, and will change if I find that it does not.
                 // https://stackoverflow.com/questions/51368252/setting-blob-mime-type-to-wav-still-results-in-webm
-            /> */}
+            />
             <label for='start-recording'>Start Recording</label>
             <button onClick={startRecording}
                     type='button'
@@ -76,11 +77,11 @@ const UploadRecording = () => {
                     className='audioBtn'
             >Stop Recording</button>
 
-            {/* <ReactAudioPlayer
+            <ReactAudioPlayer
                 src={recordingBlob}
                 controls
                 style={audioExists ? { display: 'block' } : { display: 'none' }}
-            /> */}
+            />
             <label for='upload-recording'>Happy? Upload Recording</label>
             <button onClick={onUpload}
                     type='button'
