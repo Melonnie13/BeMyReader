@@ -13,8 +13,9 @@ def upload_recording():
         description=request.form['description'],
         audio=request.form['audio'],
         user_id=current_user.id,
-        category_id=request.form['category_id']
+        category_id=request.form['category'.id]
     )
     db.session.add(new_recording)
     db.session.commit()
+    print(category_id, 'from recording api post route')
     return new_recording.to_dict()
