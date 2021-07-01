@@ -19,11 +19,9 @@ const UploadRecording = () => {
     const startRecording = () => {
         setRecord(true);
     }
-
     const stopRecording = () => {
         setRecord(false);
     }
-
     const onStop = blob => {
         setRecordingBlob(blob)
         setAudio(true);
