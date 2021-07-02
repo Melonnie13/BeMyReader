@@ -8,6 +8,23 @@ recording_routes = Blueprint('recordings', __name__)
 @recording_routes.route('/new', methods=['POST'])
 @login_required
 def upload_recording():
+    if "audio" not in request.files:
+        return {"errors": "audio required"}, 400
+
+    audio = request.files["audio"]
+
+    if not allowed_file(audio.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    audio.filename = get_unique_filename(audio.filename)
+
+    upload = upload_file_to_s3(audio)
+
+    if "url" not in upload:
+        return upload, 400
+
+    url = upload["url"]
+
     new_recording = Recording(
         title=request.form['title'],
         description=request.form['description'],
