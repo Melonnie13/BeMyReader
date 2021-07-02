@@ -21,10 +21,10 @@ const SingleRecording = () => {
         <div>
             {recording.title}
             <ReactAudioPlayer
-                src={recording.blob}
+                src={recording}
                 controls
             />
-            {console.log(recording.blob, 'Recording in return of singlerecordingcomponent&&&&&&&&&&&&&&&&&&$$$$$$$$$*********')}
+            {console.log(recording, 'Recording in return of singlerecordingcomponent&&&&&&&&&&&&&&&&&&$$$$$$$$$*********')}
             {/* <ReactPlayer
             url={recording}
             className='react-player'
