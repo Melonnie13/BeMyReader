@@ -53,10 +53,10 @@ const UploadRecording = () => {
         // console.log(description, 'description from UploadRecording component')
         formData.append('audio', recordingBlob.blobURL);
 
-        console.log(recordingBlob, 'recording blob from UploadRecording component')
+        // console.log(recordingBlob, 'recording blob from UploadRecording component')
 
         formData.append('category', category);
-        // console.log(category, 'category from UploadRecording component')
+        console.log(category, 'category from UploadRecording component')
 
         dispatch(uploadRecording(formData));
         history.push(`/users/${user.id}/recordings`);
@@ -135,12 +135,12 @@ const UploadRecording = () => {
                         name='category'
                         className='recording-form-input'
                         onChange={(e) => setCategory(e.target.value)}
-                        value={category}
+                        value={category.id}
                         > Choose a Category
                             {categories.map(category => (
                                 <option
                                 key={category.id}
-                                value={category.name}
+                                value={category.id}
                                 >
                                     {category.name}
                                 </option>

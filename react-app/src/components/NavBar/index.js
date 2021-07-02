@@ -36,6 +36,9 @@ const NavBar = () => {
             <li className='nav-bar-item'>
               <LogoutButton />
             </li>
+              <li className='nav-bar-item'>
+                <NavLink to='/profile' exact={true} activeClassName='active'>My Profile</NavLink>
+              </li>
           </> ) : (
             <>
               <label htmlFor='demo-login'></label>
@@ -45,9 +48,6 @@ const NavBar = () => {
               </li>
               <li className='nav-bar-item'>
                 <NavLink to='/login' exact={true} activeClassName='active'>Login</NavLink>
-              </li>
-              <li className='nav-bar-item'>
-                <NavLink to='/users' exact={true} activeClassName='active'>Users</NavLink>
               </li>
             </>
         )}
