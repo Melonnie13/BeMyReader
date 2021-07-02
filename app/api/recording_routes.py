@@ -11,19 +11,19 @@ def upload_recording():
     # if "audio" not in request.files:
     #     return {"errors": "audio required"}, 400
 
-    audio = request.files["audio"]
+    # audio = request.files["audio"]
 
-    if not allowed_file(audio.filename):
-        return {"errors": "file type not permitted"}, 400
+    # if not allowed_file(audio.filename):
+    #     return {"errors": "file type not permitted"}, 400
 
-    audio.filename = get_unique_filename(audio.filename)
+    # audio.filename = get_unique_filename(audio.filename)
 
-    upload = upload_file_to_s3(audio)
+    # upload = upload_file_to_s3(audio)
 
-    if "url" not in upload:
-        return upload, 400
+    # if "url" not in upload:
+    #     return upload, 400
 
-    url = upload["url"]
+    # url = upload["url"]
 
     new_recording = Recording(
         title=request.form['title'],
@@ -32,7 +32,7 @@ def upload_recording():
         user_id=current_user.id,
         category_id=request.form['category']
     )
-    # print(request.form["category"], '***************************')
+
     db.session.add(new_recording)
     db.session.commit()
     return new_recording.to_dict()
