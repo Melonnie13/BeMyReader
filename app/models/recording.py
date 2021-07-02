@@ -7,7 +7,7 @@ class Recording(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text())
-    audio = db.Column(db.LargeBinary())
+    audio = db.Column(db.String())
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),
@@ -26,7 +26,7 @@ class Recording(db.Model):
             'audio': self.audio,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'username': [user.username for user in self.users],
-            'comment_id': [comment.id for comment in self.comments],
-            'category': [category.name for category in self.categories]
+            # 'username': [user.username for user in self.users],
+            # 'comment_id': [comment.id for comment in self.comments],
+            # 'category': [category.name for category in self.categories]
         }
