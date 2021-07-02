@@ -57,7 +57,7 @@ const UploadRecording = () => {
         console.log('**********************recording blob from UploadRecording component', recordingBlob)
 
         formData.append('category', category);
-        // console.log(category, 'category from UploadRecording component')
+        console.log(category, 'category from UploadRecording component')
 
         setAudioLoading(true);
 
@@ -134,7 +134,7 @@ const UploadRecording = () => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         />
-                        <label htmlFor='category'>Category</label>
+                        <label htmlFor='category'>Choose A Category</label>
                         <select
                         name='category'
                         className='recording-form-input'
