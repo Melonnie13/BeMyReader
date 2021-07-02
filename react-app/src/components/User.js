@@ -9,17 +9,11 @@ function User() {
     }
 
   return (
-      <div>
-      {/* <li>
-        <strong>User Id</strong> {userId}
-      </li> */}
+      
       <div>
         <strong>{`${user.username}'s Page`}</strong>
       </div>
-      {/* <li>
-        <strong>Email</strong> {user.email}
-      </li> */}
-      </div>
+
   );
 }
 export default User;

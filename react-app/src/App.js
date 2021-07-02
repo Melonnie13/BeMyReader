@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import MainPage from './components/MainPage';
 import UploadRecording from './components/UploadRecording';
+import SingleRecording from './components/SingleRecording';
 import { authenticate } from './store/session';
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/recording/upload' exact={true} >
           <UploadRecording />
+        </ProtectedRoute>
+        <ProtectedRoute path='/recording/:id' exact={true} >
+          <SingleRecording />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
