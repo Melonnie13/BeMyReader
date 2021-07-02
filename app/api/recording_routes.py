@@ -8,8 +8,8 @@ recording_routes = Blueprint('recordings', __name__)
 @recording_routes.route('/new', methods=['POST'])
 @login_required
 def upload_recording():
-    if "audio" not in request.files:
-        return {"errors": "audio required"}, 400
+    # if "audio" not in request.files:
+    #     return {"errors": "audio required"}, 400
 
     audio = request.files["audio"]
 

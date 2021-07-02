@@ -13,6 +13,7 @@ const UploadRecording = () => {
     const user = useSelector(state => state.session.user);
 
     const [record, setRecord] = useState(false);
+    const [audioLoading, setAudioLoading] = useState(false);
     const [recordingBlob, setRecordingBlob] = useState('');
     const [audioExists, setAudioExists] = useState(false);
     const [formOpen, setFormOpen] = useState(false);
@@ -53,12 +54,15 @@ const UploadRecording = () => {
         // console.log(description, 'description from UploadRecording component')
         formData.append('audio', recordingBlob.blobURL);
 
-        // console.log(recordingBlob, 'recording blob from UploadRecording component')
+        console.log('**********************recording blob from UploadRecording component', recordingBlob)
 
         formData.append('category', category);
-        console.log(category, 'category from UploadRecording component')
+        // console.log(category, 'category from UploadRecording component')
+
+        setAudioLoading(true);
 
         dispatch(uploadRecording(formData));
+        setAudioLoading(false);
         history.push(`/users/${user.id}/recordings`);
     }
 
@@ -148,6 +152,7 @@ const UploadRecording = () => {
                         </select>
                         <label htmlFor='submit-form'>Submit Recording</label>
                         <button type='submit' name='submit-form' className='audioBtn'>Submit</button>
+                        {audioLoading && <p> Loading...</p>}
                     </form>
                 }
             </div>
