@@ -1,6 +1,9 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Recording, db
 from flask_login import current_user, login_required
+import json
+# from app.s3_functionality import (
+#     upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3)
 
 recording_routes = Blueprint('recordings', __name__)
 
@@ -8,22 +11,28 @@ recording_routes = Blueprint('recordings', __name__)
 @recording_routes.route('/new', methods=['POST'])
 @login_required
 def upload_recording():
-    # if "audio" not in request.files:
+
+
+
+    # print('********************THIS IS THE BLOB***************', request.form["audio"])
+    # if "audio" not in request.form:
     #     return {"errors": "audio required"}, 400
 
-    audio = request.files["audio"]
+    # audio = request.form["audio"]
 
-    if not allowed_file(audio.filename):
-        return {"errors": "file type not permitted"}, 400
+    # print('**************AUDIO OBJECT FROM RECORDING ROUTE******************', audio.blob)
 
-    audio.filename = get_unique_filename(audio.filename)
+    # if not allowed_file(audio.filename):
+    #     return {"errors": "file type not permitted"}, 400
 
-    upload = upload_file_to_s3(audio)
+    # # audio.filename = get_unique_filename(audio.filename)
 
-    if "url" not in upload:
-        return upload, 400
+    # upload = upload_file_to_s3(audio)
 
-    url = upload["url"]
+    # if "url" not in upload:
+    #     return upload, 400
+
+    # url = upload["url"]
 
     new_recording = Recording(
         title=request.form['title'],
@@ -33,6 +42,7 @@ def upload_recording():
         category_id=request.form['category']
     )
     # print(request.form["category"], '***************************')
+    print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio'])['blob'])
     db.session.add(new_recording)
     db.session.commit()
     return new_recording.to_dict()
