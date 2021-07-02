@@ -140,7 +140,8 @@ const UploadRecording = () => {
                         className='recording-form-input'
                         onChange={(e) => setCategory(e.target.value)}
                         value={category.id}
-                        > Choose a Category
+                        >
+                            <option default>Choose A Category</option>Choose a Category
                             {categories.map(category => (
                                 <option
                                 key={category.id}
