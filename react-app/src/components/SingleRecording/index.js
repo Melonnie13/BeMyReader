@@ -10,11 +10,11 @@ const SingleRecording = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const recording = useSelector((state) => state.recording.recordings);
-    console.log(recording, '****************** from SingleRecording Component*****')
+    // console.log(recording, '****************** from SingleRecording Component*****')
     const user = useSelector((state) => state.session.user);
 
     useEffect(() => {
-        dispatch(renderOneRecording(Number(id)));
+        dispatch(renderOneRecording(parseInt(id)));
     }, [dispatch, id])
 
     return (
@@ -24,7 +24,7 @@ const SingleRecording = () => {
                 src={recording}
                 controls
             />
-            {console.log(recording, 'Recording in return of singlerecordingcomponent&&&&&&&&&&&&&&&&&&$$$$$$$$$*********')}
+            {/* {console.log(recording, 'Recording in return of singlerecordingcomponent&&&&&&&&&&&&&&&&&&$$$$$$$$$*********')} */}
             {/* <ReactPlayer
             url={recording}
             className='react-player'
