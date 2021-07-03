@@ -6,7 +6,7 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
-  const [visionImpaired, setVisionImpaired] = useState(true)
+  const [visionImpaired, setVisionImpaired] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -37,7 +37,7 @@ const SignUpForm = () => {
 
   const updateVisionImpaired = () => {
     setVisionImpaired(false);
-    // console.log(visionImpaired, "from signup form component*****************")
+    console.log(visionImpaired, "from signup form component*****************")
   };
 
   const updateRepeatPassword = (e) => {
