@@ -52,8 +52,8 @@ const UploadRecording = () => {
         // console.log(title, 'title from UploadRecording component')
         formData.append('description', description);
         // console.log(description, 'description from UploadRecording component')
-        // formData.append('audio', JSON.stringify(recordingBlob));
-        formData.append('audio', recordingBlob);
+        formData.append('audio', JSON.stringify(recordingBlob));
+        // formData.append('audio', recordingBlob);
 
         console.log('**********************recording blob from UploadRecording component', recordingBlob)
 
