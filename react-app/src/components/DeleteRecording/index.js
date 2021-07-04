@@ -9,7 +9,6 @@ const DeleteRecording = () => {
     const history = useHistory();
     const recording = useSelector(state => state.recording);
     const user = useSelector(state => state.session.user);
-    console.log(recording, '*******************RECORDING FROM DELETE COMPONENT')
 
     const deleteARecording = async(e) => {
         e.preventDefault();

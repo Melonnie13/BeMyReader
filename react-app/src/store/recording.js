@@ -41,7 +41,7 @@ export const uploadRecording = (formData) => async (dispatch) => {
 };
 
 export const renderOneRecording = (id) => async (dispatch) => {
-    const res = await fetch(`/api/recordings/${id}`);
+    const res = await fetch(`/api/recordings/single/${id}`);
 
     if (res.ok) {
         const data = await res.json();

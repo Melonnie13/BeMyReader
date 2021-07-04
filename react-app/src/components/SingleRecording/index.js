@@ -13,7 +13,7 @@ const SingleRecording = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const recording = useSelector((state) => state.recording);
-    // console.log(recording, '****************** from SingleRecording Component*****')
+    console.log(recording, '****************** from SingleRecording Component*****')
     const user = useSelector((state) => state.session.user);
 
     useEffect(() => {
