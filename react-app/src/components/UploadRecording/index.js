@@ -52,10 +52,10 @@ const UploadRecording = () => {
         // console.log(title, 'title from UploadRecording component')
         formData.append('description', description);
         // console.log(description, 'description from UploadRecording component')
-        // formData.append('audio', JSON.stringify(recordingBlob));
-        formData.append('audio', recordingBlob);
+        formData.append('audio', JSON.stringify(recordingBlob));
+        // formData.append('audio', recordingBlob);
 
-        console.log('**********************recording blob from UploadRecording component', recordingBlob)
+        // console.log('**********************recording blob from UploadRecording component', recordingBlob)
 
         formData.append('category', category);
         console.log(category, 'category from UploadRecording component')
@@ -64,7 +64,8 @@ const UploadRecording = () => {
 
         dispatch(uploadRecording(formData));
         setAudioLoading(false);
-        history.push(`/users/${user.id}/recordings`);
+        setFormOpen(false)
+        history.push(`/users/${user.id}`);
     }
 
     return (
@@ -152,8 +153,8 @@ const UploadRecording = () => {
                                 </option>
                             ))}
                         </select>
-                        <label htmlFor='submit-form'>Submit Recording</label>
-                        <button type='submit' name='submit-form' className='audioBtn'>Submit</button>
+                        <label htmlFor='submit-button'>Submit Recording</label>
+                        <button type='submit' name='submit-button' className='audioBtn'>Submit</button>
                         {audioLoading && <p> Loading...</p>}
                     </form>
                 }

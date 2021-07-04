@@ -26,7 +26,5 @@ class Recording(db.Model):
             'audio': self.audio,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            # 'username': [user.username for user in self.users],
-            # 'comment_id': [comment.id for comment in self.comments],
-            # 'category': [category.name for category in self.categories]
+            'comment_ids': [comment.id for comment in self.comments]
         }

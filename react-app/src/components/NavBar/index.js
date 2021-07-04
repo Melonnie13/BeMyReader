@@ -37,7 +37,7 @@ const NavBar = () => {
               <LogoutButton />
             </li>
               <li className='nav-bar-item'>
-                <NavLink to='/profile' exact={true} activeClassName='active'>My Profile</NavLink>
+                <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
               </li>
           </> ) : (
             <>
