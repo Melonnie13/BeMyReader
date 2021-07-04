@@ -13,7 +13,6 @@ recording_routes = Blueprint('recordings', __name__)
 def upload_recording():
 
 
-
     # print('********************THIS IS THE BLOB***************', request.form["audio"])
     # if "audio" not in request.form:
     #     return {"errors": "audio required"}, 400
@@ -48,8 +47,25 @@ def upload_recording():
     return new_recording.to_dict()
 
 
+# @recording_routes.route('/<int:id>', methods=['GET'])
+# @login_required
+# def get_one_recording(id):
+#     recording = Recording.query.get(id)
+#     return recording.to_dict()
+
+
 @recording_routes.route('/<int:id>', methods=['GET'])
 @login_required
-def get_one_recording(id):
+def get_users_recordings(id):
+    recordings = Recording.query.filter(Recording.user_id == id).all()
+    # print(recordings, '&&&&&&&&&&&&&&&&&&&&&&&&&FROM BACKEND ROUTE TO GET RECORDING BY USER_ID')
+    return {recording.id: recording.to_dict() for recording in recordings}
+
+
+@recording_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_recording(id):
     recording = Recording.query.get(id)
-    return recording.to_dict()
+    db.session.delete(recording)
+    db.session.commit()
+    return {'id': id}

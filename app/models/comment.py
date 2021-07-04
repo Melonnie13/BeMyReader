@@ -18,10 +18,11 @@ class Comment(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'user_id': self.user_id,
+            'recording_id': self.recording_id,
             'body': self.body,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'user_id': self.user_id,
-            'recording_id': self.recording_id,
-            'username': [user.username for user in self.users]
+            'username': self.users.username,
+            'recording': self.recordings.to_dict()
         }
