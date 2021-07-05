@@ -1,0 +1,15 @@
+from .db import db
+from sqlalchemy import func
+from .favorites_recordings_join import favorites_recordings
+
+class Favorite(db.Model):
+    __tablename__ = 'favorites'
+
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    name = db.Column(db.String(25))
+    created_at = db.Column(db.DateTime(timezone=True),
+                           nullable=False, server_default=func.now())
+    updated_at = db.Column(db.DateTime(timezone=True),
+                           nullable=False, server_default=func.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    recordings = db.relationship('Recording', secondary=favorites_recordings, back_populates='favorites')
