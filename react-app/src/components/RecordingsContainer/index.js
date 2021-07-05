@@ -9,9 +9,9 @@ const RecordingsContainer = ({containerUser}) => {
     const {id} = useParams();
     // console.log(id, 'from recordings container id')
     const recordings = useSelector(state => Object.values(state.recording));
-    console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
+    // console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
     const user = useSelector(state => (state.user));
-    console.log(user, "USER FROM RECORDINGS CONTAINER**********")
+    // console.log(user, "USER FROM RECORDINGS CONTAINER**********")
 
     useEffect(() => {
         dispatch(getUsersRecordings(parseInt(id)))
@@ -27,6 +27,7 @@ const RecordingsContainer = ({containerUser}) => {
                 {recordings.map(recording => (
                         <div name='user-recordings' className='container' key={recording.id}>
                         <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
+                        <DeleteRecording />
                         </div>
                 ))}
             </div>

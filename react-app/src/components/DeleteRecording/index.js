@@ -22,7 +22,7 @@ const DeleteRecording = () => {
             <button
             onClick={deleteARecording}
             name='delete-button-single-recording'
-            className='audioBtn'>
+            className='delete-button'>
                 Delete Recording
             </button>
         </div>

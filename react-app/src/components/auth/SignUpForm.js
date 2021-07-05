@@ -17,6 +17,7 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
       const user = await dispatch(signUp(username, email, visionImpaired, password));
+      setErrors([]);
     }
   };
 
@@ -34,7 +35,7 @@ const SignUpForm = () => {
 
   const updateVisionImpaired = () => {
     setVisionImpaired(true);
-    console.log(visionImpaired, "from signup form component*****************")
+    // console.log(visionImpaired, "from signup form component*****************")
   };
 
   const updateRepeatPassword = (e) => {
