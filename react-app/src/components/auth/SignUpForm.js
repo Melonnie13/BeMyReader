@@ -16,10 +16,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, visionImpaired, password));
-      if (data) {
-        setErrors(data)
-      }
+      const user = await dispatch(signUp(username, email, visionImpaired, password));
     }
   };
 
@@ -36,7 +33,7 @@ const SignUpForm = () => {
   };
 
   const updateVisionImpaired = () => {
-    setVisionImpaired(false);
+    setVisionImpaired(true);
     console.log(visionImpaired, "from signup form component*****************")
   };
 
@@ -79,7 +76,6 @@ const SignUpForm = () => {
           type='checkbox'
           name='vision-impaired-checkbox'
           onClick={updateVisionImpaired}
-          value={visionImpaired}
         ></input>
       </div>
       <div>

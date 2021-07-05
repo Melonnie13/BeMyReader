@@ -7,7 +7,7 @@ const DeleteRecording = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const history = useHistory();
-    const recording = useSelector(state => state.recording);
+    // const recording = useSelector(state => state.recording);
     const user = useSelector(state => state.session.user);
 
     const deleteARecording = async(e) => {

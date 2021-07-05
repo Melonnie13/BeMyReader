@@ -15,7 +15,7 @@ const CommentsRecording = () => {
 
     useEffect(() => {
         dispatch(renderRecordingComments(parseInt(id)))
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     return (
         <div>

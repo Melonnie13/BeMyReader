@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import UserPage from './components/UserPage';
 import MainPage from './components/MainPage';
 import UploadRecording from './components/UploadRecording';
 import SingleRecording from './components/SingleRecording';
@@ -16,14 +16,14 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  // const currentUser = useSelector((state) => state.session.user);
+  const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;
@@ -43,7 +43,7 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:id' exact={true} >
-          <User />
+          <UserPage currentUser={user}/>
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <MainPage />

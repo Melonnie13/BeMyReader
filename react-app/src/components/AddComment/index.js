@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addComment, renderRecordingComments } from '../../store/comment';
+import { addComment } from '../../store/comment';
 
 const AddComment = () => {
     const dispatch = useDispatch();
-    const {id} = useParams();
     const user = useSelector(state => state.session.user);
     const recording = useSelector(state => state.recording);
     // console.log('RECORDING FROM ADD COMMENT COMPONENT', recording.id)

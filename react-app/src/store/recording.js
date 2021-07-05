@@ -72,19 +72,20 @@ const initialState = {}
 
 //reducer
 export default function reducer(state = initialState, action){
+    const newState = {...state}
     switch (action.type) {
         case ADD_RECORDING:
-            return {
-                ...action.payload
-            };
+            newState[action.payload.id] = action.payload
+            return newState;
         case SET_ONE_RECORDING:
             return {
                 ...action.payload
             };
         case GET_RECORDINGS:
-            return {...state, ...action.payload};
+            return {
+                ...action.payload
+            }
         case DELETE_ONE_RECORDING:
-            const newState = {...state};
             delete newState[action.payload.id];
             return newState;
         default:
