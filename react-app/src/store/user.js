@@ -27,7 +27,6 @@ const initialState = {};
 //REDUCER
 
 export default function reducer(state = initialState, action){
-    const newState = {...state};
     switch (action.type){
         case GET_USER:
             return {

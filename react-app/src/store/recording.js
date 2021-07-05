@@ -32,7 +32,7 @@ export const uploadRecording = (formData) => async (dispatch) => {
         body: formData
     });
     if (res.ok) {
-        console.log(res, 'response from recording thunk********************')
+        // console.log(res, 'response from recording thunk********************')
         const data = await res.json();
         dispatch(addRecording(data));
     } else {
