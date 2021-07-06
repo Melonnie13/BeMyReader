@@ -83,6 +83,14 @@ export const getAllRecordingsSearch = () => async (dispatch) => {
     }
 };
 
+export const getAllRecordingsAlpha = () => async (dispatch) => {
+    const res = await fetch('/api/recordings/alphabetical')
+    if (res.ok) {
+        const recordings = await res.json();
+        dispatch(getAllRecordings(recordings));
+    }
+};
+
 //initial state
 const initialState = {}
 
@@ -107,4 +115,4 @@ export default function reducer(state = initialState, action){
         default:
             return state;
     }
-}
+};

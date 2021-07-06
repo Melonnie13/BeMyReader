@@ -5,13 +5,15 @@ import recording from './recording';
 import category from './category';
 import comment from './comment';
 import user from './user';
+import favorite from './favorite';
 
 const rootReducer = combineReducers({
   session,
   recording,
   category,
   comment,
-  user
+  user,
+  favorite
 });
 
 

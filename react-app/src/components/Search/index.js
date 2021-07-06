@@ -19,8 +19,7 @@ const Search = () => {
 
     }
 
-    const SearchResults = ({category}) => {// reverse these
-        const dispatch = useDispatch();
+    const SearchResults = ({category}) => {
 
         const recordings = useSelector(state => Object.values(state.recording))
         console.log(recordings, 'RECORDINGS FROM SEARCH RESULTS**********&&&&&&&&&&!!!!!!!!!!!')
