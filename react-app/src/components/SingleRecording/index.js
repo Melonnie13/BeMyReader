@@ -13,9 +13,11 @@ const SingleRecording = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const recording = useSelector((state) => state.recording);
-    // console.log(recording, '****************** from SingleRecording Component*****')
-    const user = useSelector(state => state.user)
-    // console.log(user, "FROM SINGLE RECORDING COMPONENT********************")
+    const recordingUserId = recording.user_id
+    // console.log(recording.user_id, '****************** Recording userIDfrom SingleRecording Component*****')
+    const user = useSelector(state => state.session.user)
+    console.log(user, "USER FROM SINGLE RECORDING COMPONENT********************")
+
 
     useEffect(() => {
         dispatch(renderOneRecording(parseInt(id)));
@@ -31,7 +33,7 @@ const SingleRecording = () => {
                 {/* {console.log(recording, 'from single recording component')} */}
             </h2>
             <div>
-                <Link to={`/users/${user.id}`}>
+                <Link to={`/users/${recordingUserId}`}>
                     {recording.username}
                 </Link>
             </div>
@@ -42,7 +44,11 @@ const SingleRecording = () => {
                 />
             </div>
             <div>
-                <DeleteRecording />
+                {recording.username === user.username ?
+                <div>
+                    <DeleteRecording />
+                </div>
+                : null}
             </div>
             <div>
                 <AddComment />

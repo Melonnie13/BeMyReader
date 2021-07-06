@@ -12,7 +12,7 @@ const DeleteRecording = ({id}) => {
     // console.log(recording, 'recording from delete recording component!!!!!!!!!!')
     const user = useSelector(state => state.session.user);
     // console.log(user, '****************USER FROM DELETE RECORDING')
-    const userPage = useSelector(state => state.user);
+    // const userPage = useSelector(state => state.user);
     // console.log(userPage, 'pages user not the session user!!!!!!!!!!!!!!!!!!!!')
 
     const user_id = user.id
@@ -30,8 +30,6 @@ const DeleteRecording = ({id}) => {
 
     return (
         <div>
-            {user.id === userPage.id ? (
-                <>
                 <label htmlFor='delete-button-single-recording'></label>
                 <button
                 onClick={deleteARecording}
@@ -39,8 +37,6 @@ const DeleteRecording = ({id}) => {
                 className='delete-button'>
                     Delete Recording
                 </button>
-                </>) : (null)
-            }
         </div>
     )
 }
