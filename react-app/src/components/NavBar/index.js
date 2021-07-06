@@ -24,11 +24,11 @@ const NavBar = () => {
       <ul className='nav-bar'>
         {user ? (
           <>
-            <li className='nav-bar-item'>
+            {/* <li className='nav-bar-item'>
               <NavLink to='/' exact={true} activeClassName='active'>
                 Home
               </NavLink>
-            </li>
+            </li> */}
             <li className='nav-bar-item'>
               <NavLink to='/search' exact={true} activeClassName='active'>
                 Search

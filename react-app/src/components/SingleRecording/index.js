@@ -25,13 +25,21 @@ const SingleRecording = () => {
 
     return (
         <div>
-            <h2>
+            <h3>
+                <label htmlFor='recording-title'></label>
+                <div name='recording-title'>
                 {recording.title}
-                <div>
+                </div>
+                <label htmlFor='recording-category'></label>
+                <div name='recording-category'>
                 {recording.category}
                 </div>
+                <label htmlFor='recording-description'></label>
+                <div name='recording-description'>
+                {recording.description}
+                </div>
                 {/* {console.log(recording, 'from single recording component')} */}
-            </h2>
+            </h3>
             <div>
                 <Link to={`/users/${recordingUserId}`}>
                     {recording.username}
