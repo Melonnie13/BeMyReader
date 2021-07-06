@@ -7,11 +7,13 @@ import DeleteRecording from '../DeleteRecording';
 const RecordingsContainer = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
-    // console.log(id, 'from recordings container id')
+    console.log(id, 'ID from recordings container id')
     const recordings = useSelector(state => Object.values(state.recording));
-    // console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
-    const user = useSelector(state => (state.user));
-    // console.log(user, "USER FROM RECORDINGS CONTAINER**********")
+    console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
+    const userPage = useSelector(state => (state.user));
+    console.log(userPage.id, "USERID FROM RECORDINGS CONTAINER**********")
+    const user = useSelector(state => state.session.user)
+    console.log(user, "SESSION USER******!!!!!!!!!!!!!!!!!")
 
     useEffect(() => {
         dispatch(getUsersRecordings(parseInt(id)))
@@ -20,14 +22,21 @@ const RecordingsContainer = () => {
     return (
         <div>
             <h2>
-                {`${user.username}'s`} Recordings
+                {`${userPage.username}'s`} Recordings
             </h2>
             <label htmlFor='user-recordings'></label>
             <div>
                 {recordings.map(recording => (
                         <div name='user-recordings' className='container' key={recording.id}>
                         <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
-                        <DeleteRecording id={recording.id}/>
+                        <div>
+                            {userPage.id === user.id ?
+                                <div>
+                                <DeleteRecording id={recording.id}/>
+                                </div>
+                                : null
+                            }
+                        </div>
                         </div>
                 ))}
             </div>
