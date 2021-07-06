@@ -1,6 +1,6 @@
 from .db import db
 from sqlalchemy import func
-# from .favorites_recordings_join import favorites_recordings
+from .favorites_recordings_join import favorites_recordings
 
 
 class Recording(db.Model):
@@ -19,7 +19,7 @@ class Recording(db.Model):
     users = db.relationship('User', back_populates='recordings')
     comments = db.relationship('Comment', back_populates='recordings')
     categories = db.relationship('Category', back_populates='recordings')
-    # favorites = db.relationship('Favorite', secondary=favorites_recordings, back_populates='recordings')
+    favorites = db.relationship('Favorite', secondary=favorites_recordings, back_populates='recordings')
 
     def to_dict(self):
         return {
