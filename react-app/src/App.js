@@ -10,7 +10,8 @@ import UserPage from './components/UserPage';
 import MainPage from './components/MainPage';
 import UploadRecording from './components/UploadRecording';
 import SingleRecording from './components/SingleRecording';
-import SearchResults from './components/SearchResults';
+// import SearchResults from './components/SearchResults';
+import Search from './components/Search';
 import { authenticate } from './store/session';
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
           <SingleRecording />
         </ProtectedRoute>
         <ProtectedRoute path='/search-results' exact={true} >
-          <SearchResults />
+          <Search />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

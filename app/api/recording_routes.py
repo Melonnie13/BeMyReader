@@ -88,4 +88,4 @@ def delete_recording(id):
 def all_recordings():
     recordings = Recording.query.all()
     # print(category, "from get all recordings by category name route!!!!!!!!!!!!!!!!!!!!!")
-    return {'recordings': recording.to_dict() for recording in recordings}
+    return {recording.id: recording.to_dict() for recording in recordings}
