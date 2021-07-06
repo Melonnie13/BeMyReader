@@ -4,12 +4,14 @@ import session from './session';
 import recording from './recording';
 import category from './category';
 import comment from './comment';
+import user from './user';
 
 const rootReducer = combineReducers({
   session,
   recording,
   category,
   comment,
+  user
 });
 
 

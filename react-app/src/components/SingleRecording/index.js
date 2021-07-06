@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderOneRecording } from '../../store/recording';
 import AddComment from '../AddComment';
@@ -13,8 +13,11 @@ const SingleRecording = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const recording = useSelector((state) => state.recording);
-    console.log(recording, '****************** from SingleRecording Component*****')
-    const user = useSelector((state) => state.session.user);
+    const recordingUserId = recording.user_id
+    // console.log(recording.user_id, '****************** Recording userIDfrom SingleRecording Component*****')
+    const user = useSelector(state => state.session.user)
+    console.log(user, "USER FROM SINGLE RECORDING COMPONENT********************")
+
 
     useEffect(() => {
         dispatch(renderOneRecording(parseInt(id)));
@@ -22,13 +25,30 @@ const SingleRecording = () => {
 
     return (
         <div>
-            {recording.title}
-            <ReactAudioPlayer
-                src={recording.blobURL}
-                controls
-            />
+            <h2>
+                {recording.title}
+                <div>
+                {recording.category}
+                </div>
+                {/* {console.log(recording, 'from single recording component')} */}
+            </h2>
             <div>
-                <DeleteRecording />
+                <Link to={`/users/${recordingUserId}`}>
+                    {recording.username}
+                </Link>
+            </div>
+            <div>
+                <ReactAudioPlayer
+                    src={recording.blobURL}
+                    controls
+                />
+            </div>
+            <div>
+                {recording.username === user.username ?
+                <div>
+                    <DeleteRecording />
+                </div>
+                : null}
             </div>
             <div>
                 <AddComment />
@@ -44,7 +64,6 @@ const SingleRecording = () => {
             width='50%'
             height='50%'
             /> */}
-
         </div>
     )
 }

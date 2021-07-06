@@ -3,3 +3,4 @@ from .user import User
 from .recording import Recording
 from .comment import Comment
 from .category import Category
+# from .favorite import Favorite

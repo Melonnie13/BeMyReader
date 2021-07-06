@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import Search from '../Search';
 import { demo } from '../../store/session';
 import './NavBar.css'
 
@@ -26,6 +27,11 @@ const NavBar = () => {
             <li className='nav-bar-item'>
               <NavLink to='/' exact={true} activeClassName='active'>
                 Home
+              </NavLink>
+            </li>
+            <li className='nav-bar-item'>
+              <NavLink to='/search' exact={true} activeClassName='active'>
+                Search
               </NavLink>
             </li>
             <li className='nav-bar-item'>

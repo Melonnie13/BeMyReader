@@ -29,7 +29,7 @@ const CommentEdit = ({comment}) => {
 
     useEffect(() => {
         dispatch(renderRecordingComments(id))
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     return (
         <div>

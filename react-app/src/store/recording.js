@@ -23,7 +23,12 @@ const deleteOneRecording = (recording) => ({
 const getUserRecordings = (recordings) => ({
     type: GET_RECORDINGS,
     payload: recordings
-})
+});
+
+const getAllRecordings = (recordings) => ({
+    type: GET_RECORDINGS,
+    payload: recordings
+});
 
 //thunks
 export const uploadRecording = (formData) => async (dispatch) => {
@@ -32,7 +37,7 @@ export const uploadRecording = (formData) => async (dispatch) => {
         body: formData
     });
     if (res.ok) {
-        console.log(res, 'response from recording thunk********************')
+        // console.log(res, 'response from recording thunk********************')
         const data = await res.json();
         dispatch(addRecording(data));
     } else {
@@ -55,37 +60,49 @@ export const deleteRecording = (id) => async (dispatch) => {
     const res = await fetch(`/api/recordings/${id}`, {
         method: 'DELETE'
     });
+        if (!res.ok){
+            console.log(res, 'from delete recording thunk *****************')
+        }
     dispatch(deleteOneRecording(id));
 };
 
 export const getUsersRecordings = (id) => async (dispatch) => {
     const res = await fetch(`/api/recordings/${id}`)
     if (res.ok) {
-        console.log('res is good in get recordings thunk')
+        // console.log('res is good in get recordings thunk')
         const recordings = await res.json();
         dispatch(getUserRecordings(recordings));
     }
-}
+};
+
+export const getAllRecordingsSearch = () => async (dispatch) => {
+    const res = await fetch('/api/recordings/all')
+    if (res.ok) {
+        const recordings = await res.json();
+        dispatch(getAllRecordings(recordings));
+    }
+};
 
 //initial state
 const initialState = {}
 
 //reducer
 export default function reducer(state = initialState, action){
+    const newState = {...state}
     switch (action.type) {
         case ADD_RECORDING:
-            return {
-                ...action.payload
-            };
+            newState[action.payload.id] = action.payload
+            return newState;
         case SET_ONE_RECORDING:
             return {
                 ...action.payload
             };
         case GET_RECORDINGS:
-            return {...state, ...action.payload};
+            return {
+                ...action.payload
+            }
         case DELETE_ONE_RECORDING:
-            const newState = {...state};
-            delete newState[action.payload.id];
+            delete newState[action.payload];
             return newState;
         default:
             return state;

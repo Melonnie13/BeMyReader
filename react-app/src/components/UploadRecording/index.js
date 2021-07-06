@@ -20,7 +20,6 @@ const UploadRecording = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [audio, setAudio] = useState('');
 
     const categories = useSelector((state) => Object.values(state.category));
 

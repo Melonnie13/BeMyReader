@@ -66,6 +66,26 @@ def get_users_recordings(id):
 @login_required
 def delete_recording(id):
     recording = Recording.query.get(id)
+    print(recording, '&&&&&&&&&&&&&&&&&&&&&&&&&&from recording route')
     db.session.delete(recording)
     db.session.commit()
     return {'id': id}
+    # return recording.to_dict()
+
+
+# @recording_routes.route('/<category>', methods=['GET'])
+# @login_required
+# def all_recordings(category):
+#     recording_to_filter = Recording.query.get(Recording.to_dict(Recording))
+#     recording_category = recording_to_filter.category
+#     if recording_category == category:
+#         return recording_category
+#     print(recording_category, "from get all recordings by category name route!!!!!!!!!!!!!!!!!!!!!")
+#     # return {recording.id: recording.to_dict() for recording in recordings}
+
+@recording_routes.route('/all', methods=['GET'])
+@login_required
+def all_recordings():
+    recordings = Recording.query.all()
+    # print(category, "from get all recordings by category name route!!!!!!!!!!!!!!!!!!!!!")
+    return {recording.id: recording.to_dict() for recording in recordings}

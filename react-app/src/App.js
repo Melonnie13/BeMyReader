@@ -6,24 +6,28 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import UserPage from './components/UserPage';
 import MainPage from './components/MainPage';
 import UploadRecording from './components/UploadRecording';
 import SingleRecording from './components/SingleRecording';
+// import SearchResults from './components/SearchResults';
+import Search from './components/Search';
 import { authenticate } from './store/session';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  // const currentUser = useSelector((state) => state.session.user);
+  const user = useSelector((state) => state.session.user);
+  // const categories = useSelector(state => state.category);
+  // console.log(categories, "from APPJS CATEGORIES")
 
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;
@@ -43,7 +47,7 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:id' exact={true} >
-          <User />
+          <UserPage currentUser={user}/>
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <MainPage />
@@ -53,6 +57,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/recording/:id' exact={true} >
           <SingleRecording />
+        </ProtectedRoute>
+        <ProtectedRoute path='/search' exact={true} >
+          <Search />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
