@@ -5,10 +5,10 @@ import { getAllFavorites } from '../../store/favorite';
 
 const AllFavorites = () => {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.user);
-    console.log(user, 'USER FROM ALL FAVORITES COMPONENT')
+    // const user = useSelector(state => state.user);
+    // console.log(user, 'USER FROM ALL FAVORITES COMPONENT')
     const favorites = useSelector(state => Object.values(state.favorite));
-    console.log(favorites, 'FAVORITES FROM ALL FAVORITES COMPONENT*********')
+    // console.log(favorites, 'FAVORITES FROM ALL FAVORITES COMPONENT*********')
 
     useEffect(() => {
         dispatch(getAllFavorites());

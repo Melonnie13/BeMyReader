@@ -87,5 +87,12 @@ def delete_recording(id):
 @login_required
 def all_recordings():
     recordings = Recording.query.all()
-    # print(category, "from get all recordings by category name route!!!!!!!!!!!!!!!!!!!!!")
     return {recording.id: recording.to_dict() for recording in recordings}
+
+
+@recording_routes.route('/alphabetical', methods=['GET'])
+@login_required
+def all_recordings_alphabetical():
+    recordings = Recording.query.order_by(Recording.title.desc()).all()
+    # print(recordings, "*******************from get all recordings order alphabetically route!!!!!!!!!!!!!!!!!!!!!")
+    return {recording.title: recording.to_dict() for recording in recordings}

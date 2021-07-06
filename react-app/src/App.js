@@ -12,6 +12,7 @@ import UploadRecording from './components/UploadRecording';
 import SingleRecording from './components/SingleRecording';
 import Search from './components/Search';
 import AllFavorites from './components/AllFavorites';
+import RecordingsAlpha from './components/RecordingsAlpha';
 import { authenticate } from './store/session';
 
 function App() {
@@ -63,6 +64,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/all-favorites' exact={true} >
           <AllFavorites />
+        </ProtectedRoute>
+        <ProtectedRoute path='/recordings/alphabetical' exact={true} >
+          <RecordingsAlpha />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
