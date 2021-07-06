@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import RecordingsAlpha from '../RecordingsAlpha';
-import { AboutMe } from '../AboutMe';
-// import Search from '../Search';
+import AboutMe from '../AboutMe'
 
 const MainPage = () => {
     return (
         <div>
             <h2>MAIN</h2>
+            <AboutMe />
             <div id='main-page-listen'>
                 <Link to='/recordings/alphabetical'>
                     <label htmlFor='listen-button'></label>
