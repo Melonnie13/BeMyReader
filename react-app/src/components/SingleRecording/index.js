@@ -15,7 +15,7 @@ const SingleRecording = () => {
     const recording = useSelector((state) => state.recording);
     // console.log(recording, '****************** from SingleRecording Component*****')
     const user = useSelector(state => state.user)
-    console.log(user, "FROM SINGLE RECORDING COMPONENT********************")
+    // console.log(user, "FROM SINGLE RECORDING COMPONENT********************")
 
     useEffect(() => {
         dispatch(renderOneRecording(parseInt(id)));
@@ -23,16 +23,24 @@ const SingleRecording = () => {
 
     return (
         <div>
-            {recording.title}
+            <h2>
+                {recording.title}
+                <div>
+                {recording.category}
+                </div>
+                {/* {console.log(recording, 'from single recording component')} */}
+            </h2>
             <div>
                 <Link to={`/users/${user.id}`}>
                     {recording.username}
                 </Link>
             </div>
-            <ReactAudioPlayer
-                src={recording.blobURL}
-                controls
-            />
+            <div>
+                <ReactAudioPlayer
+                    src={recording.blobURL}
+                    controls
+                />
+            </div>
             <div>
                 <DeleteRecording />
             </div>
@@ -50,7 +58,6 @@ const SingleRecording = () => {
             width='50%'
             height='50%'
             /> */}
-
         </div>
     )
 }

@@ -23,7 +23,12 @@ const deleteOneRecording = (recording) => ({
 const getUserRecordings = (recordings) => ({
     type: GET_RECORDINGS,
     payload: recordings
-})
+});
+
+const getAllRecordings = (recordings) => ({
+    type: GET_RECORDINGS,
+    payload: recordings
+});
 
 //thunks
 export const uploadRecording = (formData) => async (dispatch) => {
@@ -68,7 +73,15 @@ export const getUsersRecordings = (id) => async (dispatch) => {
         const recordings = await res.json();
         dispatch(getUserRecordings(recordings));
     }
-}
+};
+
+export const getAllRecordingsSearch = () => async (dispatch) => {
+    const res = await fetch('/api/recordings/all')
+    if (res.ok) {
+        const recordings = await res.json();
+        dispatch(getAllRecordings(recordings));
+    }
+};
 
 //initial state
 const initialState = {}

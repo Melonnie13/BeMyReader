@@ -10,6 +10,7 @@ import UserPage from './components/UserPage';
 import MainPage from './components/MainPage';
 import UploadRecording from './components/UploadRecording';
 import SingleRecording from './components/SingleRecording';
+import SearchResults from './components/SearchResults';
 import { authenticate } from './store/session';
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
+  // const categories = useSelector(state => state.category);
+  // console.log(categories, "from APPJS CATEGORIES")
 
   useEffect(() => {
     (async() => {
@@ -53,6 +56,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/recording/:id' exact={true} >
           <SingleRecording />
+        </ProtectedRoute>
+        <ProtectedRoute path='/search-results' exact={true} >
+          <SearchResults />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
