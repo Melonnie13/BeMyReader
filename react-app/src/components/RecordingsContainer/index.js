@@ -9,11 +9,11 @@ const RecordingsContainer = () => {
     const {id} = useParams();
     console.log(id, 'ID from recordings container id')
     const recordings = useSelector(state => Object.values(state.recording));
-    console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
+    // console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
     const userPage = useSelector(state => (state.user));
-    console.log(userPage.id, "USERID FROM RECORDINGS CONTAINER**********")
+    // console.log(userPage.id, "USERID FROM RECORDINGS CONTAINER**********")
     const user = useSelector(state => state.session.user)
-    console.log(user, "SESSION USER******!!!!!!!!!!!!!!!!!")
+    // console.log(user, "SESSION USER******!!!!!!!!!!!!!!!!!")
 
     useEffect(() => {
         dispatch(getUsersRecordings(parseInt(id)))
