@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUsersRecordings } from '../../store/recording';
 import DeleteRecording from '../DeleteRecording';
 
-const RecordingsContainer = ({containerUser}) => {
+const RecordingsContainer = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     // console.log(id, 'from recordings container id')
     const recordings = useSelector(state => Object.values(state.recording));
-    // console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
+    console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
     const user = useSelector(state => (state.user));
-    // console.log(user, "USER FROM RECORDINGS CONTAINER**********")
+    console.log(user, "USER FROM RECORDINGS CONTAINER**********")
 
     useEffect(() => {
         dispatch(getUsersRecordings(parseInt(id)))

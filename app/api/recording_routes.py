@@ -66,6 +66,7 @@ def get_users_recordings(id):
 @login_required
 def delete_recording(id):
     recording = Recording.query.get(id)
+    print(recording, '&&&&&&&&&&&&&&&&&&&&&&&&&&from recording route')
     db.session.delete(recording)
     db.session.commit()
     return {'id': id}

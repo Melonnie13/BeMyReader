@@ -55,13 +55,16 @@ export const deleteRecording = (id) => async (dispatch) => {
     const res = await fetch(`/api/recordings/${id}`, {
         method: 'DELETE'
     });
+        if (!res.ok){
+            console.log(res, 'from delete recording thunk *****************')
+        }
     dispatch(deleteOneRecording(id));
 };
 
 export const getUsersRecordings = (id) => async (dispatch) => {
     const res = await fetch(`/api/recordings/${id}`)
     if (res.ok) {
-        console.log('res is good in get recordings thunk')
+        // console.log('res is good in get recordings thunk')
         const recordings = await res.json();
         dispatch(getUserRecordings(recordings));
     }

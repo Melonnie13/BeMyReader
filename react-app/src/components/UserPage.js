@@ -21,7 +21,7 @@ const UserPage = ({currentUser}) => {
 
       <div>
         <strong>{`${user.username}'s Page`}</strong>
-        <RecordingsContainer containerUser={user}/>
+        <RecordingsContainer />
       </div>
 
   );
