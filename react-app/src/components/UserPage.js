@@ -10,7 +10,7 @@ const UserPage = ({currentUser}) => {
   const dispatch = useDispatch();
 
   const user = useSelector(state => state.user)// user for the userPage
-  console.log(user, '&&&&&&&&&&&&&&&&&&&&&&user from userpage component')
+  // console.log(user, '&&&&&&&&&&&&&&&&&&&&&&user from userpage component')
   // const sessionUser = useSelector(state => state.session.user)// passed in as prop instead
 
   useEffect(() => {

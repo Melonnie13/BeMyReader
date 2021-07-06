@@ -89,7 +89,7 @@ export default function reducer(state = initialState, action){
                 ...action.payload
             }
         case DELETE_ONE_RECORDING:
-            delete newState[action.payload.id];
+            delete newState[action.payload];
             return newState;
         default:
             return state;

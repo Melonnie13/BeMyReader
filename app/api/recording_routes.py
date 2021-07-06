@@ -70,3 +70,4 @@ def delete_recording(id):
     db.session.delete(recording)
     db.session.commit()
     return {'id': id}
+    # return recording.to_dict()

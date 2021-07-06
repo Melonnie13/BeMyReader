@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderOneRecording } from '../../store/recording';
 import AddComment from '../AddComment';
@@ -14,6 +14,8 @@ const SingleRecording = () => {
     const {id} = useParams();
     const recording = useSelector((state) => state.recording);
     // console.log(recording, '****************** from SingleRecording Component*****')
+    const user = useSelector(state => state.user)
+    console.log(user, "FROM SINGLE RECORDING COMPONENT********************")
 
     useEffect(() => {
         dispatch(renderOneRecording(parseInt(id)));
@@ -22,6 +24,11 @@ const SingleRecording = () => {
     return (
         <div>
             {recording.title}
+            <div>
+                <Link to={`/users/${user.id}`}>
+                    {recording.username}
+                </Link>
+            </div>
             <ReactAudioPlayer
                 src={recording.blobURL}
                 controls
