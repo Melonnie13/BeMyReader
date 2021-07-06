@@ -35,6 +35,7 @@ const UploadRecording = () => {
     }
     const onStop = audio => {
         setRecordingBlob(audio)
+        console.log(audio, "AUDIO FROM UPLOAD RECORDING COMPONENT&&&&&&&&&&&&&&&&")
         setAudioExists(true);
     }
     const onDelete = () => {

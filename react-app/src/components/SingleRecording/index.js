@@ -14,9 +14,9 @@ const SingleRecording = () => {
     const {id} = useParams();
     const recording = useSelector((state) => state.recording);
     const recordingUserId = recording.user_id
-    // console.log(recording.user_id, '****************** Recording userIDfrom SingleRecording Component*****')
+    // console.log(recording, '****************** Recording from SingleRecording Component*****')
     const user = useSelector(state => state.session.user)
-    console.log(user, "USER FROM SINGLE RECORDING COMPONENT********************")
+    // console.log(user, "USER FROM SINGLE RECORDING COMPONENT********************")
 
 
     useEffect(() => {

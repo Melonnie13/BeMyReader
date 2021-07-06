@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     recordings = db.relationship('Recording', back_populates='users')
     comments = db.relationship('Comment', back_populates='users')
+    favorites = db.relationship('Favorite', back_populates='users')
 
     @property
     def password(self):
