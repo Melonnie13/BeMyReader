@@ -18,7 +18,7 @@ export const getOneUser = (id) => async(dispatch) => {
         dispatch(getUser(user))
         return user;
     }
-}
+};
 
 //INITIAL STATE
 
@@ -35,4 +35,4 @@ export default function reducer(state = initialState, action){
         default:
             return state;
     }
-}
+};

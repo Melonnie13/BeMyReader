@@ -17,7 +17,7 @@ export const renderCategories = () => async(dispatch) => {
         const data = await res.json();
         dispatch(setCategories(data.categories));
     }
-}
+};
 
 // initial state
 
@@ -36,4 +36,4 @@ export default function reducer(state = initialState, action){
         default:
             return state;
     }
-}
+};

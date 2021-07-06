@@ -9,7 +9,7 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
-})
+});
 
 const initialState = { user: null };
 
@@ -27,7 +27,7 @@ export const authenticate = () => async (dispatch) => {
 
     dispatch(setUser(data));
   }
-}
+};
 
 export const login = (email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/login', {
@@ -54,8 +54,7 @@ export const login = (email, password) => async (dispatch) => {
   } else {
     return ['An error occurred. Please try again.']
   }
-
-}
+};
 
 export const demo = () => async (dispatch) => {
   const response = await fetch("/api/auth/demo", {
@@ -66,7 +65,7 @@ export const demo = () => async (dispatch) => {
     });
     const demoUser = await response.json();
     dispatch(setUser(demoUser))
-}
+};
 
 export const logout = () => async (dispatch) => {
   const response = await fetch('/api/auth/logout', {
@@ -107,7 +106,7 @@ export const signUp = (username, email, visionImpaired, password) => async (disp
   } else {
     return ['An error occurred. Please try again.']
   }
-}
+};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -118,4 +117,4 @@ export default function reducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
