@@ -10,6 +10,8 @@ const DeleteRecording = () => {
     // const recording = useSelector(state => state.recording);
     const user = useSelector(state => state.session.user);
     console.log(user, '****************USER FROM DELETE RECORDING')
+    const userPage = useSelector(state => state.user);
+    console.log(userPage, 'pages user not the session user!!!!!!!!!!!!!!!!!!!!')
 
     const deleteARecording = async(e) => {
         e.preventDefault();
@@ -19,13 +21,17 @@ const DeleteRecording = () => {
 
     return (
         <div>
-            <label htmlFor='delete-button-single-recording'></label>
-            <button
-            onClick={deleteARecording}
-            name='delete-button-single-recording'
-            className='delete-button'>
-                Delete Recording
-            </button>
+            {user.id === userPage.id ? (
+                <>
+                <label htmlFor='delete-button-single-recording'></label>
+                <button
+                onClick={deleteARecording}
+                name='delete-button-single-recording'
+                className='delete-button'>
+                    Delete Recording
+                </button>
+                </>) : (null)
+            }
         </div>
     )
 }
