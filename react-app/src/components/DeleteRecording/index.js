@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { deleteRecording, getUsersRecordings } from '../../store/recording';
+import { deleteRecording } from '../../store/recording';
 
 const DeleteRecording = ({id}) => {
     const dispatch = useDispatch();
