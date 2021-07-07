@@ -4,6 +4,7 @@ const ADD_FAVORITE = 'favorite/ADD_FAVORITE';
 const GET_FAVORITES = 'favorite/GET_FAVORITES';
 const DELETE_FAVORITE = 'favorite/DELETE_FAVORITE';
 const SET_FAVORITE = 'favorite/SET_FAVORITE';
+const GET_ONE_FAVORITE = 'favorite/GET_ONE_FAVORITE';
 
 // action creators
 
@@ -31,6 +32,11 @@ const setFavorite = (favorite) => ({
     type: SET_FAVORITE,
     payload: favorite
 });
+
+const getOneFavorite = (favorite) => ({
+    type: GET_ONE_FAVORITE,
+    payload: favorite
+})
 
 // thunks
 
@@ -82,14 +88,14 @@ export const setOneFavorite = (formData) => async (dispatch) => {
     })
     if (res.ok) {
         const favoriteWithRecording = await res.json();
-        dispatch(setFavorite(favoriteWithRecording))
+        dispatch(getOneFavorite(favoriteWithRecording))
     }
 };
 
 export const renderOneFavorite = (id) => async (dispatch) => {
     const res = await fetch(`/api/favorites/${id}`);
 
-    id (res.ok) {
+    if (res.ok) {
         const data = await res.json();
         dispatch(setFavorite(data))
     } else {
@@ -117,6 +123,10 @@ export default function reducer(state = initialState, action){
             delete newState[action.payload.id]
             return newState;
         case SET_FAVORITE:
+            return {
+                ...action.payload
+            }
+        case GET_ONE_FAVORITE:
             return {
                 ...action.payload
             }

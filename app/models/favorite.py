@@ -21,7 +21,8 @@ class Favorite(db.Model):
             'name': self.name,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'recording': [recording.id for recording in self.recordings],
+            'recording_id': [recording.id for recording in self.recordings],
             'username': self.users.username,
-            'user_id': self.users.id
+            'user_id': self.users.id,
+            'title': [recording.title for recording in self.recordings]
         }
