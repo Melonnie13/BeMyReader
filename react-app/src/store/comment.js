@@ -52,7 +52,7 @@ export const addComment = (formData) => async (dispatch) => {
 
 export const deleteOneComment = (id) => async (dispatch) => {
     const res = await fetch(`/api/comments/delete/${id}`, {
-        method:"DELETE",
+        method: 'DELETE',
         body: JSON.stringify(id)
     })
     if(res.ok) {
@@ -64,7 +64,7 @@ export const deleteOneComment = (id) => async (dispatch) => {
 
 export const updateComment = (formData, comment_id) => async (dispatch) => {
     const res = await fetch(`/api/comments/update/${comment_id}`, {
-        method:"PUT",
+        method: 'PUT',
         body: formData
     })
     if(res.ok) {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { deleteRecording, getUsersRecordings } from '../../store/recording';
 
 const DeleteRecording = ({id}) => {
@@ -15,7 +15,7 @@ const DeleteRecording = ({id}) => {
     // const userPage = useSelector(state => state.user);
     // console.log(userPage, 'pages user not the session user!!!!!!!!!!!!!!!!!!!!')
 
-    const user_id = user.id
+    // const user_id = user.id
 
     const deleteARecording = async(e) => {
         e.preventDefault();
@@ -39,6 +39,6 @@ const DeleteRecording = ({id}) => {
                 </button>
         </div>
     )
-}
+};
 
 export default DeleteRecording;

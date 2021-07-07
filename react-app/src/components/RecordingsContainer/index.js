@@ -7,7 +7,7 @@ import DeleteRecording from '../DeleteRecording';
 const RecordingsContainer = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
-    console.log(id, 'ID from recordings container id')
+    // console.log(id, 'ID from recordings container id')
     const recordings = useSelector(state => Object.values(state.recording));
     // console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
     const userPage = useSelector(state => (state.user));

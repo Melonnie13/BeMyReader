@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
-import Search from '../Search';
 import { demo } from '../../store/session';
 import './NavBar.css'
 
@@ -39,6 +38,11 @@ const NavBar = () => {
                 Record Audio
               </NavLink>
             </li>
+            {/* <li className='nav-bar-item'>
+              <NavLink to='/create-favorite' exact={true} activeClassName='active'>
+                Create Favorite List
+              </NavLink>
+            </li> */}
             <li className='nav-bar-item'>
               <LogoutButton />
             </li>
