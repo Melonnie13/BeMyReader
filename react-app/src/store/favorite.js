@@ -1,8 +1,13 @@
 // constants
-
+const ADD_FAVORITE = 'favorite/ADD_FAVORITE';
 const GET_FAVORITES = 'favorite/GET_FAVORITES';
 
 // action creators
+
+const addFavorite = (favorite) => ({
+    type: ADD_FAVORITE,
+    payload: favorite
+})
 
 const getFavorites = (favorites) => ({
     type: GET_FAVORITES,
@@ -19,6 +24,19 @@ export const getAllFavorites = () => async (dispatch) => {
     }
 };
 
+export const newFavorite = (formData) => async (dispatch) => {
+    const res = await fetch('/api/favorites/new', {
+        method: 'POST',
+        body: formData
+    });
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(addFavorite(data));
+    } else {
+        console.log('error from favorite thunk')
+    }
+};
+
 // initial state
 
 const initialState = {}
@@ -32,6 +50,9 @@ export default function reducer(state = initialState, action){
             return {
                 ...action.payload
             };
+        case ADD_FAVORITE:
+            newState[action.payload] = action.payload
+            return newState;
         default:
             return state;
     }
