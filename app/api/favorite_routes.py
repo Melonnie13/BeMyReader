@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Favorite, favorites_recordings_join, db
+from app.models import Favorite, Recording, favorites_recordings_join, db
 from flask_login import current_user, login_required
 
 favorite_routes = Blueprint('favorites', __name__)
@@ -33,11 +33,11 @@ def delete_favorite(id):
     return {'id': id}
 
 
-# @favorite_routes.route('/<int:id>', methods=['GET'])
-# @login_required
-# def get_one_favorite(id):
-#     favorite = Favorite.query.get(id)
-#     return favorite.to_dict()
+@favorite_routes.route('/<int:id>', methods=['GET'])
+@login_required
+def get_one_favorite(id):
+    favorite = Favorite.query.get(id)
+    return favorite.to_dict()
 
 
 @favorite_routes.route('/user/<int:id>', methods=['GET'])
@@ -52,6 +52,7 @@ def get_users_favorites(id):
 def add_recording():
     recording = Recording.query.get(request.form['recording_id'])
     favorite = Favorite.query.get(request.form['favorite_id'])
+    # print('+++++++++++++++++++++++++++++++++FAVORITE', favorite)
     recording.favorites.append(favorite)
     db.session.add(recording)
     db.session.commit()

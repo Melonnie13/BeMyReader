@@ -86,6 +86,17 @@ export const setOneFavorite = (formData) => async (dispatch) => {
     }
 };
 
+export const renderOneFavorite = (id) => async (dispatch) => {
+    const res = await fetch(`/api/favorites/${id}`);
+
+    id (res.ok) {
+        const data = await res.json();
+        dispatch(setFavorite(data))
+    } else {
+        console.log('error from renderOneFavorite thunk')
+    }
+};
+
 // initial state
 
 const initialState = {}

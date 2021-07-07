@@ -119,12 +119,12 @@ const UploadRecording = () => {
             >Not Happy? Delete Recording</button>
             <div>
                 {formOpen &&
-                    <form className='recording-input-form' onSubmit={onSubmit}>
+                    <form className='input-form' onSubmit={onSubmit}>
                         <label htmlFor='title'>Title</label>
                         <input
                         type='text'
                         name='title'
-                        className='recording-form-input'
+                        className='form-input'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         />
@@ -132,14 +132,14 @@ const UploadRecording = () => {
                         <input
                         type='text'
                         name='description'
-                        className='recording-form-input'
+                        className='form-input'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         />
                         <label htmlFor='category'>Choose A Category</label>
                         <select
                         name='category'
-                        className='recording-form-input'
+                        className='form-input'
                         onChange={(e) => setCategory(e.target.value)}
                         value={category.id}
                         >
@@ -154,7 +154,7 @@ const UploadRecording = () => {
                             ))}
                         </select>
                         <label htmlFor='submit-button'>Submit Recording</label>
-                        <button type='submit' name='submit-button' className='audioBtn'>Submit</button>
+                        <button type='submit' name='submit-button' className='button'>Submit</button>
                         {audioLoading && <p> Loading...</p>}
                     </form>
                 }
