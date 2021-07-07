@@ -30,7 +30,7 @@ const Search = () => {
             return (
                 <div>
                     {recordings.map(recording => (
-                        recording.category == category ? <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link> : null
+                        recording.category === category ? <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link> : null
                     ))}
 
                 </div>

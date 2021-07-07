@@ -13,6 +13,7 @@ import SingleRecording from './components/SingleRecording';
 import Search from './components/Search';
 import AllFavorites from './components/AllFavorites';
 import RecordingsAlpha from './components/RecordingsAlpha';
+// import AddFavorite from './components/AddFavorite';
 import { authenticate } from './store/session';
 
 function App() {
@@ -62,6 +63,9 @@ function App() {
         <ProtectedRoute path='/search' exact={true} >
           <Search />
         </ProtectedRoute>
+        {/* <ProtectedRoute path='/create-favorite' exact={true} >
+          <AddFavorite />
+        </ProtectedRoute> */}
         <ProtectedRoute path='/all-favorites' exact={true} >
           <AllFavorites />
         </ProtectedRoute>

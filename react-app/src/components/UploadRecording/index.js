@@ -64,7 +64,7 @@ const UploadRecording = () => {
 
         dispatch(uploadRecording(formData));
         setAudioLoading(false);
-        setFormOpen(false)
+        setFormOpen(false);
         history.push(`/users/${user.id}`);
     }
 

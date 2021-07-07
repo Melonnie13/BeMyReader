@@ -24,13 +24,13 @@ def create_favorite():
     return new_favorite.to_dict()
 
 
-# @favorite_routes.route('/delete/<int:id>', methods=['DELETE'])
-# @login_required
-# def delete_favorite(id):
-#     favorite = Favorite.query.get(id)
-#     db.session.delete(favorite)
-#     db.session.commit()
-#     return {'id': id}
+@favorite_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
+def delete_favorite(id):
+    favorite = Favorite.query.get(id)
+    db.session.delete(favorite)
+    db.session.commit()
+    return {'id': id}
 
 
 # @favorite_routes.route('/<int:id>', methods=['GET'])
@@ -40,11 +40,11 @@ def create_favorite():
 #     return favorite.to_dict()
 
 
-# @favorite_routes.route('/user/<int:id>', methods=['GET'])
-# @login_required
-# def get_users_favorites(id):
-#     favorites = Favorite.query.filter(Favorite.user_id == id).all()
-#     return {favorite.id: favorite.to_dict() for favorite in favorites}
+@favorite_routes.route('/user/<int:id>', methods=['GET'])
+@login_required
+def get_users_favorites(id):
+    favorites = Favorite.query.filter(Favorite.user_id == id).all()
+    return {favorite.id: favorite.to_dict() for favorite in favorites}
 
 
 # @favorite_routes.route('/recording', methods=['POST'])
