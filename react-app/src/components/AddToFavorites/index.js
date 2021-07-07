@@ -11,11 +11,15 @@ const AddToFavorites = ({recording_id}) => {
     const favorites = useSelector(state => state.favorite);
     const user = useSelector(state => state.session.user);
 
+    const [formOpen, setFormOpen] = useState('')
+
 
 
     return (
         <div>
-
+            <button onClick={formOpen}>
+                Add To Favorites
+            </button>
 
         </div>
     )
