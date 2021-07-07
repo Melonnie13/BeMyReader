@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { newFavorite } from  '../../store/favorite';
 
@@ -7,7 +7,7 @@ const AddFavorite = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session.user);
-    const favorite = useSelector(state => state.favorite);
+    // const favorite = useSelector(state => state.favorite);
 
     const [name, setName] = useState('');
     const [formOpen, setFormOpen] = useState(false);
