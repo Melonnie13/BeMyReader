@@ -5,6 +5,7 @@ import { renderOneRecording } from '../../store/recording';
 import AddComment from '../AddComment';
 import CommentsRecording from '../CommentsRecording';
 import DeleteRecording from '../DeleteRecording';
+import AddToFavorites from '../AddToFavorites';
 import ReactAudioPlayer from 'react-audio-player';
 // import ReactPlayer from 'react';
 
@@ -57,6 +58,9 @@ const SingleRecording = () => {
                     <DeleteRecording />
                 </div>
                 : null}
+            </div>
+            <div>
+                <AddToFavorites recording_id={recording.id}/>
             </div>
             <div>
                 <AddComment />

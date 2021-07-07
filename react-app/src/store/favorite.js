@@ -3,6 +3,7 @@
 const ADD_FAVORITE = 'favorite/ADD_FAVORITE';
 const GET_FAVORITES = 'favorite/GET_FAVORITES';
 const DELETE_FAVORITE = 'favorite/DELETE_FAVORITE';
+const SET_FAVORITE = 'favorite/SET_FAVORITE';
 
 // action creators
 
@@ -23,6 +24,11 @@ const getUserFavorites = (favorites) => ({
 
 const deleteFavorite = (favorite) => ({
     type: DELETE_FAVORITE,
+    payload: favorite
+});
+
+const setFavorite = (favorite) => ({
+    type: SET_FAVORITE,
     payload: favorite
 });
 
@@ -59,13 +65,24 @@ export const getUsersFavorites = (id) => async (dispatch) => {
 
 export const deleteOneFavorite = (id) => async (dispatch) => {
     const res = await fetch(`/api/favorites/delete/${id}`, {
-        method:"DELETE",
+        method: 'DELETE',
         body: JSON.stringify(id)
     })
     if(res.ok) {
         const deletedFavorite = await res.json()
         dispatch(deleteFavorite(deletedFavorite))
         return deletedFavorite;
+    }
+};
+
+export const setOneFavorite = (formData) => async (dispatch) => {
+    const res = await fetch ('/api/favorites/recording', {
+        method: 'POST',
+        body: formData
+    })
+    if (res.ok) {
+        const favoriteWithRecording = await res.json();
+        dispatch(setFavorite(favoriteWithRecording))
     }
 };
 
@@ -88,6 +105,10 @@ export default function reducer(state = initialState, action){
         case DELETE_FAVORITE:
             delete newState[action.payload.id]
             return newState;
+        case SET_FAVORITE:
+            return {
+                ...action.payload
+            }
         default:
             return state;
     }

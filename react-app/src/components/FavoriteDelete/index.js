@@ -12,7 +12,7 @@ const FavoriteDelete = ({id}) => {
     const deleteAFavorite = async(e) => {
         e.preventDefault();
         dispatch(deleteOneFavorite(id));
-        history.puah(`/users/${user.id}`);
+        history.push(`/users/${user.id}`);
     };
 
     return (

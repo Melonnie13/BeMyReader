@@ -47,15 +47,15 @@ def get_users_favorites(id):
     return {favorite.id: favorite.to_dict() for favorite in favorites}
 
 
-# @favorite_routes.route('/recording', methods=['POST'])
-# @login_required
-# def add_recording():
-#     recording = Recording.query.get(request.form['recording_id'])
-#     favorite = Favorite.query.get(request.form['favorite_id'])
-#     recording.favorites.append(favorite)
-#     db.session.add(recording)
-#     db.session.commit()
-#     return favorite.to_dict()
+@favorite_routes.route('/recording', methods=['POST'])
+@login_required
+def add_recording():
+    recording = Recording.query.get(request.form['recording_id'])
+    favorite = Favorite.query.get(request.form['favorite_id'])
+    recording.favorites.append(favorite)
+    db.session.add(recording)
+    db.session.commit()
+    return favorite.to_dict()
 
 
 # @favorite_routes.route('/remove', methods=['DELETE'])
