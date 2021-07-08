@@ -5,7 +5,7 @@ import AddFavorite from './AddFavorite';
 import FavoritesContainer from './FavoritesContainer';
 import { useParams } from 'react-router-dom';
 import { getOneUser } from '../store/user';
-import { getUsersFavorites } from '../store/favorite';
+import './UserPage.css';
 
 const UserPage = ({currentUser}) => {
 
@@ -23,7 +23,7 @@ const UserPage = ({currentUser}) => {
   return (
 
       <div>
-        <strong>{`${user.username}'s Page`}</strong>
+        <div className='headline'>{`${user.username}'s Page`}</div>
         <div>
           <RecordingsContainer />
         </div>

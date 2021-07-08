@@ -7,6 +7,7 @@ import CommentsRecording from '../CommentsRecording';
 import DeleteRecording from '../DeleteRecording';
 import AddToFavorites from '../AddToFavorites';
 import ReactAudioPlayer from 'react-audio-player';
+import './SingleRecording.css';
 // import ReactPlayer from 'react';
 
 const SingleRecording = () => {
@@ -38,7 +39,7 @@ const SingleRecording = () => {
                 <div name='recording-description'>
                 {recording.description}
                 </div>
-                {/* {console.log(recording, 'from single recording component')} */}
+                {console.log(recording, 'from single recording component')}
             </h3>
             <label htmlFor='recording-username'></label>
             <div name='recording-username'>

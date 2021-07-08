@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import './SearchResults.css';
 
 const SearchResults = ({category}) => {
 
@@ -20,8 +21,9 @@ const SearchResults = ({category}) => {
 
         return (
             <>
+                <label htmlFor='search-results'></label>
                 {filteredRecs &&
-                <div>
+                <div name='search-results' className='container'>
                     {filteredRecs.length ? filteredRecs.map(recording => (
                         <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
                     )) : "Category Not Found"}

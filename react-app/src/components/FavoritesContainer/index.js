@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUsersFavorites } from '../../store/favorite';
 import FavoriteDelete from '../FavoriteDelete';
 import uuid from "node-uuid";
+import './FavoritesContainer.css';
 
 const FavoritesContainer = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const FavoritesContainer = () => {
 
     return (
         <div>
-            <h2>
+            <h2 className='headline'>
                 {`${userPage.username}'s`} Favorites
             </h2>
             <label htmlFor='user-favorites'></label>

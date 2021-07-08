@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../store/comment';
+import './AddComment.css';
 
 const AddComment = () => {
     const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const AddComment = () => {
     return (
 
         <div>
-            <form onSubmit={postComment}>
+            <form className='input-form' onSubmit={postComment}>
                 <label htmlFor='add-comment'></label>
                 <textarea
                 name='add-comment'

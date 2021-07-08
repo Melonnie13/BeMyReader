@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import SearchResults from '../SearchResults';
 import { getAllRecordingsSearch } from '../../store/recording';
+import './Search.css';
 
 const Search = () => {
     const dispatch = useDispatch();

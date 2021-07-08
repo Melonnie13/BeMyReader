@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getAllRecordingsAlpha } from '../../store/recording';
+import './RecordingsAlpha.css';
 
 const RecordingsAlpha = () => {
     const dispatch = useDispatch();

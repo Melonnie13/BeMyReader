@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderOneFavorite } from '../../store/favorite';
+import './SingleFavorite.css';
 import FavoriteDelete from '../FavoriteDelete';
 import FavoriteRemove from '../FavoriteRemove';
 
