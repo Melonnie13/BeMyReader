@@ -1,0 +1,23 @@
+#logo {
+    max-width: 50px;
+    max-height: auto;
+    border-radius: 50%;
+}
+
+#nav {
+    display: inline-grid;
+    max-width: 100%;
+}
+
+#nav-logo {
+    max-width: 50px;
+}
+
+.nav-bar-item {
+    display: inline
+}
+
+.nav-bar {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

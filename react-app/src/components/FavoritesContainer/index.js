@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsersFavorites } from '../../store/favorite';
 import FavoriteDelete from '../FavoriteDelete';
+import uuid from "node-uuid";
 
 const FavoritesContainer = () => {
     const dispatch = useDispatch();
@@ -23,8 +24,8 @@ const FavoritesContainer = () => {
             </h2>
             <label htmlFor='user-favorites'></label>
             <div>
-                {favorites.map(favorite => (
-                    <div name='user-favorites' className='container' key={favorite.id}>
+                {favorites?.map(favorite => (
+                    <div name='user-favorites' className='container' key={uuid()}>
                         <Link to={`/favorite/${favorite.id}`}>{favorite.name}</Link>
                         <div>
                             {userPage.id === user.id ?
