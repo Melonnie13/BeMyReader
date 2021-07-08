@@ -15,7 +15,7 @@ export const renderCategories = () => async(dispatch) => {
     const res = await fetch('/api/categories');
     if (res.ok) {
         const data = await res.json();
-        dispatch(setCategories(data.categories));
+        dispatch(setCategories(data));
     }
 };
 
@@ -26,13 +26,12 @@ const initialState = {};
 // reducer
 
 export default function reducer(state = initialState, action){
+    const newState = {...state}
     switch (action.type){
         case SET_CATEGORIES:
-            const all_categories = {};
-            action.payload.forEach(category => {
-                all_categories[category.id] = category;
-            })
-            return all_categories;
+            return {
+                ...action.payload
+            }
         default:
             return state;
     }

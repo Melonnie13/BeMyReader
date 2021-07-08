@@ -92,6 +92,22 @@ export const setRecordingFavorite = (formData) => async (dispatch) => {
     }
 };
 
+export const removeRecordingFavorite = (favoriteId, recordingId) => async (dispatch) => {
+    const res = await fetch('/api/favorites/remove', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({favoriteId, recordingId})
+    })
+    if (res.ok) {
+        const favoriteWithoutRecording = await res.json();
+        dispatch(setOneFavorite(favoriteWithoutRecording))
+    } else {
+        console.log('ERROR FROM REMOVE RECORDING THUNK - FAVORITE STORE')
+    }
+};
+
 export const renderOneFavorite = (id) => async (dispatch) => {
     const res = await fetch(`/api/favorites/${id}`);
 

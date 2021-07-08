@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderOneFavorite } from '../../store/favorite';
 import FavoriteDelete from '../FavoriteDelete';
+import FavoriteRemove from '../FavoriteRemove';
 
 const SingleFavorite = () => {
     const dispatch = useDispatch();
@@ -54,14 +55,14 @@ const SingleFavorite = () => {
                 {recordings?.map(recording => (
                     <div name='favorite-titles' className='container' key={recording.id}>
                     <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
-                    {/* <div>
+                    <div>
                         {favorite.user_id === user.id ?
                         <div>
-                            <RemoveRecording id={recording.id}/>
+                            <FavoriteRemove recording={recording}/>
                         </div>
                         : null
                         }
-                    </div> */}
+                    </div>
                     </div>
                 ))}
             </div>
