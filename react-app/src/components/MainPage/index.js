@@ -5,7 +5,10 @@ import AboutMe from '../AboutMe'
 const MainPage = () => {
     return (
         <div>
-            <h2>MAIN</h2>
+            <label htmlFor='welcome'></label>
+            <h2 name='welcome'>Welcome to Be My Reader:</h2>
+            <label htmlFor='intro'></label>
+            <h3 name='intro'>The first ever website created specifically for the Blind and Visually Impaired.</h3>
             <AboutMe />
             <div id='main-page-listen'>
                 <Link to='/recordings/alphabetical'>

@@ -20,24 +20,24 @@ const NavBar = () => {
 
   return (
     <nav id='nav'>
-        <NavLink id='nav-logo' to='/' exact={true}><img id='logo' src={logo} alt='Be My Reader Logo'/></NavLink>
+        <div className='nav-bar-item'>
+          <NavLink id='nav-logo' to='/' exact={true}><img id='logo' src={logo} alt='Be My Reader Logo'/></NavLink>
+        </div>
         <div className='nav-bar'>
           {user ? (
             <>
               <div className='nav-bar-item'>
-                <NavLink to='/search' exact={true} activeClassName='active'>
-                  Search
-                </NavLink>
+              <div className='nav-bar-item'>
+                <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
+              </div>
+                <NavLink to='/search' exact={true} activeClassName='active'>Search</NavLink>
               </div>
               <div className='nav-bar-item'>
-                <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>
-                  Record Audio
-                </NavLink>
+                <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>Record Audio</NavLink>
               </div>
+              <div>
                 <LogoutButton />
-                <div className='nav-bar-item'>
-                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
-                </div>
+              </div>
             </> ) : (
               <>
                 <label htmlFor='demo-login'></label>

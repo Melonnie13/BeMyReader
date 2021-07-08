@@ -23,8 +23,8 @@ const FavoritesContainer = () => {
             </h2>
             <label htmlFor='user-favorites'></label>
             <div>
-                {favorites.map(favorite => (
-                    <div name='user-favorites' className='container' key={favorite.id}>
+                {favorites?.map(favorite => (
+                    <div name='user-favorites' className='container' key={favorite?.id}>
                         <Link to={`/favorite/${favorite.id}`}>{favorite.name}</Link>
                         <div>
                             {userPage.id === user.id ?

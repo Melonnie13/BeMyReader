@@ -5,7 +5,8 @@
 }
 
 #nav {
-    display: inline;
+    display: inline-grid;
+    max-width: 100%;
 }
 
 #nav-logo {
@@ -14,4 +15,9 @@
 
 .nav-bar-item {
     display: inline
+}
+
+.nav-bar {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
