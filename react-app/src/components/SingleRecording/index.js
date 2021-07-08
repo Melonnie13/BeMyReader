@@ -10,7 +10,6 @@ import ReactAudioPlayer from 'react-audio-player';
 // import ReactPlayer from 'react';
 
 const SingleRecording = () => {
-
     const dispatch = useDispatch();
     const {id} = useParams();
     const recording = useSelector((state) => state.recording);
@@ -41,7 +40,8 @@ const SingleRecording = () => {
                 </div>
                 {/* {console.log(recording, 'from single recording component')} */}
             </h3>
-            <div>
+            <label htmlFor='recording-username'></label>
+            <div name='recording-username'>
                 <Link to={`/users/${recordingUserId}`}>
                     {recording.username}
                 </Link>
@@ -52,7 +52,8 @@ const SingleRecording = () => {
                     controls
                 />
             </div>
-            <div>
+            <label htmlFor='delete-recording'></label>
+            <div name='delete-recording'>
                 {recording.username === user.username ?
                 <div>
                     <DeleteRecording />

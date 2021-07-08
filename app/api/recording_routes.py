@@ -41,7 +41,8 @@ def upload_recording():
         category_id=request.form['category']
     )
     # print(request.form["category"], '***************************')
-    print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio']))
+    # print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio']))
+    print(request.files, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&request.files')
     db.session.add(new_recording)
     db.session.commit()
     return new_recording.to_dict()
@@ -55,11 +56,11 @@ def get_one_recording(id):
 
 
 @recording_routes.route('/<int:id>', methods=['GET'])
-@login_required
+# @login_required
 def get_users_recordings(id):
-    recordings = Recording.query.filter(Recording.user_id == id).all()
-    # print(recordings, '&&&&&&&&&&&&&&&&&&&&&&&&&FROM BACKEND ROUTE TO GET RECORDING BY USER_ID')
-    return {recording.id: recording.to_dict() for recording in recordings}
+    recordings = Recording.query.filter(Recording.user_id == id).order_by(Recording.title.desc()).all()
+    print(recordings, '&&&&&&&&&&&&&&&&&&&&&&&&&FROM BACKEND ROUTE TO GET RECORDING BY USER_ID')
+    return {recording.title: recording.to_dict() for recording in recordings}
 
 
 @recording_routes.route('/<int:id>', methods=['DELETE'])
@@ -86,12 +87,12 @@ def delete_recording(id):
 @recording_routes.route('/all', methods=['GET'])
 @login_required
 def all_recordings():
-    recordings = Recording.query.all()
+    recordings = Recording.query.order_by(Recording.title.desc()).all()
     return {recording.id: recording.to_dict() for recording in recordings}
 
 
 @recording_routes.route('/alphabetical', methods=['GET'])
-@login_required
+# @login_required
 def all_recordings_alphabetical():
     recordings = Recording.query.order_by(Recording.title.desc()).all()
     # print(recordings, "*******************from get all recordings order alphabetically route!!!!!!!!!!!!!!!!!!!!!")

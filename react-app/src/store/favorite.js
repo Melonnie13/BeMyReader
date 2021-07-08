@@ -4,6 +4,7 @@ const ADD_FAVORITE = 'favorite/ADD_FAVORITE';
 const GET_FAVORITES = 'favorite/GET_FAVORITES';
 const DELETE_FAVORITE = 'favorite/DELETE_FAVORITE';
 const SET_FAVORITE = 'favorite/SET_FAVORITE';
+const GET_ONE_FAVORITE = 'favorite/GET_ONE_FAVORITE';
 
 // action creators
 
@@ -27,10 +28,15 @@ const deleteFavorite = (favorite) => ({
     payload: favorite
 });
 
-const setFavorite = (favorite) => ({
+const setOneFavorite = (favorite) => ({
     type: SET_FAVORITE,
     payload: favorite
 });
+
+const getFavorite = (favorite) => ({
+    type: GET_ONE_FAVORITE,
+    payload: favorite
+})
 
 // thunks
 
@@ -75,14 +81,41 @@ export const deleteOneFavorite = (id) => async (dispatch) => {
     }
 };
 
-export const setOneFavorite = (formData) => async (dispatch) => {
+export const setRecordingFavorite = (formData) => async (dispatch) => {
     const res = await fetch ('/api/favorites/recording', {
         method: 'POST',
         body: formData
     })
     if (res.ok) {
         const favoriteWithRecording = await res.json();
-        dispatch(setFavorite(favoriteWithRecording))
+        dispatch(setOneFavorite(favoriteWithRecording))
+    }
+};
+
+export const removeRecordingFavorite = (favoriteId, recordingId) => async (dispatch) => {
+    const res = await fetch('/api/favorites/remove', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({favoriteId, recordingId})
+    })
+    if (res.ok) {
+        const favoriteWithoutRecording = await res.json();
+        dispatch(setOneFavorite(favoriteWithoutRecording))
+    } else {
+        console.log('ERROR FROM REMOVE RECORDING THUNK - FAVORITE STORE')
+    }
+};
+
+export const renderOneFavorite = (id) => async (dispatch) => {
+    const res = await fetch(`/api/favorites/${id}`);
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(getFavorite(data))
+    } else {
+        console.log('error from renderOneFavorite thunk')
     }
 };
 
@@ -99,6 +132,10 @@ export default function reducer(state = initialState, action){
             return {
                 ...action.payload
             };
+        case GET_ONE_FAVORITE:
+            return {
+                ...action.payload
+            }
         case ADD_FAVORITE:
             newState[action.payload] = action.payload
             return newState;

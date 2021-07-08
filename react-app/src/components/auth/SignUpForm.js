@@ -6,7 +6,7 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
-  const [visionImpaired, setVisionImpaired] = useState(true);
+  const [visionImpaired, setVisionImpaired] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -16,8 +16,10 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await dispatch(signUp(username, email, visionImpaired, password));
-      setErrors([]);
+      const data = await dispatch(signUp(username, email, visionImpaired, password));
+      if (data) {
+        setErrors(data)
+      }
     }
   };
 
@@ -34,8 +36,8 @@ const SignUpForm = () => {
   };
 
   const updateVisionImpaired = () => {
-    setVisionImpaired(true);
-    // console.log(visionImpaired, "from signup form component*****************")
+    setVisionImpaired((prevValue)=>!prevValue);
+    console.log(visionImpaired, "from signup form component*****************")
   };
 
   const updateRepeatPassword = (e) => {
@@ -76,7 +78,8 @@ const SignUpForm = () => {
         <input
           type='checkbox'
           name='vision-impaired-checkbox'
-          onClick={updateVisionImpaired}
+          checked={visionImpaired}
+          onChange={updateVisionImpaired}
         ></input>
       </div>
       <div>

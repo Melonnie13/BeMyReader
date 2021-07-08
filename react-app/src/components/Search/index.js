@@ -22,8 +22,12 @@ const Search = () => {
         const recordings = useSelector(state => Object.values(state.recording))
         // console.log(recordings, 'RECORDINGS FROM SEARCH RESULTS**********&&&&&&&&&&!!!!!!!!!!!')
         // console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
+        // const [error, setError] = useState('')
 
-
+        // const filteredRecs = recordings.filter(recording => {
+        //  if (recording.category === category)
+        //  return recording
+        // };
 
             return (
                 <div>
@@ -43,6 +47,7 @@ const Search = () => {
                 type='text'
                 name='search-bar'
                 placeholder='Search By Category'
+                className='form-input'
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 >
@@ -53,7 +58,6 @@ const Search = () => {
 
         </div>
     )
-}
-
+};
 
 export default Search;

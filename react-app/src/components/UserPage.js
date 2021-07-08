@@ -5,6 +5,7 @@ import AddFavorite from './AddFavorite';
 import FavoritesContainer from './FavoritesContainer';
 import { useParams } from 'react-router-dom';
 import { getOneUser } from '../store/user';
+import { getUsersFavorites } from '../store/favorite';
 
 const UserPage = ({currentUser}) => {
 
@@ -24,7 +25,7 @@ const UserPage = ({currentUser}) => {
       <div>
         <strong>{`${user.username}'s Page`}</strong>
         <div>
-        <RecordingsContainer />
+          <RecordingsContainer />
         </div>
         <div>
           <AddFavorite />

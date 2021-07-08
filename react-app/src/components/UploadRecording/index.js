@@ -22,6 +22,7 @@ const UploadRecording = () => {
     const [category, setCategory] = useState('');
 
     const categories = useSelector((state) => Object.values(state.category));
+    console.log(categories, 'CATEGORIES FROM UPLOAD RECORDING COMPONENT')
 
     useEffect(() => {
         dispatch(renderCategories())
@@ -35,7 +36,7 @@ const UploadRecording = () => {
     }
     const onStop = audio => {
         setRecordingBlob(audio)
-        console.log(audio, "AUDIO FROM UPLOAD RECORDING COMPONENT&&&&&&&&&&&&&&&&")
+        // console.log(audio, "AUDIO FROM UPLOAD RECORDING COMPONENT&&&&&&&&&&&&&&&&")
         setAudioExists(true);
     }
     const onDelete = () => {
@@ -77,12 +78,7 @@ const UploadRecording = () => {
                 className='audio-recorder'
                 onStop={onStop}
                 backgroundColor='#6495ed'
-                mimeType='audio/mpeg' // Upon researching react-mic, I came across this sandbox:
-                // https://codesandbox.io/s/625fb?file=/src/App.js:926-946. In it, there was this mimetype.
-                // Upon further research, I found that this tells the browser how it should set the mimetype
-                // when it sends to a server, but it doesn't change the content from a blob to an actual .wav file.
-                // I feel like this fits my needs at the moment, and will change if I find that it does not.
-                // https://stackoverflow.com/questions/51368252/setting-blob-mime-type-to-wav-still-results-in-webm
+                mimeType='audio/mpeg'
             />
             <label htmlFor='start-recording'>Start Recording</label>
             <button onClick={startRecording}
@@ -119,12 +115,12 @@ const UploadRecording = () => {
             >Not Happy? Delete Recording</button>
             <div>
                 {formOpen &&
-                    <form className='recording-input-form' onSubmit={onSubmit}>
+                    <form className='input-form' onSubmit={onSubmit}>
                         <label htmlFor='title'>Title</label>
                         <input
                         type='text'
                         name='title'
-                        className='recording-form-input'
+                        className='form-input'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         />
@@ -132,14 +128,14 @@ const UploadRecording = () => {
                         <input
                         type='text'
                         name='description'
-                        className='recording-form-input'
+                        className='form-input'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         />
                         <label htmlFor='category'>Choose A Category</label>
                         <select
                         name='category'
-                        className='recording-form-input'
+                        className='form-input'
                         onChange={(e) => setCategory(e.target.value)}
                         value={category.id}
                         >
@@ -154,7 +150,7 @@ const UploadRecording = () => {
                             ))}
                         </select>
                         <label htmlFor='submit-button'>Submit Recording</label>
-                        <button type='submit' name='submit-button' className='audioBtn'>Submit</button>
+                        <button type='submit' name='submit-button' className='button'>Submit</button>
                         {audioLoading && <p> Loading...</p>}
                     </form>
                 }
