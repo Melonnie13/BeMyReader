@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import SearchResults from '../SearchResults';
 import { getAllRecordingsSearch } from '../../store/recording';
 
 const Search = () => {
@@ -18,35 +19,35 @@ const Search = () => {
         history.push('/search')
     }
 
-    const SearchResults = ({category}) => {
+    // const SearchResults = ({category}) => {
 
-        const recordings = useSelector(state => Object.values(state.recording))
-        // console.log(recordings, 'RECORDINGS FROM SEARCH RESULTS**********&&&&&&&&&&!!!!!!!!!!!')
-        console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
-        // const [error, setError] = useState('')
+    //     const recordings = useSelector(state => Object.values(state.recording))
+    //     // console.log(recordings, 'RECORDINGS FROM SEARCH RESULTS**********&&&&&&&&&&!!!!!!!!!!!')
+    //     console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
+    //     // const [error, setError] = useState('')
 
-        let filteredRecs = recordings.filter(recording => {
-         if (recording.category === category) return recording
-        //  console.log(recording.category, '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-        });
+    //     let filteredRecs = recordings.filter(recording => {
+    //      if (recording.category === category) return recording
+    //     //  console.log(recording.category, '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+    //     });
 
-        if (!filteredRecs.length){
-            
-        }
+    //     if (!filteredRecs.length){
 
-            return (
-                <>
-                    {filteredRecs &&
-                    <div>
-                        {filteredRecs.length ? filteredRecs.map(recording => (
-                            <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
-                        )) : "Category Not Found"}
+    //     }
 
-                    </div>
-                    }
-                </>
-            )
-    }
+    //         return (
+    //             <>
+    //                 {filteredRecs &&
+    //                 <div>
+    //                     {filteredRecs.length ? filteredRecs.map(recording => (
+    //                         <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
+    //                     )) : "Category Not Found"}
+
+    //                 </div>
+    //                 }
+    //             </>
+    //         )
+    // }
 
     return (
         <div>
