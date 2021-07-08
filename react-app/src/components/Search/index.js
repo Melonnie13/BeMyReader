@@ -16,29 +16,35 @@ const Search = () => {
         dispatch(getAllRecordingsSearch());
         setResults(true);
         history.push('/search')
-
     }
 
     const SearchResults = ({category}) => {
 
         const recordings = useSelector(state => Object.values(state.recording))
         // console.log(recordings, 'RECORDINGS FROM SEARCH RESULTS**********&&&&&&&&&&!!!!!!!!!!!')
-        // console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
+        console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
         // const [error, setError] = useState('')
 
-        const filteredRecs = recordings?.filter(recording => {
+        let filteredRecs = recordings.filter(recording => {
          if (recording.category === category) return recording
         //  console.log(recording.category, '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
         });
 
+        if (!filteredRecs.length){
+            
+        }
+
             return (
-                <div>
+                <>
+                    {filteredRecs &&
+                    <div>
+                        {filteredRecs.length ? filteredRecs.map(recording => (
+                            <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
+                        )) : "Category Not Found"}
 
-                    {filteredRecs.length ? filteredRecs.map(recording => (
-                        <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
-                    )) : "Category Not Found"}
-
-                </div>
+                    </div>
+                    }
+                </>
             )
     }
 
