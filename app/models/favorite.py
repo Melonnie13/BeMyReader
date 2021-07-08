@@ -24,5 +24,5 @@ class Favorite(db.Model):
             'recording_id': [recording.id for recording in self.recordings],
             'username': self.users.username,
             'user_id': self.users.id,
-            'title': [recording.title for recording in self.recordings]
+            'recordings': [recording.to_dict() for recording in self.recordings]
         }

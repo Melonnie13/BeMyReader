@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { setOneFavorite, getUsersFavorites } from '../../store/favorite';
+import { setRecordingFavorite, getUsersFavorites } from '../../store/favorite';
 
 const AddToFavorites = ({recording_id}) => {
     const dispatch = useDispatch();
@@ -32,8 +32,8 @@ const AddToFavorites = ({recording_id}) => {
         formData.append('favorite_id', favorite);
         console.log(favorite, '***********************FROM FORMDATA IN COMPONENT')
         formData.append('recording_id', recording_id)
-        dispatch(setOneFavorite(formData))
-        dispatch(getUsersFavorites(user_id))
+        dispatch(setRecordingFavorite(formData))
+        // dispatch(getUsersFavorites(user_id))
         history.push(`/users/${user.id}`)
     }
 

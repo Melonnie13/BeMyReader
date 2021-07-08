@@ -41,7 +41,8 @@ def upload_recording():
         category_id=request.form['category']
     )
     # print(request.form["category"], '***************************')
-    print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio']))
+    # print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio']))
+    print(request.files, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&request.files')
     db.session.add(new_recording)
     db.session.commit()
     return new_recording.to_dict()

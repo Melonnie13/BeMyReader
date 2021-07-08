@@ -28,12 +28,12 @@ const deleteFavorite = (favorite) => ({
     payload: favorite
 });
 
-const setFavorite = (favorite) => ({
+const setOneFavorite = (favorite) => ({
     type: SET_FAVORITE,
     payload: favorite
 });
 
-const getOneFavorite = (favorite) => ({
+const getFavorite = (favorite) => ({
     type: GET_ONE_FAVORITE,
     payload: favorite
 })
@@ -81,14 +81,14 @@ export const deleteOneFavorite = (id) => async (dispatch) => {
     }
 };
 
-export const setOneFavorite = (formData) => async (dispatch) => {
+export const setRecordingFavorite = (formData) => async (dispatch) => {
     const res = await fetch ('/api/favorites/recording', {
         method: 'POST',
         body: formData
     })
     if (res.ok) {
         const favoriteWithRecording = await res.json();
-        dispatch(getOneFavorite(favoriteWithRecording))
+        dispatch(setOneFavorite(favoriteWithRecording))
     }
 };
 
@@ -97,7 +97,7 @@ export const renderOneFavorite = (id) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(setFavorite(data))
+        dispatch(getFavorite(data))
     } else {
         console.log('error from renderOneFavorite thunk')
     }
@@ -116,6 +116,10 @@ export default function reducer(state = initialState, action){
             return {
                 ...action.payload
             };
+        case GET_ONE_FAVORITE:
+            return {
+                ...action.payload
+            }
         case ADD_FAVORITE:
             newState[action.payload] = action.payload
             return newState;
@@ -123,10 +127,6 @@ export default function reducer(state = initialState, action){
             delete newState[action.payload.id]
             return newState;
         case SET_FAVORITE:
-            return {
-                ...action.payload
-            }
-        case GET_ONE_FAVORITE:
             return {
                 ...action.payload
             }

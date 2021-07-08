@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    vision_impaired = db.Column(db.Boolean())
+    vision_impaired = db.Column(db.Boolean)
     hashed_password = db.Column(db.String(255), nullable=False)
     recordings = db.relationship('Recording', back_populates='users')
     comments = db.relationship('Comment', back_populates='users')

@@ -55,7 +55,7 @@ const UploadRecording = () => {
         formData.append('audio', JSON.stringify(recordingBlob));
         // formData.append('audio', recordingBlob);
 
-        // console.log('**********************recording blob from UploadRecording component', recordingBlob)
+        console.log('**********************recording blob from UploadRecording component', recordingBlob)
 
         formData.append('category', category);
         console.log(category, 'category from UploadRecording component')
@@ -77,12 +77,7 @@ const UploadRecording = () => {
                 className='audio-recorder'
                 onStop={onStop}
                 backgroundColor='#6495ed'
-                mimeType='audio/mpeg' // Upon researching react-mic, I came across this sandbox:
-                // https://codesandbox.io/s/625fb?file=/src/App.js:926-946. In it, there was this mimetype.
-                // Upon further research, I found that this tells the browser how it should set the mimetype
-                // when it sends to a server, but it doesn't change the content from a blob to an actual .wav file.
-                // I feel like this fits my needs at the moment, and will change if I find that it does not.
-                // https://stackoverflow.com/questions/51368252/setting-blob-mime-type-to-wav-still-results-in-webm
+                mimeType='audio/mpeg'
             />
             <label htmlFor='start-recording'>Start Recording</label>
             <button onClick={startRecording}

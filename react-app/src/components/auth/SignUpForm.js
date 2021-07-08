@@ -6,7 +6,7 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
-  const [visionImpaired, setVisionImpaired] = useState(true);
+  const [visionImpaired, setVisionImpaired] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -34,7 +34,7 @@ const SignUpForm = () => {
   };
 
   const updateVisionImpaired = () => {
-    setVisionImpaired(true);
+    setVisionImpaired((visionImpaired)=>!visionImpaired);
     // console.log(visionImpaired, "from signup form component*****************")
   };
 
@@ -76,7 +76,8 @@ const SignUpForm = () => {
         <input
           type='checkbox'
           name='vision-impaired-checkbox'
-          onClick={updateVisionImpaired}
+          onChange={updateVisionImpaired}
+          checked={visionImpaired}
         ></input>
       </div>
       <div>

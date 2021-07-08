@@ -53,17 +53,18 @@ def add_recording():
     recording = Recording.query.get(request.form['recording_id'])
     favorite = Favorite.query.get(request.form['favorite_id'])
     # print('+++++++++++++++++++++++++++++++++FAVORITE', favorite)
-    recording.favorites.append(favorite)
+    favorite.recordings.append(recording)
+    print(favorite.recordings, '##########################################FROM ADD RECORDING TO FAVORITE LIST ROUTE^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
     db.session.add(recording)
     db.session.commit()
+    return {'favorite': favorite.to_dict(), 'recording': recording.to_dict()}
+
+
+@favorite_routes.route('/remove', methods=['DELETE'])
+@login_required
+def remove_from_favorite():
+    recording = Recording.query.get(int(request.json['recording_id']))
+    favorite = Favorite.query.get(int(request.json['favorite_id']))
+    favorite.recordings.remove(recording)
+    db.session.commit()
     return favorite.to_dict()
-
-
-# @favorite_routes.route('/remove', methods=['DELETE'])
-# @login_required
-# def remove_from_favorite():
-#     recording = Recording.query.get(int(request.json['recording_id']))
-#     favorite = Favorite.query.get(int(request.json['favorite_id']))
-#     favorite.recording.remove(recording)
-#     db.session.commit()
-#     return favorite.to_dict()
