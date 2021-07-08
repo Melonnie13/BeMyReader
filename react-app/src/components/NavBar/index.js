@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { demo } from '../../store/session';
+import logo from '../../Images/logo.png'
 import './NavBar.css'
 
 const NavBar = () => {
@@ -19,7 +20,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      <NavLink to='/' exact={true}>BMR</NavLink>
+      <NavLink id='logo' to='/' exact={true}><img src={logo} alt='Be My Reader Logo'/></NavLink>
       <ul className='nav-bar'>
         {user ? (
           <>
