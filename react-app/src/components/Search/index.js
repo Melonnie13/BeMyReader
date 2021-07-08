@@ -9,33 +9,42 @@ const Search = () => {
     const history = useHistory();
 
     const [category, setCategory] = useState('');
+    const [results, setResults] = useState(false);
 
     const searchSubmit = (e) => {
         e.preventDefault();
         dispatch(getAllRecordingsSearch());
+        setResults(true);
         history.push('/search')
-
     }
 
     const SearchResults = ({category}) => {
 
         const recordings = useSelector(state => Object.values(state.recording))
         // console.log(recordings, 'RECORDINGS FROM SEARCH RESULTS**********&&&&&&&&&&!!!!!!!!!!!')
-        // console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
+        console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
         // const [error, setError] = useState('')
 
-        // const filteredRecs = recordings.filter(recording => {
-        //  if (recording.category === category)
-        //  return recording
-        // };
+        let filteredRecs = recordings.filter(recording => {
+         if (recording.category === category) return recording
+        //  console.log(recording.category, '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        });
+
+        if (!filteredRecs.length){
+            
+        }
 
             return (
-                <div>
-                    {recordings.map(recording => (
-                        recording.category === category ? <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link> : null
-                    ))}
+                <>
+                    {filteredRecs &&
+                    <div>
+                        {filteredRecs.length ? filteredRecs.map(recording => (
+                            <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
+                        )) : "Category Not Found"}
 
-                </div>
+                    </div>
+                    }
+                </>
             )
     }
 
@@ -54,7 +63,9 @@ const Search = () => {
                 </input>
                 <button type='submit'>Search</button>
             </form>
-            <SearchResults category={category}/>
+            {results ?
+                <SearchResults category={category}/>
+            : null}
 
         </div>
     )

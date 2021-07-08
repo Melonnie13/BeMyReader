@@ -37,8 +37,8 @@ const SignUpForm = () => {
 
   const updateVisionImpaired = () => {
     setVisionImpaired((prevValue)=>!prevValue);
-    console.log(visionImpaired, "from signup form component*****************")
   };
+  console.log(visionImpaired, "***************from signup form component*****************")
 
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
