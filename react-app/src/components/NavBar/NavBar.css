@@ -1,3 +1,17 @@
 #logo {
-    max-width: 20%;
+    max-width: 50px;
+    max-height: auto;
+    border-radius: 50%;
+}
+
+#nav {
+    display: inline;
+}
+
+#nav-logo {
+    max-width: 50px;
+}
+
+.nav-bar-item {
+    display: inline
 }

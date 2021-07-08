@@ -19,50 +19,38 @@ const NavBar = () => {
   };
 
   return (
-    <nav>
-      <NavLink id='logo' to='/' exact={true}><img src={logo} alt='Be My Reader Logo'/></NavLink>
-      <ul className='nav-bar'>
-        {user ? (
-          <>
-            {/* <li className='nav-bar-item'>
-              <NavLink to='/' exact={true} activeClassName='active'>
-                Home
-              </NavLink>
-            </li> */}
-            <li className='nav-bar-item'>
-              <NavLink to='/search' exact={true} activeClassName='active'>
-                Search
-              </NavLink>
-            </li>
-            <li className='nav-bar-item'>
-              <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>
-                Record Audio
-              </NavLink>
-            </li>
-            {/* <li className='nav-bar-item'>
-              <NavLink to='/create-favorite' exact={true} activeClassName='active'>
-                Create Favorite List
-              </NavLink>
-            </li> */}
-            <li className='nav-bar-item'>
-              <LogoutButton />
-            </li>
-              <li className='nav-bar-item'>
-                <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
-              </li>
-          </> ) : (
+    <nav id='nav'>
+        <NavLink id='nav-logo' to='/' exact={true}><img id='logo' src={logo} alt='Be My Reader Logo'/></NavLink>
+        <div className='nav-bar'>
+          {user ? (
             <>
-              <label htmlFor='demo-login'></label>
-              <button name='demo-login' type='button' id='demo-btn' onClick={demoLogin}>Demo Login</button>
-              <li className='nav-bar-item'>
-                <NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
-              </li>
-              <li className='nav-bar-item'>
-                <NavLink to='/login' exact={true} activeClassName='active'>Login</NavLink>
-              </li>
-            </>
-        )}
-      </ul>
+              <div className='nav-bar-item'>
+                <NavLink to='/search' exact={true} activeClassName='active'>
+                  Search
+                </NavLink>
+              </div>
+              <div className='nav-bar-item'>
+                <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>
+                  Record Audio
+                </NavLink>
+              </div>
+                <LogoutButton />
+                <div className='nav-bar-item'>
+                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
+                </div>
+            </> ) : (
+              <>
+                <label htmlFor='demo-login'></label>
+                <button name='demo-login' type='button' id='demo-btn' onClick={demoLogin}>Demo Login</button>
+                <div className='nav-bar-item'>
+                  <NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
+                </div>
+                <div className='nav-bar-item'>
+                  <NavLink to='/login' exact={true} activeClassName='active'>Login</NavLink>
+                </div>
+              </>
+          )}
+        </div>
     </nav>
   );
 }
