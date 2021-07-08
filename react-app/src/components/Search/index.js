@@ -9,10 +9,12 @@ const Search = () => {
     const history = useHistory();
 
     const [category, setCategory] = useState('');
+    const [results, setResults] = useState(false);
 
     const searchSubmit = (e) => {
         e.preventDefault();
         dispatch(getAllRecordingsSearch());
+        setResults(true);
         history.push('/search')
 
     }
@@ -24,16 +26,17 @@ const Search = () => {
         // console.log(category, 'CATEGORY FROM SEARCH RESULTS*******************')
         // const [error, setError] = useState('')
 
-        // const filteredRecs = recordings.filter(recording => {
-        //  if (recording.category === category)
-        //  return recording
-        // };
+        const filteredRecs = recordings?.filter(recording => {
+         if (recording.category === category) return recording
+        //  console.log(recording.category, '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        });
 
             return (
                 <div>
-                    {recordings.map(recording => (
-                        recording.category === category ? <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link> : null
-                    ))}
+
+                    {filteredRecs.length ? filteredRecs.map(recording => (
+                        <Link to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
+                    )) : "Category Not Found"}
 
                 </div>
             )
@@ -54,7 +57,9 @@ const Search = () => {
                 </input>
                 <button type='submit'>Search</button>
             </form>
-            <SearchResults category={category}/>
+            {results ?
+                <SearchResults category={category}/>
+            : null}
 
         </div>
     )

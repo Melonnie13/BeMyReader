@@ -59,15 +59,21 @@ def sign_up():
     """
     Creates a new user and logs them in
     """
+    # print(request.get_json()['visionImpaired'], 'JSON PRINT &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        if request.get_json()['visionImpaired'] == True:
+            vis_imp = True
+        else:
+            vis_imp = False
         user = User(
             username=form.data['username'],
             email=form.data['email'],
-            vision_impaired=form.data['vision_impaired'],
+            vision_impaired=vis_imp,
             password=form.data['password']
         )
+        # print((form.data['vision_impaired']), '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
         db.session.add(user)
         db.session.commit()
         login_user(user)
