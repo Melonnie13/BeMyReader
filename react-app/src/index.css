@@ -6,3 +6,7 @@
     font-family: 'Quicksand';
     text-decoration: none
 }
+
+body {
+    margin: 0;
+}

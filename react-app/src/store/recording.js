@@ -35,9 +35,9 @@ export const uploadRecording = (formData) => async (dispatch) => {
     // console.log(formData, 'FORM DATA FROM RECORDING THUNK$$$$$$$$$$$$$$$$$$$$$$$$$')
     const res = await fetch ('/api/recordings/new', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/JSON'
-        },
+        // headers: {
+        //     'Content-Type': 'application/JSON'
+        // },
         body: formData
         // headers
     });

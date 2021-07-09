@@ -1,23 +1,32 @@
+#nav {
+    width: 100vw;
+    max-height: auto;
+    display: flex;
+    position: fixed;
+    justify-content: space-evenly;
+    color: white;
+    margin: 0;
+    padding-top: 10px;
+
+}
+
+.nav-bar-item {
+    color: #6d9eeb;
+    font-size: 1.5em;
+}
+
+.nav-bar-item:hover {
+    color: #1c4587;
+}
+
 #logo {
-    max-width: 50px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    max-width: 100px;
     max-height: auto;
     border-radius: 50%;
 }
 
-#nav {
-    display: inline-grid;
-    max-width: 100%;
-}
-
-#nav-logo {
-    max-width: 50px;
-}
-
-.nav-bar-item {
-    display: inline
-}
-
-.nav-bar {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+#nav-log {
+    align-self: flex-start;
 }

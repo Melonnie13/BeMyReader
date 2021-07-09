@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { demo } from '../../store/session';
-import logo from '../../Images/logo.png'
-import './NavBar.css'
+import logo from '../../Images/logo.png';
+import './NavBar.css';
 
 const NavBar = () => {
   const history = useHistory();
@@ -19,39 +19,39 @@ const NavBar = () => {
   };
 
   return (
-    <nav id='nav'>
-        <div className='nav-bar-item'>
-          <NavLink id='nav-logo' to='/' exact={true}><img id='logo' src={logo} alt='Be My Reader Logo'/></NavLink>
-        </div>
-        <div className='nav-bar'>
-          {user ? (
-            <>
-              <div className='nav-bar-item'>
-              <div className='nav-bar-item'>
-                <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
-              </div>
-                <NavLink to='/search' exact={true} activeClassName='active'>Search</NavLink>
-              </div>
-              <div className='nav-bar-item'>
-                <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>Record Audio</NavLink>
-              </div>
-              <div>
-                <LogoutButton />
-              </div>
-            </> ) : (
+    <>
+      <nav id='nav'>
+          <div className='nav-bar-item'>
+            <NavLink id='nav-logo' to='/' exact={true}><img id='logo' src={logo} alt='Be My Reader Logo'/></NavLink>
+          </div>
+            {user ? (
               <>
-                <label htmlFor='demo-login'></label>
-                <button name='demo-login' type='button' id='demo-btn' onClick={demoLogin}>Demo Login</button>
                 <div className='nav-bar-item'>
-                  <NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
+                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
                 </div>
                 <div className='nav-bar-item'>
-                  <NavLink to='/login' exact={true} activeClassName='active'>Login</NavLink>
+                  <NavLink to='/search' exact={true} activeClassName='active'>Search</NavLink>
                 </div>
-              </>
-          )}
-        </div>
-    </nav>
+                <div className='nav-bar-item'>
+                  <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>Record Audio</NavLink>
+                </div>
+                <div>
+                  <LogoutButton />
+                </div>
+              </> ) : (
+                <>
+                  <label htmlFor='demo-login'></label>
+                  <button name='demo-login' type='button' id='demo-btn' onClick={demoLogin}>Demo Login</button>
+                  <div className='nav-bar-item'>
+                    <NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
+                  </div>
+                  <div className='nav-bar-item'>
+                    <NavLink to='/login' exact={true} activeClassName='active'>Login</NavLink>
+                  </div>
+                </>
+            )}
+      </nav>
+    </>
   );
 }
 

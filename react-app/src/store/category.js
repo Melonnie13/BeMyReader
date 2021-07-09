@@ -22,11 +22,10 @@ export const renderCategories = () => async(dispatch) => {
 // initial state
 
 const initialState = {};
-
 // reducer
 
 export default function reducer(state = initialState, action){
-    const newState = {...state}
+    // const newState = {...state}
     switch (action.type){
         case SET_CATEGORIES:
             return {
