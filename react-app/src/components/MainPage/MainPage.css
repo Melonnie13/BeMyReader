@@ -4,17 +4,20 @@
 
 #main-page {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
     'nav nav nav nav'
     'header header header header'
     'main1 main1 main1 main1'
     'main2 main2 main2 main2'
     '. main3 main4 .'
-    'footer footer footer footer'
+    'footer footer footer footer' */
+    height: 100vh;
+    width: 100vw;
+    
 }
 
-#logo {
+/* #logo {
     grid-area: nav;
     max-width: 50px;
     max-height: auto;
@@ -54,4 +57,4 @@
 
 #about-me {
     grid-area: footer;
-}
+} */
