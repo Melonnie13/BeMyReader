@@ -59,7 +59,7 @@ const UploadRecording = () => {
         console.log('**********************recording blob from UploadRecording component', recordingBlob)
 
         formData.append('category', category);
-        console.log(category, 'category from UploadRecording component')
+        // console.log(category, 'category from UploadRecording component')
 
         setAudioLoading(true);
 

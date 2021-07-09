@@ -27,9 +27,9 @@ const NavBar = () => {
             {user ? (
               <>
                 <div className='nav-bar-item'>
-                <div className='nav-bar-item'>
                   <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
                 </div>
+                <div className='nav-bar-item'>
                   <NavLink to='/search' exact={true} activeClassName='active'>Search</NavLink>
                 </div>
                 <div className='nav-bar-item'>

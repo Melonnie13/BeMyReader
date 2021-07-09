@@ -1,35 +1,20 @@
-/* #logo {
-    max-width: 50px;
-    max-height: auto;
-    border-radius: 50%;
-} */
 
-/* #nav {
-    display: inline-grid;
-    max-width: 100%;
-    position: sticky;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 3;
-    height: 68px;
-    width: 100%;
-    display:grid;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+#nav {
+    display: inline;
+    width: auto;
+    height: auto;
+    display: grid;
+    z-index: 1;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas: 'logo' 'my-profile' 'search' 'record-audio' 'logout' 'login' 'sign-up' 'demo-login';
 
 }
 
- #nav-logo {
-    max-width: 50px;
-} */
-
-/* .nav-bar-item {
+.nav-bar-item {
     display: inline
-} */
+}
 
 /* #header {
     max-width: auto;
