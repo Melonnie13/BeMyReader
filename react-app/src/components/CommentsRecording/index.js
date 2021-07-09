@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderRecordingComments } from '../../store/comment';
+import './CommentsRecording.css';
 import CommentDelete from '../CommentDelete';
 import CommentEdit from '../CommentEdit';
 

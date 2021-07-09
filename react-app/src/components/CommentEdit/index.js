@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { updateComment, renderRecordingComments } from '../../store/comment';
+import './CommentEdit.css';
 
 const CommentEdit = ({comment}) => {
 

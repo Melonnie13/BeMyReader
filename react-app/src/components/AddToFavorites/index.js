@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { setRecordingFavorite, getUsersFavorites } from '../../store/favorite';
+import './AddToFavorites.css';
 
 const AddToFavorites = ({recording_id}) => {
     const dispatch = useDispatch();

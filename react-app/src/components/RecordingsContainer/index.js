@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsersRecordings } from '../../store/recording';
 import DeleteRecording from '../DeleteRecording';
+import './RecordingsContainer.css';
 
 const RecordingsContainer = () => {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const RecordingsContainer = () => {
 
     return (
         <div>
-            <h2>
+            <h2 className='headline'>
                 {`${userPage.username}'s`} Recordings
             </h2>
             <label htmlFor='user-recordings'></label>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './Auth.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -49,7 +50,7 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='input-form' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -60,6 +61,7 @@ const SignUpForm = () => {
         <input
           type='text'
           name='enter-username'
+          className='form-input'
           onChange={updateUsername}
           value={username}
         ></input>
@@ -69,6 +71,7 @@ const SignUpForm = () => {
         <input
           type='text'
           name='email'
+          className='form-input'
           onChange={updateEmail}
           value={email}
         ></input>
@@ -78,6 +81,7 @@ const SignUpForm = () => {
         <input
           type='checkbox'
           name='vision-impaired-checkbox'
+          className='form-checkbox'
           checked={visionImpaired}
           onChange={updateVisionImpaired}
         ></input>
@@ -87,6 +91,7 @@ const SignUpForm = () => {
         <input
           type='password'
           name='password'
+          className='form-input'
           onChange={updatePassword}
           value={password}
         ></input>
@@ -96,13 +101,14 @@ const SignUpForm = () => {
         <input
           type='password'
           name='repeat_password'
+          className='form-input'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
         ></input>
       </div>
       <label htmlFor='sign_up_button'></label>
-      <button name='sign_up_button' type='submit'>Sign Up</button>
+      <button className='button' name='sign_up_button' type='submit'>Sign Up</button>
     </form>
   );
 };

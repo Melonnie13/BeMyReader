@@ -22,7 +22,7 @@ const UploadRecording = () => {
     const [category, setCategory] = useState('');
 
     const categories = useSelector((state) => Object.values(state.category));
-    console.log(categories, 'CATEGORIES FROM UPLOAD RECORDING COMPONENT')
+    // console.log(categories, 'CATEGORIES FROM UPLOAD RECORDING COMPONENT')
 
     useEffect(() => {
         dispatch(renderCategories())
@@ -56,7 +56,7 @@ const UploadRecording = () => {
         formData.append('audio', JSON.stringify(recordingBlob));
         // formData.append('audio', recordingBlob);
 
-        // console.log('**********************recording blob from UploadRecording component', recordingBlob)
+        console.log('**********************recording blob from UploadRecording component', recordingBlob)
 
         formData.append('category', category);
         console.log(category, 'category from UploadRecording component')

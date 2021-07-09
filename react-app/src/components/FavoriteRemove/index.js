@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import { removeRecordingFavorite } from '../../store/favorite';
+import './FavoriteRemove.css';
 
 const FavoriteRemove = ({recording}) => {
     const dispatch = useDispatch();

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { deleteOneComment, renderRecordingComments } from '../../store/comment';
+import './CommentDelete.css';
 
 const CommentDelete = ({comment}) => {
     const dispatch = useDispatch();
