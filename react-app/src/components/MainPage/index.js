@@ -2,14 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AboutMe from '../AboutMe'
 import './MainPage.css';
+import header from '../../Images/header.png';
 
 const MainPage = () => {
     return (
-        <div>
+        <div id='main-page'>
+            <header><img id='header' src={header} alt='Be My Reader Header'/></header>
             <label htmlFor='welcome'></label>
-            <h2 name='welcome'>Welcome to Be My Reader:</h2>
+            <h2 id='main-page-welcome' name='welcome'>Welcome to Be My Reader:</h2>
             <label htmlFor='intro'></label>
-            <h3 name='intro'>The first ever website created specifically for the Blind and Visually Impaired.</h3>
+            <h3 id='main-page-text' name='intro'>The first ever website created specifically for the Blind and Visually Impaired.</h3>
             <AboutMe />
             <div id='main-page-listen'>
                 <Link to='/recordings/alphabetical'>

@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { setRecordingFavorite, getUsersFavorites } from '../../store/favorite';
 import './AddToFavorites.css';
 
 const AddToFavorites = ({recording_id}) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {id} = useParams();
 
     const favorites = useSelector(state => Object.values(state.favorite));
     // console.log(favorites, 'FAVORITES FROM ADD TO FAVORITES COMPONENT')

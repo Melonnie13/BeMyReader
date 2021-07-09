@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
 import SearchResults from '../SearchResults';
 import { getAllRecordingsSearch } from '../../store/recording';
 import './Search.css';

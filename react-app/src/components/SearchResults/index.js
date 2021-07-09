@@ -11,13 +11,12 @@ const SearchResults = ({category}) => {
     // const [error, setError] = useState('')
 
     let filteredRecs = recordings.filter(recording => {
-     if (recording.category === category) return recording
+        if (recording.category === category) return recording
     //  console.log(recording.category, '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
     });
 
-    if (!filteredRecs.length){
-
-    }
+    // if (!filteredRecs.length){
+    // }
 
         return (
             <>

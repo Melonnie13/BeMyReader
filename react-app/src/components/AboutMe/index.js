@@ -4,7 +4,7 @@ import './AboutMe.css';
 
 const AboutMe = () =>{
     return (
-        <div>
+        <div id='about-me'>
             <h2>Developed By: Melonnie Hicks</h2>
             <div id='about-me-logo'>
             <img id='my-avi' src="https://avatars.githubusercontent.com/u/76574880?v=4" alt="Melonnie" />

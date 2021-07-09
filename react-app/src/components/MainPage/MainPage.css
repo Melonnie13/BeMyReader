@@ -1,0 +1,57 @@
+.main-page-text {
+    position:relative;
+}
+
+#main-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    'nav nav nav nav'
+    'header header header header'
+    'main1 main1 main1 main1'
+    'main2 main2 main2 main2'
+    '. main3 main4 .'
+    'footer footer footer footer'
+}
+
+#logo {
+    grid-area: nav;
+    max-width: 50px;
+    max-height: auto;
+    border-radius: 50%;
+}
+
+.nav-bar-item {
+    grid-area: nav;
+}
+
+#header {
+    grid-area: header;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 200px;
+    width: 100%;
+}
+
+#main-page-welcome {
+    grid-area: main1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#main-page-listen {
+    grid-area: main3;
+}
+
+#main-page-text {
+    grid-area: main2;
+}
+
+#main-page-record {
+    grid-area: main4;
+
+}
+
+#about-me {
+    grid-area: footer;
+}
