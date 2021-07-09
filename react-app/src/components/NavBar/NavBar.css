@@ -1,27 +1,32 @@
 #nav {
-    display: inline;
-    max-width: 100%;
+    width: 100vw;
     max-height: auto;
     display: flex;
-    position: sticky;
-    /* z-index: 1; */
-    /* grid-template-rows: 1fr;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-areas: 'logo' 'my-profile' 'search' 'record-audio' 'logout' 'login' 'sign-up' 'demo-login'; */
-    background-color: darkmagenta;
+    position: fixed;
+    justify-content: space-evenly;
+    color: white;
     margin: 0;
-    padding: 10px;
+    padding-top: 10px;
 
 }
 
 .nav-bar-item {
-    display: inline
+    color: #6d9eeb;
+    font-size: 1.5em;
+}
+
+.nav-bar-item:hover {
+    color: #1c4587;
 }
 
 #logo {
     grid-row-start: 1;
     grid-row-end: 2;
-    max-width: 50px;
+    max-width: 100px;
     max-height: auto;
     border-radius: 50%;
+}
+
+#nav-log {
+    align-self: flex-start;
 }

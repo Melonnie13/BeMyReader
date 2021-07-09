@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './AboutMe.css';
 
 const AboutMe = () =>{
@@ -10,11 +9,11 @@ const AboutMe = () =>{
             <img id='my-avi' src="https://avatars.githubusercontent.com/u/76574880?v=4" alt="Melonnie" />
             <div>
                 <label htmlFor='github-link'></label>
-                <Link className='about-me-links' name='github-link' to="https://github.com/Melonnie13"><i className="fab fa-github"></i></Link>
+                <a className='about-me-links' name='github-link' href="https://github.com/Melonnie13"><i className="fab fa-github"></i></a>
             </div>
             <div>
                 <label htmlFor='linkedIn-link'></label>
-                <Link className='about-me-links' name='linkedIn-link' to="https://www.linkedin.com/in/melonniehicks/"> <i className="fab fa-linkedin"></i></Link>
+                <a className='about-me-links' name='linkedIn-link' href="https://www.linkedin.com/in/melonniehicks/"> <i className="fab fa-linkedin"></i></a>
             </div>
             </div>
         </div>
