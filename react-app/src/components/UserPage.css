@@ -12,6 +12,14 @@
     padding-bottom: 20px;
 }
 
+.container-headline {
+    
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 #user-page-items-container{
     display: flex;
     justify-content:space-evenly;
