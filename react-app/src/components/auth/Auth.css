@@ -1,0 +1,26 @@
+#login-page {
+    padding-top: 140px;
+    height: 100vh;
+    max-width: 100vw;
+    background-color: #6d9eeb;
+    display: flex;
+}
+
+.input-form {
+    width: 100%;
+    background-color: violet;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.form-input {
+    width: 500px;
+    height: 75px;
+}
+
+.form-labels{
+    color: white;
+    font-size: 1.5em;
+}

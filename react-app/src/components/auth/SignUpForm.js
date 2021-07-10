@@ -57,7 +57,7 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label htmlFor='enter-username'>User Name</label>
+        <label className='form-labels' htmlFor='enter-username'>User Name</label>
         <input
           type='text'
           name='enter-username'
@@ -67,7 +67,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
+        <label className='form-labels' htmlFor='email'>Email</label>
         <input
           type='text'
           name='email'
@@ -77,7 +77,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label htmlFor='vision-impaired-checkbox'>Vision Impaired Check Box For Yes</label>
+        <label className='form-labels' htmlFor='vision-impaired-checkbox'>Vision Impaired Check Box For Yes</label>
         <input
           type='checkbox'
           name='vision-impaired-checkbox'
@@ -87,7 +87,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
+        <label className='form-labels' htmlFor='password'>Password</label>
         <input
           type='password'
           name='password'
@@ -97,7 +97,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label htmlFor='repeat_password'>Repeat Password</label>
+        <label className='form-labels' htmlFor='repeat_password'>Repeat Password</label>
         <input
           type='password'
           name='repeat_password'

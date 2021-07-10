@@ -27,13 +27,13 @@ const NavBar = () => {
             {user ? (
               <>
                 <div className='nav-bar-item'>
-                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
+                  <NavLink className='nav-bar-item' to={`/users/${user.id}`} exact={true} activeClassName='active'>My Profile</NavLink>
                 </div>
                 <div className='nav-bar-item'>
-                  <NavLink to='/search' exact={true} activeClassName='active'>Search</NavLink>
+                  <NavLink className='nav-bar-item' to='/search' exact={true} activeClassName='active'>Search</NavLink>
                 </div>
                 <div className='nav-bar-item'>
-                  <NavLink to={`/recording/upload/`} exact={true} activeClassName='active'>Record Audio</NavLink>
+                  <NavLink className='nav-bar-item' to={`/recording/upload/`} exact={true} activeClassName='active'>Record Audio</NavLink>
                 </div>
                 <div>
                   <LogoutButton />
@@ -41,12 +41,12 @@ const NavBar = () => {
               </> ) : (
                 <>
                   <label htmlFor='demo-login'></label>
-                  <button name='demo-login' type='button' id='demo-btn' onClick={demoLogin}>Demo Login</button>
+                  <button className='nav-bar-item nav-btn demo-btn' name='demo-login' type='button' id='demo-btn' onClick={demoLogin}>Demo Login</button>
                   <div className='nav-bar-item'>
-                    <NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
+                    <NavLink className='nav-bar-item nav-btn' to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
                   </div>
                   <div className='nav-bar-item'>
-                    <NavLink to='/login' exact={true} activeClassName='active'>Login</NavLink>
+                    <NavLink className='nav-bar-item nav-btn' to='/login' exact={true} activeClassName='active'>Login</NavLink>
                   </div>
                 </>
             )}

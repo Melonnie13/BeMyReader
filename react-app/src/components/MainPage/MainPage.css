@@ -1,5 +1,5 @@
 #main-page {
-    padding-top: 100px;
+    padding-top: 140px;
     height: 100vh;
     max-width: 100vw;
     background-color: #6d9eeb;
@@ -71,5 +71,5 @@
 }
 
 .big-button:hover {
-    background-color: #1c4587;
+    background-color: #8e7cc3;
 }

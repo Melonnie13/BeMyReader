@@ -38,14 +38,14 @@ const CommentEdit = ({comment}) => {
             <button onClick={onUpload}
             type='button'
             name='edit-comment'
-            className='comment-button'>Edit Comment</button>
+            className='button'>Edit Comment</button>
             {formOpen && (
                 <form onSubmit={updateNewComment}>
                     <label htmlFor='comment-edit-text'></label>
                     <textarea name='comment-edit-text' placeholder={comment.body}
                     onChange={(e) => setBody(e.target.value)}/>
                     <label htmlFor='comment-edit-button'></label>
-                    <button type='submit' name='comment-edit-button' className='comment-button'>Submit</button>
+                    <button type='submit' name='button' className='comment-button'>Submit</button>
                 </form>
             )}
 
