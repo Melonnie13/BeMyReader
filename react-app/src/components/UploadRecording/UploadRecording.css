@@ -16,9 +16,14 @@
     border-radius: 50%;
     height: 200px;
     width: auto;
-    background-color: #8e7cc3;
+    background-color: #6d9eeb;
     color: white;
     font-size: 2em;
+    margin-top: 20px;
+}
+
+.audioBtn:hover {
+    background-color: #8e7cc3;
 }
 
 .audio-wave-bar {
@@ -35,11 +40,15 @@
 }
 
 .audioPlayerBtn {
-    background-color: #8e7cc3;
+    background-color: #6d9eeb;
     color: white;
     font-size: 1.9em;
-    border-radius: 50px;
-    height: 100px;
+    border-radius: 10px;
+    height: 70px;
+}
+
+.audioPlayerBtn:hover {
+    background-color: #8e7cc3;
 }
 
 #audio-player {
@@ -50,7 +59,7 @@
 }
 
 .audio-form-input {
-    height: 30px;
+    height: 70px;
     width: 300px;
     background-color: white;
     border-radius: 10px;
@@ -76,4 +85,13 @@ select, option {
     font-size: 1.5em;
     color: white;
     background-color: #6d9eeb;
+    border-radius: 10px;
+}
+
+select:hover{
+    background-color: #8e7cc3;
+}
+
+input {
+    font-size: 30px;
 }
