@@ -71,48 +71,65 @@ const UploadRecording = () => {
 
     return (
         <div id='upload-page'>
-            <label htmlFor='recorder'></label>
-            <ReactMic
-                record={record}
-                name='recorder'
-                className='audio-recorder'
-                onStop={onStop}
-                backgroundColor='#6495ed'
-                mimeType='audio/mpeg'
-            />
-            <label htmlFor='start-recording'>Start Recording</label>
-            <button onClick={startRecording}
-                    type='button'
-                    name='start-recording'
-                    className='audioBtn'
-            >Start Recording
-            </button>
-            <label htmlFor='stop-recording'>Stop Recording</label>
-            <button onClick={stopRecording}
-                    type='button'
-                    name='stop-recording'
-                    className='audioBtn'
-            >Stop Recording</button>
-
-            <ReactAudioPlayer
-                src={recordingBlob.blobURL}
-                controls
-                style={audioExists ? { display: 'block' } : { display: 'none' }}
-            />
-            <label htmlFor='upload-recording'></label>
-            <button onClick={onUpload}
-                    type='button'
-                    name='upload-recording'
-                    className='audioBtn'
+            <div>
+                <label htmlFor='recorder'></label>
+                <ReactMic
+                    record={record}
+                    name='recorder'
+                    className='audio-recorder'
+                    onStop={onStop}
+                    strokeColor='#6d9eeb'
+                    backgroundColor='#ffffff'
+                    className='audio-wave-bar'
+                    mimeType='audio/webm'
+                />
+            </div>
+            <div id='audio-buttons-container'>
+                <div>
+                    <label htmlFor='start-recording'></label>
+                    <button onClick={startRecording}
+                            type='button'
+                            name='start-recording'
+                            className='audioBtn'
+                    >Start Recording
+                    </button>
+                </div>
+                <div>
+                    <label htmlFor='stop-recording'></label>
+                    <button onClick={stopRecording}
+                            type='button'
+                            name='stop-recording'
+                            className='audioBtn'
+                    >Stop Recording
+                    </button>
+                </div>
+            </div>
+            <div id='audio-player'>
+                <ReactAudioPlayer
+                    src={recordingBlob.blobURL}
+                    controls
+                    // className='audio'
                     style={audioExists ? { display: 'block' } : { display: 'none' }}
-            >Happy? Upload Recording</button>
-            <label htmlFor='delete-recording'></label>
-            <button onClick={onDelete}
-                    type='button'
-                    name='delete-recording'
-                    className='audioBtn'
-                    style={audioExists ? { display: 'block' } : { display: 'none' }}
-            >Not Happy? Delete Recording</button>
+                />
+            </div>
+            <div id='upload-buttons-container'>
+                <label htmlFor='upload-recording'></label>
+                <button onClick={onUpload}
+                        type='button'
+                        name='upload-recording'
+                        className='audioPlayerBtn'
+                        style={audioExists ? { display: 'block' } : { display: 'none' }}
+                >Upload Recording
+                </button>
+                <label htmlFor='delete-recording'></label>
+                <button onClick={onDelete}
+                        type='button'
+                        name='delete-recording'
+                        className='audioPlayerBtn'
+                        style={audioExists ? { display: 'block' } : { display: 'none' }}
+                >Delete Recording
+                </button>
+            </div>
             <div>
                 {formOpen &&
                     <form className='input-form' onSubmit={onSubmit}>

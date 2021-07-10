@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AboutMe from '../AboutMe'
 import './MainPage.css';
-import banner from '../../Images/banner.png';
 
 const MainPage = () => {
     return (
