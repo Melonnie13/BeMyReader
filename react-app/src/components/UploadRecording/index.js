@@ -42,6 +42,7 @@ const UploadRecording = () => {
     const onDelete = () => {
         setRecordingBlob('');
         setAudioExists(false);
+        setFormOpen(false);
     }
     const onUpload = () => {
         setFormOpen(!formOpen);
