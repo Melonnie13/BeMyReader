@@ -1,0 +1,11 @@
+#user-page {
+        padding-top: 200px;
+        height: 100vh;
+        max-width: 100vw;
+        background-color: #6d9eeb;
+}
+
+.headline {
+    color: white;
+    font-size: 3em;
+}

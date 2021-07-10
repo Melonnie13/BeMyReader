@@ -1,0 +1,7 @@
+.container{
+    box-sizing: border-box;
+    border: 1px;
+    border-color: #1c4587;
+    color: white;
+    font-size: 35px;
+}
