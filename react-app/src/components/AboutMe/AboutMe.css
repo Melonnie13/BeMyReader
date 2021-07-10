@@ -7,3 +7,15 @@
 .about-me-links {
     display: inline
 }
+
+#about-me {
+    background-color: #6d9eeb;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+
+#about-me-links-container {
+    display: flex;
+    justify-content: center;
+}

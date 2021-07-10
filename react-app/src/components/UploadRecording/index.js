@@ -132,42 +132,43 @@ const UploadRecording = () => {
             </div>
             <div>
                 {formOpen &&
-                    <form className='input-form' onSubmit={onSubmit}>
-                        <label className='form-labels' htmlFor='title'>Title</label>
-                        <input
-                        type='text'
-                        name='title'
-                        className='form-input'
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        />
-                        <label className='form-labels' htmlFor='description'>Description</label>
-                        <input
-                        type='text'
-                        name='description'
-                        className='form-input'
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        />
-                        <label className='form-labels' htmlFor='category'>Choose A Category</label>
-                        <select
-                        name='category'
-                        className='form-input'
-                        onChange={(e) => setCategory(e.target.value)}
-                        value={category.id}
-                        >
-                            <option default>Choose A Category</option>Choose a Category
-                            {categories.map(category => (
-                                <option
-                                key={category.id}
-                                value={category.id}
-                                >
-                                    {category.name}
-                                </option>
-                            ))}
-                        </select>
-                        <label htmlFor='submit-button'>Submit Recording</label>
-                        <button type='submit' name='submit-button' className='button'>Submit</button>
+                    <form className='audio-input-form' onSubmit={onSubmit}>
+                        <div id='audio-form-input-container'>
+                            <label className='audio-form-labels' htmlFor='title'>Title</label>
+                            <input
+                            type='text'
+                            name='title'
+                            className='audio-form-input'
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            />
+                            <label className='audio-form-labels' htmlFor='description'>Description</label>
+                            <input
+                            type='text'
+                            name='description'
+                            className='audio-form-input'
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            />
+                            <label className='audio-form-labels' htmlFor='category'></label>
+                            <select
+                            name='category'
+                            onChange={(e) => setCategory(e.target.value)}
+                            value={category.id}
+                            >
+                                <option className='audio-form-labels' default>Choose A Category</option>Choose a Category
+                                {categories.map(category => (
+                                    <option
+                                    key={category.id}
+                                    value={category.id}
+                                    >
+                                        {category.name}
+                                    </option>
+                                ))}
+                            </select>
+                            <label className='audio-form-labels' htmlFor='submit-button'></label>
+                            <button className='audioPlayerBtn' type='submit' name='submit-button'>Submit Recording</button>
+                        </div>
                         {audioLoading && <p> Loading...</p>}
                     </form>
                 }
