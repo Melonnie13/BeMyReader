@@ -4,9 +4,11 @@
     display: flex;
     position: fixed;
     justify-content: space-evenly;
-    color: white;
-    margin: 0;
-    padding-top: 30px;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-bottom: 0;
+    background-color: #6d9eeb;
+    align-items:center
 }
 
 .nav-bar-item {

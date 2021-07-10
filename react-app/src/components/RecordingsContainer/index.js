@@ -27,10 +27,10 @@ const RecordingsContainer = () => {
                     {`${userPage.username}'s`} Recordings
                 </h2>
                 <label htmlFor='user-recordings'></label>
-                <div>
+                <div className='container-contents'>
                     {recordings.map(recording => (
                             <div name='user-recordings' className='container' key={recording.id}>
-                            <Link className='container' to={`/recording/${recording.id}`}>{recording.title}</Link>
+                            <Link className='container-items' to={`/recording/${recording.id}`}>{recording.title}</Link>
                             <div>
                                 {userPage.id === user.id ?
                                     <div>
