@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { deleteOneFavorite } from '../../store/favorite';
+import { deleteOneFavorite, getUsersFavorites } from '../../store/favorite';
 import './FavoriteDelete.css';
 
 const FavoriteDelete = ({id}) => {
@@ -13,6 +13,7 @@ const FavoriteDelete = ({id}) => {
     const deleteAFavorite = async(e) => {
         e.preventDefault();
         dispatch(deleteOneFavorite(id));
+        dispatch(getUsersFavorites(user.id));
         history.push(`/users/${user.id}`);
     };
 
