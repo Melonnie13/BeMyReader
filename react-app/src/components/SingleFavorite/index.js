@@ -31,6 +31,12 @@ const SingleFavorite = () => {
     return (
 
         <div id='favorite-page'>
+            <label htmlFor='favorite-username'></label>
+            <div id='username-container' name='favorite-username'>
+                <Link id='fav-container-headline' to={`/users/${favoriteUserId}`}>
+                    {`${favorite.username}'s Favorite List`}
+                </Link>
+            </div>
             <h3>
                 <label htmlFor='favorite-name'></label>
                 <div className='headline' name='favorite-name'>
@@ -46,12 +52,6 @@ const SingleFavorite = () => {
                     </div>
                     : null}
                 </div>
-            </div>
-            <label htmlFor='favorite-username'></label>
-            <div name='favorite-username'>
-                <Link className='container-headline' to={`/users/${favoriteUserId}`}>
-                    {favorite.username}
-                </Link>
             </div>
             <label htmlFor='favorite-titles'></label>
             <div id='username-container-fav'>
