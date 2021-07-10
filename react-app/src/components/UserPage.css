@@ -13,11 +13,11 @@
 }
 
 .container-headline {
-    
-    color: white;
+    color: #b4a7d6;
     font-size: 3em;
+    font-weight: 800;
     text-align: center;
-    padding-bottom: 20px;
+    margin: 20px 5px 5px 5px;
 }
 
 #user-page-items-container{

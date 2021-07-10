@@ -33,29 +33,31 @@ const SingleFavorite = () => {
         <div id='favorite-page'>
             <h3>
                 <label htmlFor='favorite-name'></label>
-                <div name='favorite-name'>
+                <div className='headline' name='favorite-name'>
                     {favorite.name}
                 </div>
             </h3>
-            <label htmlFor='delete-favorite'></label>
-            <div name='delete-favorite'>
-                {favorite.username === user.username ?
-                <div>
-                    <FavoriteDelete />
+            <div id='fav-del-btn-container'>
+                <label htmlFor='delete-favorite'></label>
+                <div name='delete-favorite'>
+                    {favorite.username === user.username ?
+                    <div>
+                        <FavoriteDelete />
+                    </div>
+                    : null}
                 </div>
-                : null}
             </div>
             <label htmlFor='favorite-username'></label>
             <div name='favorite-username'>
-                <Link to={`/users/${favoriteUserId}`}>
+                <Link className='container-headline' to={`/users/${favoriteUserId}`}>
                     {favorite.username}
                 </Link>
             </div>
             <label htmlFor='favorite-titles'></label>
-            <div>
+            <div id='username-container-fav'>
                 {recordings?.map(recording => (
-                    <div name='favorite-titles' className='container' key={recording.id}>
-                    <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
+                    <div name='favorite-titles' id='single-fav-container' key={recording.id}>
+                    <Link className='container-items' to={`/recording/${recording.id}`}>{recording.title}</Link>
                     <div>
                         {favorite.user_id === user.id ?
                         <div>

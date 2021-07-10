@@ -24,7 +24,7 @@ const FavoriteDelete = ({id}) => {
                 onClick={deleteAFavorite}
                 name='delete-button-single-favorite'
                 className='delete-button'>
-                    Delete Favorite
+                    Delete Favorite List
                 </button>
         </div>
     )
