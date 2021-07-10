@@ -54,7 +54,7 @@ const AddToFavorites = ({recording_id}) => {
                     <label htmlFor='favorite-select'></label>
                     <select
                     name='favorite-select'
-                    className='form-input'
+                    className='form-input selector'
                     onChange={(e) => setFavorite(e.target.value)}
                     value={favorite.id}
                     >

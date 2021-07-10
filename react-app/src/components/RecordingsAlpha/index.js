@@ -15,15 +15,15 @@ const RecordingsAlpha = () => {
 
     return (
         <div>
-            <label htmlFor='all-recordings-alphabetically'></label>
-            <div>
-                {recordings.map(recording => (
-                    <div name='all-recordings-alphabetically' className='container' key={recording.id}>
-                        <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
-                    </div>
-
-                ))}
-
+            <div className='container-recordings'>
+                <label htmlFor='all-recordings-alphabetically'></label>
+                <div>
+                    {recordings.map(recording => (
+                        <div name='all-recordings-alphabetically' className='container' key={recording.id}>
+                            <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

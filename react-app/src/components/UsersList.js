@@ -22,10 +22,12 @@ function UsersList() {
   });
 
   return (
-    <>
-      <h1>User List: </h1>
-      <ul>{userComponents}</ul>
-    </>
+    <div id='user-list-page'>
+      <div className='container-recordings'>
+        <h1>User List: </h1>
+        <ul>{userComponents}</ul>
+      </div>
+    </div>
   );
 }
 

@@ -22,7 +22,7 @@ const UserPage = ({currentUser}) => {
 
   return (
 
-      <div>
+      <div id='user-page'>
         <div className='headline'>{`${user.username}'s Page`}</div>
         <div>
           <RecordingsContainer />

@@ -25,7 +25,7 @@ const SingleRecording = () => {
     }, [dispatch, id])
 
     return (
-        <div>
+        <div id='recording-page'>
             <h3>
                 <label htmlFor='recording-title'></label>
                 <div name='recording-title'>

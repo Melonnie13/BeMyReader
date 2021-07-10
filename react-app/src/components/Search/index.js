@@ -50,7 +50,7 @@ const Search = () => {
     // }
 
     return (
-        <div>
+        <div id='search-page'>
             <form onSubmit={searchSubmit}>
                 <label htmlFor='search-bar'></label>
                 <input
@@ -62,7 +62,7 @@ const Search = () => {
                 onChange={(e) => setCategory(e.target.value)}
                 >
                 </input>
-                <button type='submit'>Search</button>
+                <button className='button' type='submit'>Search</button>
             </form>
             {results ?
                 <SearchResults category={category}/>
