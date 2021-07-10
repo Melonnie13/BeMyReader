@@ -1,0 +1,33 @@
+#favorite-page{
+    padding-top: 200px;
+    height: 100vh;
+    max-width: 100vw;
+    background-color: #1167b1;
+}
+
+#fav-del-btn-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#single-fav-container {
+    border: solid #8e7cc3 4px;
+    border-radius: 10px;
+    padding: 0 10px 5px 10px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+#username-container-fav{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
+#fave-rem-container {
+    display:flex;
+    justify-content: center;
+}

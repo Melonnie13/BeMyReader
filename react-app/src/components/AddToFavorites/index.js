@@ -33,7 +33,7 @@ const AddToFavorites = ({recording_id}) => {
         // console.log(favorite, '***********************favorite FROM FORMDATA IN addtofavorite COMPONENT')
         formData.append('recording_id', recording_id)
         dispatch(setRecordingFavorite(formData))
-        // dispatch(getUsersFavorites(user_id))
+        dispatch(getUsersFavorites(user_id))
         history.push(`/users/${user.id}`)
     }
 

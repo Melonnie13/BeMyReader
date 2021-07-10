@@ -21,7 +21,7 @@ const FavoritesContainer = () => {
     return (
         <div>
             <div className='container-recordings'>
-                <h2 className='headline'>
+                <h2 className='container-headline'>
                     {`${userPage.username}'s`} Favorites
                 </h2>
                 <label htmlFor='user-favorites'></label>

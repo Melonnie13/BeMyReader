@@ -17,8 +17,8 @@ const FavoriteRemove = ({recording}) => {
     }
 
     return (
-        <div>
-            <button onClick={removeARecording}>remove</button>
+        <div id='fave-rem-container'>
+            <button className='delete-button' id='fave-rem' onClick={removeARecording}>remove</button>
         </div>
     )
 };
