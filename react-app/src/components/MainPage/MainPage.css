@@ -42,8 +42,7 @@
 #main-page-button-container{
     display: flex;
     justify-content: space-evenly;
-    padding: 100px;
-
+    padding: 100px 0px 50px 0px;
 }
 
 .big-button {
