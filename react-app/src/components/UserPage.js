@@ -24,16 +24,20 @@ const UserPage = ({currentUser}) => {
 
       <div id='user-page'>
         <div className='headline'>{`${user.username}'s Page`}</div>
-        <div>
-          <RecordingsContainer />
+        <div id='user-page-items-container'>
+          <div className='user-page-container'>
+            <RecordingsContainer />
+          </div>
+          <div>
+            <div className='user-page-container'>
+              <FavoritesContainer />
+            </div>
+            <div>
+              <AddFavorite />
+            </div>
+          </div>
         </div>
-        <div>
-          <AddFavorite />
         </div>
-        <div>
-          <FavoritesContainer />
-        </div>
-      </div>
 
   );
 

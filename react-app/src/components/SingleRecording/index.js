@@ -26,7 +26,7 @@ const SingleRecording = () => {
 
     return (
         <div id='recording-page'>
-            <h3>
+            <h3 className='container'>
                 <label htmlFor='recording-title'></label>
                 <div name='recording-title'>
                 {recording.title}
@@ -43,7 +43,7 @@ const SingleRecording = () => {
             </h3>
             <label htmlFor='recording-username'></label>
             <div name='recording-username'>
-                <Link to={`/users/${recordingUserId}`}>
+                <Link className='container' to={`/users/${recordingUserId}`}>
                     {recording.username}
                 </Link>
             </div>

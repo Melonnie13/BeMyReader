@@ -52,22 +52,23 @@ const Search = () => {
     return (
         <div id='search-page'>
             <form onSubmit={searchSubmit}>
-                <label htmlFor='search-bar'></label>
-                <input
-                type='text'
-                name='search-bar'
-                placeholder='Search By Category'
-                className='form-input'
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                >
-                </input>
-                <button className='button' type='submit'>Search</button>
+                <div id='search-input-container'>
+                    <label htmlFor='search-bar'></label>
+                    <input
+                    type='text'
+                    name='search-bar'
+                    placeholder='Search By Category'
+                    id='search-form-input'
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    >
+                    </input>
+                    <button className='button' type='submit'>Search</button>
+                </div>
             </form>
             {results ?
                 <SearchResults category={category}/>
             : null}
-
         </div>
     )
 };

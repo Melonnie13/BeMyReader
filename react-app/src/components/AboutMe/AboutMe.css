@@ -14,11 +14,14 @@
     color: white;
     text-align: center;
     font-size: 25px;
-    padding-top: 10px;
+    margin-top: 50px;
+    padding: 0px 60px 0px 60px;
+    display: flex
 }
 
 #about-me-links-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px;
 }

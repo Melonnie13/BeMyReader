@@ -1,0 +1,37 @@
+.button {
+    width: 150px;
+    height: 100px;
+    background-color: #6d9eeb;
+    color: white;
+    font-size: 25px;
+    margin: 50px 0 0 20px;
+    border-radius: 10px;
+}
+
+.delete-button {
+    color: white;
+    background-color: #6d9eeb;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.delete-button:hover {
+    background-color: #8e7cc3;
+}
+
+#favorite-form-input {
+    margin: 0 0 0 20px;
+    height: 75px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: #8e7cc3;
+}
+
+textarea {
+    font-size: 30px;
+}

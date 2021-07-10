@@ -25,7 +25,7 @@ const CommentDelete = ({comment}) => {
 
         <div>
             <label htmlFor='delete-button'></label>
-            <button className='button' name='delete-button' onClick={deleteComment}>
+            <button className='delete-button' name='delete-button' onClick={deleteComment}>
                 Delete
             </button>
         </div>

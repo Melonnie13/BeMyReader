@@ -44,13 +44,13 @@ const AddFavorite = () => {
                     <label htmlFor='add-favorite'></label>
                     <textarea
                     name='add-favorite'
-                    className='form-input'
+                    id='favorite-form-input'
                     placeholder='Name Favorite List'
                     onChange={(e) => setName(e.target.value)}
                     value={name}/>
                     <label htmlFor='submit-button'></label>
                     <button type='submit' className='button' name='submit-button'>
-                        Submit Favorite List
+                        Submit
                     </button>
                 </form>
             }
