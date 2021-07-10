@@ -70,7 +70,7 @@ const UploadRecording = () => {
     }
 
     return (
-        <div>
+        <div id='upload-page'>
             <label htmlFor='recorder'></label>
             <ReactMic
                 record={record}
@@ -116,7 +116,7 @@ const UploadRecording = () => {
             <div>
                 {formOpen &&
                     <form className='input-form' onSubmit={onSubmit}>
-                        <label htmlFor='title'>Title</label>
+                        <label className='form-labels' htmlFor='title'>Title</label>
                         <input
                         type='text'
                         name='title'
@@ -124,7 +124,7 @@ const UploadRecording = () => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         />
-                        <label htmlFor='description'>Description</label>
+                        <label className='form-labels' htmlFor='description'>Description</label>
                         <input
                         type='text'
                         name='description'
@@ -132,7 +132,7 @@ const UploadRecording = () => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         />
-                        <label htmlFor='category'>Choose A Category</label>
+                        <label className='form-labels' htmlFor='category'>Choose A Category</label>
                         <select
                         name='category'
                         className='form-input'

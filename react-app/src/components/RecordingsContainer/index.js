@@ -22,24 +22,26 @@ const RecordingsContainer = () => {
 
     return (
         <div>
-            <h2 className='headline'>
-                {`${userPage.username}'s`} Recordings
-            </h2>
-            <label htmlFor='user-recordings'></label>
-            <div>
-                {recordings.map(recording => (
-                        <div name='user-recordings' className='container' key={recording.id}>
-                        <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
-                        <div>
-                            {userPage.id === user.id ?
-                                <div>
-                                <DeleteRecording id={recording.id}/>
-                                </div>
-                                : null
-                            }
-                        </div>
-                        </div>
-                ))}
+            <div className='container-recordings'>
+                <h2 className='headline'>
+                    {`${userPage.username}'s`} Recordings
+                </h2>
+                <label htmlFor='user-recordings'></label>
+                <div>
+                    {recordings.map(recording => (
+                            <div name='user-recordings' className='container' key={recording.id}>
+                            <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
+                            <div>
+                                {userPage.id === user.id ?
+                                    <div>
+                                    <DeleteRecording id={recording.id}/>
+                                    </div>
+                                    : null
+                                }
+                            </div>
+                            </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

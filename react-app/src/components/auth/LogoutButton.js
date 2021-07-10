@@ -13,7 +13,7 @@ const LogoutButton = () => {
 
     <div className='nav-bar-item'>
       <label htmlFor='logout'></label>
-      <button className='nav-bar-item' name='logout' onClick={onLogout}>Logout</button>
+      <button className='nav-bar-item nav-btn' name='logout' onClick={onLogout}>Logout</button>
     </div>
   )
 };

@@ -30,7 +30,7 @@ const SingleFavorite = () => {
 
     return (
 
-        <div>
+        <div id='favorite-page'>
             <h3>
                 <label htmlFor='favorite-name'></label>
                 <div name='favorite-name'>

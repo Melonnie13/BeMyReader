@@ -20,24 +20,26 @@ const FavoritesContainer = () => {
 
     return (
         <div>
-            <h2 className='headline'>
-                {`${userPage.username}'s`} Favorites
-            </h2>
-            <label htmlFor='user-favorites'></label>
-            <div>
-                {favorites?.map(favorite => (
-                    <div name='user-favorites' className='container' key={uuid()}>
-                        <Link to={`/favorite/${favorite.id}`}>{favorite.name}</Link>
-                        <div>
-                            {userPage.id === user.id ?
-                                <div>
-                                    <FavoriteDelete id={favorite.id} />
-                                </div>
-                                : null
-                            }
+            <div className='container-recordings'>
+                <h2 className='headline'>
+                    {`${userPage.username}'s`} Favorites
+                </h2>
+                <label htmlFor='user-favorites'></label>
+                <div>
+                    {favorites?.map(favorite => (
+                        <div name='user-favorites' className='container' key={uuid()}>
+                            <Link to={`/favorite/${favorite.id}`}>{favorite.name}</Link>
+                            <div>
+                                {userPage.id === user.id ?
+                                    <div>
+                                        <FavoriteDelete id={favorite.id} />
+                                    </div>
+                                    : null
+                                }
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     )
