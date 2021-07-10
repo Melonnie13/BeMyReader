@@ -30,7 +30,7 @@
 #logo {
     grid-row-start: 1;
     grid-row-end: 2;
-    max-width: 100px;
+    max-width: 200px;
     max-height: auto;
     border-radius: 50%;
 }
@@ -41,6 +41,7 @@
 
 .demo-btn {
     width: 200px;
+    max-height: 100px;
     background-color: #8e7cc3;
     font-size: 2em;
 }
