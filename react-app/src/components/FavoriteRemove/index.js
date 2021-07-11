@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
-import { removeRecordingFavorite } from '../../store/favorite';
+import { useEffect } from 'react';
+import { removeRecordingFavorite, renderOneFavorite } from '../../store/favorite';
 import './FavoriteRemove.css';
 
 const FavoriteRemove = ({recording}) => {
@@ -8,13 +9,17 @@ const FavoriteRemove = ({recording}) => {
     const {id} = useParams();
     // console.log(id, 'ID FROM REMOVE FAVORITE COMPONENT')
     // console.log(recording, '********************RECORDING FORM REMOVE FAVE COMP')
-    const favoriteId = id
+    const favoriteId = parseInt(id)
     const recordingId = recording.id
 
     const removeARecording = async(e) => {
         e.preventDefault();
-        dispatch(removeRecordingFavorite(parseInt(favoriteId), recordingId))
+        dispatch(removeRecordingFavorite(favoriteId, recordingId))
     }
+
+    useEffect(() => {
+        dispatch(renderOneFavorite(favoriteId))
+    }, [dispatch, favoriteId]);
 
     return (
         <div id='fave-rem-container'>

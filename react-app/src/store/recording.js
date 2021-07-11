@@ -67,9 +67,9 @@ export const deleteRecording = (id) => async (dispatch) => {
         body: JSON.stringify(id)
     });
         if (res.ok){
-            const deletedRecord = await res.json()
-            dispatch(deleteOneRecording(deletedRecord))
-            return deletedRecord;
+            const deletedRecording = await res.json()
+            dispatch(deleteOneRecording(deletedRecording))
+            return deletedRecording;
         }
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { deleteRecording, getUsersRecordings } from '../../store/recording';
@@ -8,6 +8,8 @@ const DeleteRecording = ({id}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session.user);
+    const recordings = useSelector(state => state.recording)
+    const user_id = user.id;
 
     const deleteARecording = async(e) => {
         e.preventDefault();
@@ -16,9 +18,9 @@ const DeleteRecording = ({id}) => {
         history.push(`/users/${user.id}`);
     };
 
-    // useEffect(() => {
-    //     dispatch(getUsersRecordings((user_id)))
-    // }, [dispatch, user_id])
+    useEffect(() => {
+        dispatch(getUsersRecordings(user_id))
+    }, [dispatch, user_id])
 
     return (
         <div>

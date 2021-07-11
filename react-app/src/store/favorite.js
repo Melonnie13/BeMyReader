@@ -102,7 +102,7 @@ export const removeRecordingFavorite = (favoriteId, recordingId) => async (dispa
     })
     if (res.ok) {
         const favoriteWithoutRecording = await res.json();
-        dispatch(setOneFavorite(favoriteWithoutRecording))
+        dispatch(getFavorite(favoriteWithoutRecording))
     } else {
         console.log('ERROR FROM REMOVE RECORDING THUNK - FAVORITE STORE')
     }
@@ -143,9 +143,10 @@ export default function reducer(state = initialState, action){
             delete newState[action.payload.id]
             return newState;
         case SET_FAVORITE:
-            return {
-                ...action.payload
-            }
+            if (newState[action.payload.id]) {
+                return newState;
+            } else {newState[action.payload.id] = action.payload
+            return newState};
         default:
             return state;
     }

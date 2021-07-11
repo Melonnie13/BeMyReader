@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { newFavorite } from  '../../store/favorite';
+import { getUsersFavorites, newFavorite } from  '../../store/favorite';
 import './AddFavorite.css';
 
 const AddFavorite = () => {
@@ -27,6 +27,7 @@ const AddFavorite = () => {
         dispatch(newFavorite(formData));
         setName('');
         setFormOpen(false);
+        dispatch(getUsersFavorites());
         history.push(`/users/${user.id}`);
     }
 
