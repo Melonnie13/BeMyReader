@@ -57,59 +57,61 @@ const SignUpForm = () => {
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label className='form-labels' htmlFor='enter-username'>User Name</label>
-          <input
-            type='text'
-            name='enter-username'
-            className='form-input'
-            onChange={updateUsername}
-            value={username}
-          ></input>
+        <div id='signup-form-inputs-container'>
+          <div>
+            <label className='form-labels-signup' htmlFor='enter-username'>User Name</label>
+            <input
+              type='text'
+              name='enter-username'
+              className='form-input-signup'
+              onChange={updateUsername}
+              value={username}
+            ></input>
+          </div>
+          <div>
+            <label className='form-labels-signup' htmlFor='email'>Email</label>
+            <input
+              type='text'
+              name='email'
+              className='form-input-signup'
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div>
+            <label className='form-labels-signup' htmlFor='vision-impaired-checkbox'>Vision Impaired Check Box For Yes</label>
+            <input
+              type='checkbox'
+              name='vision-impaired-checkbox'
+              className='form-checkbox'
+              checked={visionImpaired}
+              onChange={updateVisionImpaired}
+            ></input>
+          </div>
+          <div>
+            <label className='form-labels-signup' htmlFor='password'>Password</label>
+            <input
+              type='password'
+              name='password'
+              className='form-input-signup'
+              onChange={updatePassword}
+              value={password}
+            ></input>
+          </div>
+          <div>
+            <label className='form-labels-signup' htmlFor='repeat_password'>Repeat Password</label>
+            <input
+              type='password'
+              name='repeat_password'
+              className='form-input-signup'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+            ></input>
+          </div>
+          <label htmlFor='sign_up_button'></label>
+          <button className='button' name='sign_up_button' type='submit'>Sign Up</button>
         </div>
-        <div>
-          <label className='form-labels' htmlFor='email'>Email</label>
-          <input
-            type='text'
-            name='email'
-            className='form-input'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div>
-          <label className='form-labels' htmlFor='vision-impaired-checkbox'>Vision Impaired Check Box For Yes</label>
-          <input
-            type='checkbox'
-            name='vision-impaired-checkbox'
-            className='form-checkbox'
-            checked={visionImpaired}
-            onChange={updateVisionImpaired}
-          ></input>
-        </div>
-        <div>
-          <label className='form-labels' htmlFor='password'>Password</label>
-          <input
-            type='password'
-            name='password'
-            className='form-input'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div>
-          <label className='form-labels' htmlFor='repeat_password'>Repeat Password</label>
-          <input
-            type='password'
-            name='repeat_password'
-            className='form-input'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <label htmlFor='sign_up_button'></label>
-        <button className='button' name='sign_up_button' type='submit'>Sign Up</button>
       </form>
     </div>
   );

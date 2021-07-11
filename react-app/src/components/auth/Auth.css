@@ -37,3 +37,40 @@
     margin-right: 70px
 
 }
+
+#signup-page {
+    padding-top: 200px;
+    height: 100vh;
+    max-width: 100vw;
+    background-color: #1167b1;
+}
+
+.form-input-signup {
+    height: 70px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.form-labels-signup {
+    color: white;
+    font-size: 2em;
+    padding: 0 10px 0 20px;
+}
+
+input[type=checkbox]{
+    height: 30px;
+}
+
+/* #signup-form-inputs-container{
+
+} */
+
+.form-input-signup-username {
+    height: 70px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 70px;
+
+}

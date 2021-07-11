@@ -30,7 +30,7 @@ class Recording(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'comment_ids': [comment.id for comment in self.comments],
-            'username': self.users.username,
+            # 'username': self.users.username,
             'user_id': self.users.id,
             'category': self.categories.name
         }
