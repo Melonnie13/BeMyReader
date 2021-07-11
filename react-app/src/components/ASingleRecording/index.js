@@ -27,7 +27,7 @@ const ASingleRecording = () => {
                 <h3 id='single-rec-headline'>
                     <label htmlFor='recording-title'></label>
                     <div name='recording-title'>
-                    {recording.title}
+                    {recording?.title}
                     </div>
                     <label htmlFor='recording-category'></label>
                     <div name='recording-category'>
@@ -39,12 +39,12 @@ const ASingleRecording = () => {
                     </div>
                 </h3>
                 <div id='single-recording-user-container'>
-                    <label htmlFor='recording-username'></label>
+                    {/* <label htmlFor='recording-username'></label>
                     <div name='recording-username'>
                         <Link id='single-rec-username' to={`/users/${recordingUserId}`}>
                             {`Recorded By: ${recording?.username}`}
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
                 <div id='audio-player-container'>
                     <ReactAudioPlayer
