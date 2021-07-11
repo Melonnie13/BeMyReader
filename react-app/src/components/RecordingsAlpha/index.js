@@ -14,13 +14,13 @@ const RecordingsAlpha = () => {
     }, [dispatch])
 
     return (
-        <div>
-            <div className='container-recordings'>
+        <div id='alpha-page'>
+            <div id='alpha-container'>
                 <label htmlFor='all-recordings-alphabetically'></label>
-                <div>
+                <div id='alpha-page-container'>
                     {recordings.map(recording => (
-                        <div name='all-recordings-alphabetically' className='container' key={recording.id}>
-                            <Link to={`/recording/${recording.id}`}>{recording.title}</Link>
+                        <div name='all-recordings-alphabetically' key={recording.id}>
+                            <Link id='alpha-headline' to={`/recording/${recording.id}`}>{recording.title}</Link>
                         </div>
                     ))}
                 </div>
