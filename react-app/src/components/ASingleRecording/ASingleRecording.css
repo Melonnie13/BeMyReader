@@ -56,3 +56,23 @@
     margin: 0px 0 0 20px;
     border-radius: 10px;
 }
+
+#single-recording-user-container{
+    display: flex;
+    justify-content: center;
+}
+
+#single-rec-username{
+    color: #b4a7d6;
+    font-size: 3em;
+    font-weight: 800;
+    text-align: center;
+    margin: 20px 5px 5px 5px;
+}
+
+#single-rec-headline{
+        color: white;
+        font-size: 3em;
+        text-align: center;
+        padding-bottom: 20px;
+}
