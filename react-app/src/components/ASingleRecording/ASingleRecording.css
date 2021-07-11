@@ -14,12 +14,14 @@
 
 #comment-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 40px;
 }
 
 #comment-form-container{
     display:flex;
     justify-content: center;
+    align-items: center;
     margin: 30px;
 }
 
@@ -60,6 +62,7 @@
 #single-recording-user-container{
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 #single-rec-username{
@@ -74,5 +77,19 @@
         color: white;
         font-size: 3em;
         text-align: center;
-        padding-bottom: 20px;
+        padding-bottom: 0px;
+        margin: 0;
+}
+
+#audio-player-container{
+    display:flex;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+}
+
+#comment-container-items{
+    color: white;
+    font-size: 35px;
+    padding: 5px;
+    display: flex;
 }

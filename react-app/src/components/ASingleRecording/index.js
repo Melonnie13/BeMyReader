@@ -6,7 +6,7 @@ import AddComment from '../AddComment';
 import CommentsRecording from '../CommentsRecording';
 import DeleteRecording from '../DeleteRecording';
 import AddToFavorites from '../AddToFavorites';
-import {ReactAudioPlayer} from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 import './ASingleRecording.css';
 
 const ASingleRecording = () => {
@@ -42,11 +42,11 @@ const ASingleRecording = () => {
                     <label htmlFor='recording-username'></label>
                     <div name='recording-username'>
                         <Link id='single-rec-username' to={`/users/${recordingUserId}`}>
-                            {`${recording.username}`}
+                            {`Recorded By: ${recording.username}`}
                         </Link>
                     </div>
                 </div>
-                <div>
+                <div id='audio-player-container'>
                     <ReactAudioPlayer
                         src={recording.blobURL}
                         controls
