@@ -7,17 +7,33 @@
 
 .input-form {
     width: 100%;
-    background-color: violet;
+    background-color: #1167b1;
     display: flex;
     padding: 30px;
+    justify-content: space-evenly;
 }
 
-.form-input {
-    width: 500px;
+.form-input-login {
     height: 75px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 5px;
+    margin-left: 60px;
 }
 
 .form-labels{
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
+    padding: 0 10px 0 20px;
+}
+
+.form-input-login-password {
+    height: 75px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 5px;
+    margin-right: 70px
+
 }
