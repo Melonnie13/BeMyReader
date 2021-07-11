@@ -56,7 +56,7 @@ def get_one_recording(id):
 
 
 @recording_routes.route('/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_users_recordings(id):
     recordings = Recording.query.filter(Recording.user_id == id).order_by(Recording.title.desc()).all()
     print(recordings, '&&&&&&&&&&&&&&&&&&&&&&&&&FROM BACKEND ROUTE TO GET RECORDING BY USER_ID')

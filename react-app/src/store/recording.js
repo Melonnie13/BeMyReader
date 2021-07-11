@@ -1,6 +1,6 @@
 //constants
 const ADD_RECORDING = 'recording/ADD_RECORDING';
-const SET_ONE_RECORDING = 'recording/SET_ONE_RECORDING';
+const GET_ONE_RECORDING = 'recording/SET_ONE_RECORDING';
 const DELETE_ONE_RECORDING = 'recording/DELETE_ONE_RECORDING';
 const GET_RECORDINGS = 'recording/GET_RECORDINGS';
 
@@ -10,8 +10,8 @@ const addRecording = (recording) => ({
     payload: recording
 });
 
-const setOneRecording = (recording) => ({
-    type: SET_ONE_RECORDING,
+const getOneRecording = (recording) => ({
+    type: GET_ONE_RECORDING,
     payload: recording
 });
 
@@ -55,7 +55,8 @@ export const renderOneRecording = (id) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(setOneRecording(data));
+        dispatch(getOneRecording(data));
+        return data;
     } else {
         console.log('error from renderOneRecording thunk')
     }
@@ -108,7 +109,7 @@ export default function reducer(state = initialState, action){
         case ADD_RECORDING:
             newState[action.payload.id] = action.payload
             return newState;
-        case SET_ONE_RECORDING:
+        case GET_ONE_RECORDING:
             return {
                 ...action.payload
             };

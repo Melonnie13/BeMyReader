@@ -7,7 +7,7 @@ const AddComment = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const recording = useSelector(state => state.recording);
-    // console.log('RECORDING FROM ADD COMMENT COMPONENT', recording.id)
+    console.log('RECORDING FROM ADD COMMENT COMPONENT', recording)
 
     const [body, setBody] = useState('');
 

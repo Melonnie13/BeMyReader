@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { getOneUser } from '../store/user';
 import './UserPage.css';
 
-const UserPage = ({currentUser}) => {
+const UserPage = () => {
 
   const {id} = useParams(); // userId for the userpage
   const dispatch = useDispatch();
