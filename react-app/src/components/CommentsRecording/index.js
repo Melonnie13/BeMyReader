@@ -25,7 +25,7 @@ const CommentsRecording = () => {
                 <label htmlFor='comments'></label>
                 <div id='comment-container-items' name='comments'>
                     {comments.map(comment => (
-                        <div key={comment?.id}>
+                        <div id='comment-div' key={comment?.id}>
                             {comment?.body}
                             <label htmlFor='comment-username'></label>
                             <Link name='comment-username' className='container-items'>{comment?.username}</Link>

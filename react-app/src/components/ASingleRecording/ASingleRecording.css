@@ -1,6 +1,6 @@
 #recording-page {
     padding-top: 200px;
-    height: 100vh;
+    height: 100%;
     max-width: 100vw;
     background-color: #1167b1;
 }
@@ -90,6 +90,14 @@
 #comment-container-items{
     color: white;
     font-size: 35px;
-    padding: 5px;
+    padding: 10px;
     display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+#comment-div{
+    margin: 10px;
+    border: solid #8e7cc3 4px;
+    padding: 10px;
 }

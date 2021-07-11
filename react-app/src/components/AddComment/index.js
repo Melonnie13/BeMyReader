@@ -38,10 +38,12 @@ const AddComment = () => {
                 placeholder='Comment'
                 onChange={(e) => setBody(e.target.value)}
                 value={body}/>
-                    <label htmlFor='submit-button'></label>
-                    <button type='submit' id='comment-button' name='submit-button'>
-                        Add Comment
-                    </button>
+                    <div>
+                        <label htmlFor='submit-button'></label>
+                        <button type='submit' id='comment-button' name='submit-button'>
+                            Add Comment
+                        </button>
+                    </div>
             </form>
         </div>
     )
