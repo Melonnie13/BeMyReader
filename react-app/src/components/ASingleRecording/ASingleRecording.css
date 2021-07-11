@@ -4,3 +4,55 @@
     max-width: 100vw;
     background-color: #1167b1;
 }
+
+#comment-page-container{
+    border: solid #8e7cc3 4px;
+    border-radius: 10px;
+    padding: 0 10px 5px 10px;
+    width: 750px;
+}
+
+#comment-container {
+    display: flex;
+    justify-content: center;
+}
+
+#comment-form-container{
+    display:flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.comment-form-input{
+    height: 100px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 5px;
+    margin-top: 10px
+}
+
+#comment-button{
+    width: 150px;
+    height: 75px;
+    background-color: #6d9eeb;
+    color: white;
+    font-size: 25px;
+    margin: 50px 0 0 20px;
+    border-radius: 10px;
+}
+
+#add-fave-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+#add-to-fave-button{
+    width: 150px;
+    height: 100px;
+    background-color: #6d9eeb;
+    color: white;
+    font-size: 25px;
+    margin: 0px 0 0 20px;
+    border-radius: 10px;
+}

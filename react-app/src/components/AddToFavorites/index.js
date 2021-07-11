@@ -45,7 +45,7 @@ const AddToFavorites = ({recording_id}) => {
             <button onClick={onUpload}
             type='button'
             name='add-to-favorite'
-            className='button'>
+            id='add-to-fave-button'>
                 Add To Favorites
             </button>
             <div>
@@ -69,7 +69,7 @@ const AddToFavorites = ({recording_id}) => {
                             </option>
                         ))}
                     </select>
-                    <label htmlFor='fave-button'>Add</label>
+                    <label htmlFor='fave-button'></label>
                     <button type='submit' name='fave-button' className='button'>Add</button>
                 </form>
                 }

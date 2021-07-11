@@ -25,7 +25,7 @@ const ASingleRecording = () => {
     return (
         <div id='recording-page'>
             <div>
-                <h3>
+                <h3 className='headline'>
                     <label htmlFor='recording-title'></label>
                     <div name='recording-title'>
                     {recording.title}
@@ -40,11 +40,14 @@ const ASingleRecording = () => {
                     </div>
                     {/* {console.log(recording, 'from single recording component')} */}
                 </h3>
-                <label htmlFor='recording-username'></label>
-                <div name='recording-username'>
-                    <Link to={`/users/${recordingUserId}`}>
-                        {recording.username}
-                    </Link>
+                <div className='single-recording-container-headline'>
+                    <label htmlFor='recording-username'></label>
+                    <div name='recording-username'>
+                        <Link to={`/users/${recordingUserId}`}>
+                            {recording.username}
+                        </Link>
+                        {console.log('RECORDING USERNAME', recording.username)}
+                    </div>
                 </div>
                 {/* <div>
                     <ReactAudioPlayer
@@ -55,12 +58,12 @@ const ASingleRecording = () => {
                 <label htmlFor='delete-recording'></label>
                 <div name='delete-recording'>
                     {recording.username === user.username ?
-                    <div>
+                    <div className='delete-button'>
                         <DeleteRecording />
                     </div>
                     : null}
                 </div>
-                <div>
+                <div id='add-fave-btn-container'>
                     <AddToFavorites recording_id={recording.id}/>
                 </div>
                 <div>

@@ -19,27 +19,27 @@ const CommentsRecording = () => {
     }, [dispatch, id]);
 
     return (
-        <div>
-            <label htmlFor='comments'></label>
-            <div className='container' name='comments'>
-                {comments.map(comment => (
-                    <div key={comment?.id}>
-                        {comment?.body}
-                        <label htmlFor='comment-username'></label>
-                        <div name='comment-username' id='comment-container-username'>
-                            {comment?.username}
+        <div id='comment-container'>
+            <div id='comment-page-container'>
+                <label htmlFor='comments'></label>
+                <div className='container-items' name='comments'>
+                    {comments.map(comment => (
+                        <div key={comment?.id}>
+                            {comment?.body}
+                            <label htmlFor='comment-username'></label>
+                            <div name='comment-username' id='comment-container-username'>
+                                {comment?.username}
+                            </div>
+                            {comment?.user_id === user.id
+                            ? <div>
+                                <CommentDelete comment={comment} />
+                                <CommentEdit comment={comment} />
+                            </div>
+                            : null
+                            }
                         </div>
-                        {comment?.user_id === user.id
-                        ? <div>
-                            <CommentDelete comment={comment} />
-                            <CommentEdit comment={comment} />
-                         </div>
-                        : null
-                        }
-                    </div>
-                ))}
-
-
+                    ))}
+                </div>
             </div>
         </div>
     )

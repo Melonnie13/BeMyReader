@@ -29,7 +29,7 @@ const AddComment = () => {
 
     return (
 
-        <div>
+        <div id='comment-form-container'>
             <form className='comment-input-form' onSubmit={postComment}>
                 <label htmlFor='add-comment'></label>
                 <textarea
@@ -39,7 +39,7 @@ const AddComment = () => {
                 onChange={(e) => setBody(e.target.value)}
                 value={body}/>
                     <label htmlFor='submit-button'></label>
-                    <button type='submit' className='button' name='submit-button'>
+                    <button type='submit' id='comment-button' name='submit-button'>
                         Add Comment
                     </button>
             </form>

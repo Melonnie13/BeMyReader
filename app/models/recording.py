@@ -26,11 +26,11 @@ class Recording(db.Model):
             'id': self.id,
             'title': self.title,
             'description': self.description,
+            'category': self.categories.name,
             'audio': self.audio,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'comment_ids': [comment.id for comment in self.comments],
             # 'username': self.users.username,
+            'comment_ids': [comment.id for comment in self.comments],
             'user_id': self.users.id,
-            'category': self.categories.name
         }
