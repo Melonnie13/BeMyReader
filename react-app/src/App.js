@@ -9,12 +9,13 @@ import UsersList from './components/UsersList';
 import UserPage from './components/UserPage';
 import MainPage from './components/MainPage';
 import UploadRecording from './components/UploadRecording';
-import SingleRecording from './components/SingleRecording';
+// import SingleRecording from './components/SingleRecording';
 import SingleFavorite from './components/SingleFavorite';
 import Search from './components/Search';
 import AllFavorites from './components/AllFavorites';
 import RecordingsAlpha from './components/RecordingsAlpha';
 import { authenticate } from './store/session';
+import ASingleRecording from './components/ASingleRecording';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,8 +58,11 @@ function App() {
         <ProtectedRoute path='/recording/upload' exact={true} >
           <UploadRecording />
         </ProtectedRoute>
-        <ProtectedRoute path='/recording/:id' exact={true} >
+        {/* <ProtectedRoute path='/recording/:id' exact={true} >
           <SingleRecording />
+        </ProtectedRoute> */}
+        <ProtectedRoute path='/recording/:id' exact={true} >
+          <ASingleRecording />
         </ProtectedRoute>
         <ProtectedRoute path='/search' exact={true} >
           <Search />
