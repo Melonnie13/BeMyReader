@@ -50,13 +50,24 @@ export const uploadRecording = (formData) => async (dispatch) => {
     }
 };
 
+// export const renderOneRecording = (id) => async (dispatch) => {
+//     const res = await fetch(`/api/recordings/single/${id}`);
+
+//     if (res.ok) {
+//         const data = await res.json();
+//         dispatch(getOneRecording(data));
+//         return data;
+//     } else {
+//         console.log('error from renderOneRecording thunk')
+//     }
+// };
+
 export const renderOneRecording = (id) => async (dispatch) => {
     const res = await fetch(`/api/recordings/single/${id}`);
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(getOneRecording(data));
-        return data;
+        dispatch(setOneRecording(data));
     } else {
         console.log('error from renderOneRecording thunk')
     }
