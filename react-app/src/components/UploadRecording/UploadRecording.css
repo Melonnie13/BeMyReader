@@ -34,8 +34,8 @@
 #upload-buttons-container {
     max-width: 75vw;
     display: flex;
-    justify-content: space-between;
-    padding: 10px 1000px 5px 0px;
+    justify-content: left;
+    /* padding: 10px 1000px 5px 0px; */
 
 }
 
@@ -44,7 +44,8 @@
     color: white;
     font-size: 1.9em;
     border-radius: 10px;
-    height: 70px;
+    height: 75px;
+    margin: 10px
 }
 
 .audioPlayerBtn:hover {
@@ -59,17 +60,18 @@
 }
 
 .audio-form-input {
-    height: 70px;
+    height: 65px;
     width: 300px;
     background-color: white;
     border-radius: 10px;
     padding-left: 5px;
+    margin-top: 10px
 }
 
 #audio-form-input-container{
     display: flex;
     justify-content: left;
-    padding: 60px 50px 0 10px;
+    /* padding: 60px 50px 0 10px; */
 }
 
 .audio-form-labels {
@@ -77,15 +79,17 @@
     font-size: 2em;
     font-weight: bold;
     padding: 0 10px 0 20px;
-
+    margin-top: 25px;
 }
 
 select, option {
     width: 250px;
+    height: 75px;
     font-size: 1.5em;
     color: white;
     background-color: #6d9eeb;
     border-radius: 10px;
+    margin-top: 10px;
 }
 
 select:hover{
@@ -94,4 +98,10 @@ select:hover{
 
 input {
     font-size: 30px;
+}
+
+#form-input-container-flex{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 30px;
 }
