@@ -1,6 +1,6 @@
 //constants
 const ADD_RECORDING = 'recording/ADD_RECORDING';
-const GET_ONE_RECORDING = 'recording/SET_ONE_RECORDING';
+const SET_ONE_RECORDING = 'recording/SET_ONE_RECORDING';
 const DELETE_ONE_RECORDING = 'recording/DELETE_ONE_RECORDING';
 const GET_RECORDINGS = 'recording/GET_RECORDINGS';
 
@@ -10,8 +10,13 @@ const addRecording = (recording) => ({
     payload: recording
 });
 
-const getOneRecording = (recording) => ({
-    type: GET_ONE_RECORDING,
+// const getOneRecording = (recording) => ({
+//     type: GET_ONE_RECORDING,
+//     payload: recording
+// });
+
+const setOneRecording = (recording) => ({
+    type: SET_ONE_RECORDING,
     payload: recording
 });
 
