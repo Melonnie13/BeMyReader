@@ -27,7 +27,7 @@ const AddFavorite = () => {
         dispatch(newFavorite(formData));
         setName('');
         setFormOpen(false);
-        dispatch(getUsersFavorites());
+        dispatch(getUsersFavorites(user.id));
         history.push(`/users/${user.id}`);
     }
 
