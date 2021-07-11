@@ -63,12 +63,14 @@ export const renderOneRecording = (id) => async (dispatch) => {
 
 export const deleteRecording = (id) => async (dispatch) => {
     const res = await fetch(`/api/recordings/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        body: JSON.stringify(id)
     });
-        if (!res.ok){
-            console.log(res, 'from delete recording thunk *****************')
+        if (res.ok){
+            const deletedRecording = await res.json()
+            dispatch(deleteOneRecording(deletedRecording))
+            return deletedRecording;
         }
-    dispatch(deleteOneRecording(id));
 };
 
 export const getUsersRecordings = (id) => async (dispatch) => {

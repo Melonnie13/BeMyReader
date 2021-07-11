@@ -44,7 +44,7 @@ def get_one_favorite(id):
 @login_required
 def get_users_favorites(id):
     favorites = Favorite.query.filter(Favorite.user_id == id).order_by(Favorite.name.desc()).all()
-    return {favorite.name: favorite.to_dict() for favorite in favorites}
+    return {favorite.id: favorite.to_dict() for favorite in favorites}
 
 
 @favorite_routes.route('/recording', methods=['POST'])
@@ -57,7 +57,8 @@ def add_recording():
     # print(favorite.recordings, '##########################################FROM ADD RECORDING TO FAVORITE LIST ROUTE^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
     db.session.add(recording)
     db.session.commit()
-    return {'favorite': favorite.to_dict(), 'recording': recording.to_dict()}
+    return favorite.to_dict()
+    # {'favorite': favorite.to_dict(), 'recording': recording.to_dict()}
 
 
 @favorite_routes.route('/remove', methods=['DELETE'])
