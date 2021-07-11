@@ -50,6 +50,6 @@
     background-color: #6d9eeb;
 }
 
-/* #nav-logo {
-    align-self: flex-start;
-} */
+#add-fave-nav{
+    margin-bottom: 10px;
+}

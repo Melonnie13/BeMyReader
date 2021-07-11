@@ -4,6 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { demo } from '../../store/session';
 import logo from '../../Images/logo.png';
+// import AddFavorite from '../AddFavorite';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -35,6 +36,9 @@ const NavBar = () => {
                 <div className='nav-bar-item'>
                   <NavLink className='nav-bar-item' to={`/recording/upload/`} exact={true} activeClassName='active'>Record Audio</NavLink>
                 </div>
+                {/* <div id='add-fave-nav' className='nav-bar-item'>
+                  <AddFavorite />
+                </div> */}
                 <div>
                   <LogoutButton />
                 </div>
