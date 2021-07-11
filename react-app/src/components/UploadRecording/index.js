@@ -54,7 +54,7 @@ const UploadRecording = () => {
         // console.log(title, 'title from UploadRecording component')
         formData.append('description', description);
         // console.log(description, 'description from UploadRecording component')
-        formData.append('audio', JSON.stringify(recordingBlob));
+        formData.append('audio', (recordingBlob));
         // formData.append('audio', recordingBlob);
 
         console.log('**********************recording blob from UploadRecording component', recordingBlob)
@@ -134,41 +134,43 @@ const UploadRecording = () => {
             <div>
                 {formOpen &&
                     <form className='audio-input-form' onSubmit={onSubmit}>
-                        <div id='audio-form-input-container'>
-                            <label className='audio-form-labels' htmlFor='title'>Title</label>
-                            <input
-                            type='text'
-                            name='title'
-                            className='audio-form-input'
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            />
-                            <label className='audio-form-labels' htmlFor='description'>Description</label>
-                            <input
-                            type='text'
-                            name='description'
-                            className='audio-form-input'
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            />
-                            <label className='audio-form-labels' htmlFor='category'></label>
-                            <select
-                            name='category'
-                            onChange={(e) => setCategory(e.target.value)}
-                            value={category.id}
-                            >
-                                <option className='audio-form-labels' default>Choose A Category</option>Choose a Category
-                                {categories.map(category => (
-                                    <option
-                                    key={category.id}
-                                    value={category.id}
-                                    >
-                                        {category.name}
-                                    </option>
-                                ))}
-                            </select>
-                            <label className='audio-form-labels' htmlFor='submit-button'></label>
-                            <button className='audioPlayerBtn' type='submit' name='submit-button'>Submit Recording</button>
+                        <div id='form-input-container-flex'>
+                            <div id='audio-form-input-container'>
+                                <label className='audio-form-labels' htmlFor='title'>Title</label>
+                                <input
+                                type='text'
+                                name='title'
+                                className='audio-form-input'
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                />
+                                <label className='audio-form-labels' htmlFor='description'>Description</label>
+                                <input
+                                type='text'
+                                name='description'
+                                className='audio-form-input'
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                />
+                                <label className='audio-form-labels' htmlFor='category'></label>
+                                <select
+                                name='category'
+                                onChange={(e) => setCategory(e.target.value)}
+                                value={category.id}
+                                >
+                                    <option className='audio-form-labels' default>Choose A Category</option>Choose a Category
+                                    {categories.map(category => (
+                                        <option
+                                        key={category.id}
+                                        value={category.id}
+                                        >
+                                            {category.name}
+                                        </option>
+                                    ))}
+                                </select>
+                                <label className='audio-form-labels' htmlFor='submit-button'></label>
+                                <button className='audioPlayerBtn' type='submit' name='submit-button'>Submit Recording</button>
+                            </div>
                         </div>
                         {audioLoading && <p> Loading...</p>}
                     </form>
