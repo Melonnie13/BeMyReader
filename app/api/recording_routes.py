@@ -48,6 +48,12 @@ def upload_recording():
     return new_recording.to_dict()
 
 
+# @recording_routes.route('/single/<int:id>', methods=['GET'])
+# @login_required
+# def get_one_recording(id):
+#     recording = Recording.query.get(id)
+#     return recording.to_dict()
+
 @recording_routes.route('/single/<int:id>', methods=['GET'])
 @login_required
 def get_one_recording(id):
