@@ -125,7 +125,11 @@ export default function reducer(state = initialState, action){
         case ADD_RECORDING:
             newState[action.payload.id] = action.payload
             return newState;
-        case GET_ONE_RECORDING:
+        // case GET_ONE_RECORDING:
+        //     return {
+        //         ...action.payload
+        //     };
+        case SET_ONE_RECORDING:
             return {
                 ...action.payload
             };
