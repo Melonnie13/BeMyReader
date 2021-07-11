@@ -137,7 +137,7 @@ export default function reducer(state = initialState, action){
                 ...action.payload
             }
         case ADD_FAVORITE:
-            newState[action.payload] = action.payload
+            newState[action.payload.id] = action.payload
             return newState;
         case DELETE_FAVORITE:
             delete newState[action.payload.id]

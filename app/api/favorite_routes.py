@@ -57,7 +57,8 @@ def add_recording():
     # print(favorite.recordings, '##########################################FROM ADD RECORDING TO FAVORITE LIST ROUTE^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
     db.session.add(recording)
     db.session.commit()
-    return {'favorite': favorite.to_dict(), 'recording': recording.to_dict()}
+    return favorite.to_dict()
+    # {'favorite': favorite.to_dict(), 'recording': recording.to_dict()}
 
 
 @favorite_routes.route('/remove', methods=['DELETE'])
