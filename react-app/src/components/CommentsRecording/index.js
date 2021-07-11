@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderRecordingComments } from '../../store/comment';
 import './CommentsRecording.css';
@@ -22,14 +23,12 @@ const CommentsRecording = () => {
         <div id='comment-container'>
             <div id='comment-page-container'>
                 <label htmlFor='comments'></label>
-                <div className='container-items' name='comments'>
+                <div id='comment-container-items' name='comments'>
                     {comments.map(comment => (
                         <div key={comment?.id}>
                             {comment?.body}
                             <label htmlFor='comment-username'></label>
-                            <div name='comment-username' id='comment-container-username'>
-                                {comment?.username}
-                            </div>
+                            <Link name='comment-username' className='container-items'>{comment?.username}</Link>
                             {comment?.user_id === user.id
                             ? <div>
                                 <CommentDelete comment={comment} />

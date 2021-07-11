@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { renderOneRecording } from '../../store/recording';
 import AddComment from '../AddComment';
 import CommentsRecording from '../CommentsRecording';
 import DeleteRecording from '../DeleteRecording';
 import AddToFavorites from '../AddToFavorites';
+import ReactAudioPlayer from 'react-audio-player';
 import './ASingleRecording.css';
 
 const ASingleRecording = () => {
@@ -15,8 +16,6 @@ const ASingleRecording = () => {
     const recordingUserId = recording.user_id
     console.log(recording, '****************** Recording from SingleRecording Component*****')
     const user = useSelector(state => state.session.user)
-    // console.log(user, "USER FROM SINGLE RECORDING COMPONENT********************")
-
 
     useEffect(() => {
         dispatch(renderOneRecording(parseInt(id)));
@@ -25,7 +24,7 @@ const ASingleRecording = () => {
     return (
         <div id='recording-page'>
             <div>
-                <h3 className='headline'>
+                <h3 id='single-rec-headline'>
                     <label htmlFor='recording-title'></label>
                     <div name='recording-title'>
                     {recording.title}
@@ -38,23 +37,21 @@ const ASingleRecording = () => {
                     <div name='recording-description'>
                     {recording.description}
                     </div>
-                    {/* {console.log(recording, 'from single recording component')} */}
                 </h3>
-                <div className='single-recording-container-headline'>
+                <div id='single-recording-user-container'>
                     <label htmlFor='recording-username'></label>
                     <div name='recording-username'>
-                        <Link to={`/users/${recordingUserId}`}>
-                            {recording.username}
+                        <Link id='single-rec-username' to={`/users/${recordingUserId}`}>
+                            {`Recorded By: ${recording?.username}`}
                         </Link>
-                        {console.log('RECORDING USERNAME', recording.username)}
                     </div>
                 </div>
-                {/* <div>
+                <div id='audio-player-container'>
                     <ReactAudioPlayer
                         src={recording.blobURL}
                         controls
                     />
-                </div> */}
+                </div>
                 <label htmlFor='delete-recording'></label>
                 <div name='delete-recording'>
                     {recording.username === user.username ?
