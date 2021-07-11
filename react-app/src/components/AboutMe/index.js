@@ -3,8 +3,8 @@ import './AboutMe.css';
 
 const AboutMe = () =>{
     return (
-        <div id='about-me'>
-            <h2>Developed By: Melonnie Hicks with accessibility in mind. Font and color choices made with consideration for dyslexic and colorblind user experiences.</h2>
+        <div id='about-me-container'>
+            <h2 id='about-me-intro'>Developed By: Melonnie Hicks with accessibility in mind. Font and color choices made with consideration for dyslexic and colorblind user experiences.</h2>
             <div id='about-me-logo'>
             <img id='my-avi' src="https://avatars.githubusercontent.com/u/76574880?v=4" alt="Melonnie" />
             <div id='about-me-links-container'>
