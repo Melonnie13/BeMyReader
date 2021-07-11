@@ -63,7 +63,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='enter-username'
-              className='form-input-signup'
+              className='form-input-signup-username'
               onChange={updateUsername}
               value={username}
             ></input>
@@ -73,19 +73,9 @@ const SignUpForm = () => {
             <input
               type='text'
               name='email'
-              className='form-input-signup'
+              className='form-input-signup-email'
               onChange={updateEmail}
               value={email}
-            ></input>
-          </div>
-          <div>
-            <label className='form-labels-signup' htmlFor='vision-impaired-checkbox'>Vision Impaired Check Box For Yes</label>
-            <input
-              type='checkbox'
-              name='vision-impaired-checkbox'
-              className='form-checkbox'
-              checked={visionImpaired}
-              onChange={updateVisionImpaired}
             ></input>
           </div>
           <div>
@@ -93,7 +83,7 @@ const SignUpForm = () => {
             <input
               type='password'
               name='password'
-              className='form-input-signup'
+              className='form-input-signup-password'
               onChange={updatePassword}
               value={password}
             ></input>
@@ -110,6 +100,16 @@ const SignUpForm = () => {
             ></input>
           </div>
           <label htmlFor='sign_up_button'></label>
+          <div>
+            <label className='form-labels-signup' htmlFor='vision-impaired-checkbox'>Vision Impaired Check Box For Yes</label>
+            <input
+              type='checkbox'
+              name='vision-impaired-checkbox'
+              id='form-checkbox'
+              checked={visionImpaired}
+              onChange={updateVisionImpaired}
+            ></input>
+          </div>
           <button className='button' name='sign_up_button' type='submit'>Sign Up</button>
         </div>
       </form>

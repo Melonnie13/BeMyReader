@@ -6,8 +6,7 @@ import AddComment from '../AddComment';
 import CommentsRecording from '../CommentsRecording';
 import DeleteRecording from '../DeleteRecording';
 import AddToFavorites from '../AddToFavorites';
-import ReactAudioPlayer from 'react-audio-player';
-// import ReactPlayer from 'react';
+import './ASingleRecording.css';
 
 const ASingleRecording = () => {
     const dispatch = useDispatch();
@@ -24,59 +23,53 @@ const ASingleRecording = () => {
     }, [dispatch, id])
 
     return (
-        <div>
-            <h3>
-                <label htmlFor='recording-title'></label>
-                <div name='recording-title'>
-                {recording.title}
-                </div>
-                <label htmlFor='recording-category'></label>
-                <div name='recording-category'>
-                {recording.category}
-                </div>
-                <label htmlFor='recording-description'></label>
-                <div name='recording-description'>
-                {recording.description}
-                </div>
-                {/* {console.log(recording, 'from single recording component')} */}
-            </h3>
-            <label htmlFor='recording-username'></label>
-            <div name='recording-username'>
-                <Link to={`/users/${recordingUserId}`}>
-                    {recording.username}
-                </Link>
-            </div>
+        <div id='recording-page'>
             <div>
-                <ReactAudioPlayer
-                    src={recording.blobURL}
-                    controls
-                />
-            </div>
-            <label htmlFor='delete-recording'></label>
-            <div name='delete-recording'>
-                {recording.username === user.username ?
+                <h3>
+                    <label htmlFor='recording-title'></label>
+                    <div name='recording-title'>
+                    {recording.title}
+                    </div>
+                    <label htmlFor='recording-category'></label>
+                    <div name='recording-category'>
+                    {recording.category}
+                    </div>
+                    <label htmlFor='recording-description'></label>
+                    <div name='recording-description'>
+                    {recording.description}
+                    </div>
+                    {/* {console.log(recording, 'from single recording component')} */}
+                </h3>
+                <label htmlFor='recording-username'></label>
+                <div name='recording-username'>
+                    <Link to={`/users/${recordingUserId}`}>
+                        {recording.username}
+                    </Link>
+                </div>
+                {/* <div>
+                    <ReactAudioPlayer
+                        src={recording.blobURL}
+                        controls
+                    />
+                </div> */}
+                <label htmlFor='delete-recording'></label>
+                <div name='delete-recording'>
+                    {recording.username === user.username ?
+                    <div>
+                        <DeleteRecording />
+                    </div>
+                    : null}
+                </div>
                 <div>
-                    <DeleteRecording />
+                    <AddToFavorites recording_id={recording.id}/>
                 </div>
-                : null}
+                <div>
+                    <AddComment />
+                </div>
+                <div>
+                    <CommentsRecording />
+                </div>
             </div>
-            <div>
-                <AddToFavorites recording_id={recording.id}/>
-            </div>
-            <div>
-                <AddComment />
-            </div>
-            <div>
-                <CommentsRecording />
-            </div>
-            {/* {console.log(recording, 'Recording in return of singlerecordingcomponent&&&&&&&&&&&&&&&&&&$$$$$$$$$*********')} */}
-            {/* <ReactPlayer
-            url={recording}
-            className='react-player'
-            playing
-            width='50%'
-            height='50%'
-            /> */}
         </div>
     )
 }
