@@ -47,13 +47,6 @@ def upload_recording():
     db.session.commit()
     return new_recording.to_dict()
 
-
-# @recording_routes.route('/single/<int:id>', methods=['GET'])
-# @login_required
-# def get_one_recording(id):
-#     recording = Recording.query.get(id)
-#     return recording.to_dict()
-
 @recording_routes.route('/single/<int:id>', methods=['GET'])
 @login_required
 def get_one_recording(id):
@@ -65,7 +58,6 @@ def get_one_recording(id):
 @login_required
 def get_users_recordings(id):
     recordings = Recording.query.filter(Recording.user_id == id).order_by(Recording.title.desc()).all()
-    print(recordings, '&&&&&&&&&&&&&&&&&&&&&&&&&FROM BACKEND ROUTE TO GET RECORDING BY USER_ID')
     return {recording.title: recording.to_dict() for recording in recordings}
 
 
@@ -73,7 +65,6 @@ def get_users_recordings(id):
 @login_required
 def delete_recording(id):
     recording = Recording.query.get(id)
-    print(recording, '&&&&&&&&&&&&&&&&&&&&&&&&&&from recording route')
     db.session.delete(recording)
     db.session.commit()
     return {'id': id}

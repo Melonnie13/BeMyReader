@@ -36,7 +36,6 @@ const UploadRecording = () => {
     }
     const onStop = audio => {
         setRecordingBlob(audio)
-        // console.log(audio, "AUDIO FROM UPLOAD RECORDING COMPONENT&&&&&&&&&&&&&&&&")
         setAudioExists(true);
     }
     const onDelete = () => {
@@ -51,16 +50,9 @@ const UploadRecording = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('title', title);
-        // console.log(title, 'title from UploadRecording component')
         formData.append('description', description);
-        // console.log(description, 'description from UploadRecording component')
         formData.append('audio', (recordingBlob));
-        // formData.append('audio', recordingBlob);
-
-        console.log('**********************recording blob from UploadRecording component', recordingBlob)
-
         formData.append('category', category);
-        // console.log(category, 'category from UploadRecording component')
 
         setAudioLoading(true);
 
@@ -109,7 +101,6 @@ const UploadRecording = () => {
                 <ReactAudioPlayer
                     src={recordingBlob.blobURL}
                     controls
-                    // className='audio'
                     style={audioExists ? { display: 'block' } : { display: 'none' }}
                 />
             </div>
