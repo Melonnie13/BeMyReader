@@ -28,7 +28,7 @@ While most of the usability of Be My Reader is focused on the frontend, it requi
 * Flask
 * Python
 * SQLAlchemy
-* PostgresQL
+* PostgreSQL
 * Docker
 * wtforms, wtform validators
 
