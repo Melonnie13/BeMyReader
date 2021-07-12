@@ -44,4 +44,4 @@ Where possible, all search results and audio uploads are rendered alphabetically
 
 ## Conclusion
 
-After a lifetime dedicated to volunteer and nonprofit service, I deeply enjoyed creating this project. I faced new challenges working with audio and technology like AWS. This is my first fullstack project using python and sqlalchemy and was incredibly rewarding to create.
+My biggest challenge with this project was keeping the audio blob stable through the Redux store and into the backend. That blob nearly engulfed me, but after a lifetime dedicated to volunteer and nonprofit service, I deeply enjoyed creating this project. I am still nowhere near finished and welcome input and advice for the further development. In the near future, I would like to add audio messaging and following features, as well as AWS storage services. 
