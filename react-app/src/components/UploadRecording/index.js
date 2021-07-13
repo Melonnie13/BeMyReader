@@ -51,7 +51,8 @@ const UploadRecording = () => {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('description', description);
-        formData.append('audio', (recordingBlob));
+        formData.append('audio', recordingBlob);
+        console.log(recordingBlob, '************************************************blob')
         formData.append('category', category);
 
         setAudioLoading(true);

@@ -40,9 +40,10 @@ def upload_recording():
         user_id=current_user.id,
         category_id=request.form['category']
     )
+    print(request.form['audio'], '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
     # print(request.form["category"], '***************************')
     # print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio']))
-    print(request.files, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&request.files')
+    # print(request.files, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&request.files')
     db.session.add(new_recording)
     db.session.commit()
     return new_recording.to_dict()
@@ -69,17 +70,6 @@ def delete_recording(id):
     db.session.commit()
     return {'id': id}
     # return recording.to_dict()
-
-
-# @recording_routes.route('/<category>', methods=['GET'])
-# @login_required
-# def all_recordings(category):
-#     recording_to_filter = Recording.query.get(Recording.to_dict(Recording))
-#     recording_category = recording_to_filter.category
-#     if recording_category == category:
-#         return recording_category
-#     print(recording_category, "from get all recordings by category name route!!!!!!!!!!!!!!!!!!!!!")
-#     # return {recording.id: recording.to_dict() for recording in recordings}
 
 @recording_routes.route('/all', methods=['GET'])
 @login_required

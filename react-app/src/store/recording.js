@@ -55,18 +55,6 @@ export const uploadRecording = (formData) => async (dispatch) => {
     }
 };
 
-// export const renderOneRecording = (id) => async (dispatch) => {
-//     const res = await fetch(`/api/recordings/single/${id}`);
-
-//     if (res.ok) {
-//         const data = await res.json();
-//         dispatch(getOneRecording(data));
-//         return data;
-//     } else {
-//         console.log('error from renderOneRecording thunk')
-//     }
-// };
-
 export const renderOneRecording = (id) => async (dispatch) => {
     const res = await fetch(`/api/recordings/single/${id}`);
 
@@ -125,10 +113,6 @@ export default function reducer(state = initialState, action){
         case ADD_RECORDING:
             newState[action.payload.id] = action.payload
             return newState;
-        // case GET_ONE_RECORDING:
-        //     return {
-        //         ...action.payload
-        //     };
         case SET_ONE_RECORDING:
             return {
                 ...action.payload

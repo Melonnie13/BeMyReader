@@ -9,7 +9,7 @@ class Recording(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text())
-    audio = db.Column(db.String())
+    audio = db.Column(db.LargeBinary())
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),

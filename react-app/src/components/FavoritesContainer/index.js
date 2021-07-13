@@ -10,7 +10,7 @@ const FavoritesContainer = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const favorites = useSelector(state => Object.values(state.favorite));
-    console.log(favorites, 'FROM FAVORITE CONTAINER COMPOENNT&&&&&&&&&&&&&&')
+    // console.log(favorites, 'FROM FAVORITE CONTAINER COMPOENNT&&&&&&&&&&&&&&')
     const userPage = useSelector(state => state.user);
     const user = useSelector(state => state.session.user);
 
