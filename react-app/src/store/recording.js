@@ -36,14 +36,14 @@ const getAllRecordings = (recordings) => ({
 });
 
 //thunks
-export const uploadRecording = (formData) => async (dispatch) => {
+export const uploadRecording = (audio, title, description, category) => async (dispatch) => {
     // console.log(formData, 'FORM DATA FROM RECORDING THUNK$$$$$$$$$$$$$$$$$$$$$$$$$')
     const res = await fetch ('/api/recordings/new', {
         method: 'POST',
         // headers: {
         //     'Content-Type': 'application/JSON'
         // },
-        body: formData
+        body: JSON.stringify({audio, title, description, category})
         // headers
     });
     if (res.ok) {

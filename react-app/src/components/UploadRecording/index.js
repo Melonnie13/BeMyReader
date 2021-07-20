@@ -49,16 +49,29 @@ const UploadRecording = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('title', title);
-        formData.append('description', description);
+        // formData.append('title', title);
+        // formData.append('description', description);
+        // formData.append('category', category);
+
         formData.append('audio', recordingBlob);
-        console.log(recordingBlob, '************************************************blob')
-        formData.append('category', category);
+        // console.log(recordingBlob, '************************************************blob')
 
         setAudioLoading(true);
 
-        dispatch(uploadRecording(formData));
-        setAudioLoading(false);
+        const res = await fetch('/api/recordings/new-audio', {
+            method: "POST",
+            body: formData
+        });
+
+        if(res.ok){
+            let audio = await res.json();
+            setAudioLoading(false);
+            const recording = dispatch(uploadRecording(audio, title, description, category));
+
+        } else {
+            setAudioLoading(false);
+        }
+
         setFormOpen(false);
         history.push(`/users/${user.id}`);
     }

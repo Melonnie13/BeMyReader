@@ -28,6 +28,7 @@
 
 .user-page-container{
     border: solid #8e7cc3 4px;
+    box-shadow: 5px 5px 5px #663a82;
     border-radius: 10px;
     padding: 0 10px 5px 10px;
 }
