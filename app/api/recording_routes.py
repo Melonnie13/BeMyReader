@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Recording, db
+from app.forms import RecordingForm
 from flask_login import current_user, login_required
 import json
 from app.s3_functionality import (
@@ -36,14 +37,22 @@ def upload_audio():
 @login_required
 def upload_recording():
 
+    form = RecordingForm()
     new_recording = Recording(
-        title=request.form['title'],
-        description=request.form['description'],
-        # audio=request.form['audio'],
-        user_id=current_user.id,
-        category_id=request.form['category']
+        audio = form.data['audio'],
+        title = form.data['title'],
+        description = form.data['description'],
+        category = form.data['category']
     )
-    print(request.form['audio'], '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+
+    # new_recording = Recording(
+    #     title=request.form['title'],
+    #     description=request.form['description'],
+    #     # audio=request.form['audio'],
+    #     user_id=current_user.id,
+    #     category_id=request.form['category']
+    # )
+    # print(request.form['audio'], '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
     # print(request.form["category"], '***************************')
     # print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio']))
     # print(request.files, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&request.files')
