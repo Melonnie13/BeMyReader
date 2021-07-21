@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Recording, db
-from app.forms import RecordingForm
+from app.forms import recording_form
 from flask_login import current_user, login_required
 import json
 from app.s3_functionality import (
