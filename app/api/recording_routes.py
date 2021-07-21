@@ -38,19 +38,17 @@ def upload_audio():
 def upload_recording():
 
     form = RecordingForm()
-    audio = form['audio'],
-    title = form['title'],
-    description = form['description'],
+    # audio = form['audio'],
+    # title = form['title'],
+    # description = form['description'],
+    # user_id=form['user_id'],
+    # category_id=form['category_id']
 
-    print(audio, title, description, '$$$$$$$$$$$$$$$$$$$$$$$$$$AUDIO TITLE DESCRIPTION')
+    # print(category_id, "CATEGORY ID &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 
-    new_recording = Recording(
-        # audio = audio,
-        # title = title,
-        # description = description
-        # category = form.data['category']
-        user_id = 1
-    )
+    # print(audio, title, description, '$$$$$$$$$$$$$$$$$$$$$$$$$$AUDIO TITLE DESCRIPTION')
+
+    new_recording = Recording()
     form.populate_obj(new_recording)
     db.session.add(new_recording)
     db.session.commit()

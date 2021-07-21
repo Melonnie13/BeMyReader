@@ -65,7 +65,7 @@ const UploadRecording = () => {
         if(res.ok){
             let audio = await res.json();
             setAudioLoading(false);
-            const recording = dispatch(uploadRecording(audio, title, description, category));
+            const recording = dispatch(uploadRecording(audio, title, description, category, user.id));
 
         } else {
             setAudioLoading(false);
