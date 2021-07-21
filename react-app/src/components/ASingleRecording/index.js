@@ -48,7 +48,7 @@ const ASingleRecording = () => {
                 </div>
                 <div id='audio-player-container'>
                     <ReactAudioPlayer
-                        src={recording.blobURL}
+                        src={recording.audio}
                         controls
                     />
                 </div>
