@@ -6,6 +6,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import { uploadRecording } from '../../store/recording';
 import './UploadRecording.css'
 import { renderCategories } from '../../store/category';
+let fs = require('fs');
 
 const UploadRecording = () => {
     const history = useHistory();
@@ -46,34 +47,42 @@ const UploadRecording = () => {
     const onUpload = () => {
         setFormOpen(!formOpen);
     }
-    const onSubmit = (e) => {
+    const onSubmit = async(e) => {
         e.preventDefault();
         const formData = new FormData();
         // formData.append('title', title);
         // formData.append('description', description);
         // formData.append('category', category);
 
-        formData.append('audio', recordingBlob);
-        // console.log(recordingBlob, '************************************************blob')
+        let fileReader = new FileReader();
+        fileReader.onload = function () {
+        fs.writeFileSync('test.wav', Buffer(new Uint8Array(this.result)));
+        };
+        fileReader.readAsArrayBuffer(recordingBlob);
 
-        setAudioLoading(true);
+        console.log(fileReader, '********************************FILE READER')
 
-        const res = await fetch('/api/recordings/new-audio', {
-            method: "POST",
-            body: formData
-        });
+        // formData.append('audio', recordingBlob);
+        // // console.log(recordingBlob, '************************************************blob')
 
-        if(res.ok){
-            let audio = await res.json();
-            setAudioLoading(false);
-            const recording = dispatch(uploadRecording(audio, title, description, category));
+        // setAudioLoading(true);
 
-        } else {
-            setAudioLoading(false);
-        }
+        // const res = await fetch('/api/recordings/new-audio', {
+        //     method: "POST",
+        //     body: formData
+        // });
 
-        setFormOpen(false);
-        history.push(`/users/${user.id}`);
+        // if(res.ok){
+        //     let audio = await res.json();
+        //     setAudioLoading(false);
+        //     const recording = dispatch(uploadRecording(audio, title, description, category));
+
+        // } else {
+        //     setAudioLoading(false);
+        // }
+
+        // setFormOpen(false);
+        // history.push(`/users/${user.id}`);
     }
 
     return (
