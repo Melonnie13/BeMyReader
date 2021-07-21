@@ -50,39 +50,29 @@ const UploadRecording = () => {
     const onSubmit = async(e) => {
         e.preventDefault();
         const formData = new FormData();
-        // formData.append('title', title);
-        // formData.append('description', description);
-        // formData.append('category', category);
 
-        let fileReader = new FileReader();
-        fileReader.onload = function () {
-        fs.writeFileSync('test.wav', Buffer(new Uint8Array(this.result)));
-        };
-        fileReader.readAsArrayBuffer(recordingBlob);
 
-        console.log(fileReader, '********************************FILE READER')
+        formData.append('audio', recordingBlob.blob);
+        // console.log(recordingBlob, '************************************************blob')
 
-        // formData.append('audio', recordingBlob);
-        // // console.log(recordingBlob, '************************************************blob')
+        setAudioLoading(true);
 
-        // setAudioLoading(true);
+        const res = await fetch('/api/recordings/new-audio', {
+            method: "POST",
+            body: formData
+        });
 
-        // const res = await fetch('/api/recordings/new-audio', {
-        //     method: "POST",
-        //     body: formData
-        // });
+        if(res.ok){
+            let audio = await res.json();
+            setAudioLoading(false);
+            const recording = dispatch(uploadRecording(audio, title, description, category));
 
-        // if(res.ok){
-        //     let audio = await res.json();
-        //     setAudioLoading(false);
-        //     const recording = dispatch(uploadRecording(audio, title, description, category));
+        } else {
+            setAudioLoading(false);
+        }
 
-        // } else {
-        //     setAudioLoading(false);
-        // }
-
-        // setFormOpen(false);
-        // history.push(`/users/${user.id}`);
+        setFormOpen(false);
+        history.push(`/users/${user.id}`);
     }
 
     return (

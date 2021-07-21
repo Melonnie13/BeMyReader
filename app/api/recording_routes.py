@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Recording, db
-from app.forms import recording_form
+from app.forms.recording_form import RecordingForm
 from flask_login import current_user, login_required
 import json
 from app.s3_functionality import (
@@ -12,17 +12,17 @@ recording_routes = Blueprint('recordings', __name__)
 @login_required
 def upload_audio():
     # print('********************THIS IS THE BLOB***************', request.form["audio"])
-    if "audio" not in request.files:
-        return {"errors": "audio required"}, 400
+    # if "audio" not in request.files:
+    #     return {"errors": "audio required"}, 400
 
     audio = request.files["audio"]
 
-    # print('**************AUDIO OBJECT FROM RECORDING ROUTE******************', audio.blob)
+    print('**************AUDIO OBJECT FROM RECORDING ROUTE******************', audio)
 
-    if not allowed_file(audio.filename):
-        return {"errors": "file type not permitted"}, 400
+    # if not allowed_file(audio.filename):
+    #     return {"errors": "file type not permitted"}, 400
 
-    audio.filename = get_unique_filename(audio.filename)
+    audio.filename = get_unique_filename('audioGarbage.webm')
 
     upload = upload_file_to_s3(audio)
 
@@ -44,18 +44,7 @@ def upload_recording():
         description = form.data['description'],
         category = form.data['category']
     )
-
-    # new_recording = Recording(
-    #     title=request.form['title'],
-    #     description=request.form['description'],
-    #     # audio=request.form['audio'],
-    #     user_id=current_user.id,
-    #     category_id=request.form['category']
-    # )
-    # print(request.form['audio'], '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-    # print(request.form["category"], '***************************')
-    # print('%%%%%%%%%%%%%%%%%%%%%%', json.loads(request.form['audio']))
-    # print(request.files, '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&request.files')
+    
     db.session.add(new_recording)
     db.session.commit()
     return new_recording.to_dict()
