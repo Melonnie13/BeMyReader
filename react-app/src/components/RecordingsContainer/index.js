@@ -24,13 +24,13 @@ const RecordingsContainer = () => {
         <div>
             <div className='container-recordings'>
                 <h2 className='container-headline'>
-                    {`${userPage?.username}'s`} Recordings
+                    {`${userPage.username}'s`} Recordings
                 </h2>
                 <label htmlFor='user-recordings'></label>
                 <div className='container-contents'>
                     {recordings?.map(recording => (
                             <div name='user-recordings' className='container' key={recording?.id}>
-                            <Link className='container-items' to={`/recording/${recording.id}`}>{recording?.title}</Link>
+                            <Link className='container-items' to={`/recording/${recording.id}`}>{recording.title}</Link>
                             <div>
                                 {userPage.id === user.id ?
                                     <div>

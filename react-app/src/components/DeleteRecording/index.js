@@ -23,7 +23,7 @@ const DeleteRecording = ({id}) => {
     }, [dispatch, user_id])
 
     useEffect(() => {
-        console.log('recordings change', recordings)
+        // console.log('recordings change', recordings)
     }, [recordings])
 
     return (
