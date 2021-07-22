@@ -5,20 +5,21 @@ import { getUsersRecordings } from '../../store/recording';
 import DeleteRecording from '../DeleteRecording';
 import './RecordingsContainer.css';
 
-const RecordingsContainer = () => {
+const RecordingsContainer = ({userPage}) => {
     const dispatch = useDispatch();
-    const {id} = useParams();
+    // const {id} = useParams();
+
     // console.log(id, 'ID from recordings container id')
     const recordings = useSelector(state => Object.values(state.recording));
     // console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
-    const userPage = useSelector(state => (state.user));
+    // const userPage = useSelector(state => (state.user));
     // console.log(userPage.id, "USERID FROM RECORDINGS CONTAINER**********")
     const user = useSelector(state => state.session.user)
     // console.log(user, "SESSION USER******!!!!!!!!!!!!!!!!!")
 
     useEffect(() => {
-        dispatch(getUsersRecordings(parseInt(id)))
-    }, [dispatch, id])
+        dispatch(getUsersRecordings(userPage.id))
+    }, [dispatch, userPage.id])
 
     return (
         <div>

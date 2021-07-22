@@ -17,13 +17,13 @@ const UserPage = () => {
   // console.log(user, '&&&&&&&&&&&&&&&&&&&&&&user from userpage component')
   // const sessionUser = useSelector(state => state.session.user)// passed in as prop instead
 
+  // dispatch(getUsersRecordings(parseInt(id)))
 
   useEffect(() => {
     dispatch(getOneUser(parseInt(id)))
-    dispatch(getUsersRecordings(parseInt(id)))
+    // dispatch(getUsersRecordings(parseInt(id)))
   }, [dispatch, id]);
 
-  // dispatch(getUsersRecordings(parseInt(id)))
 
   return (
 
@@ -31,7 +31,7 @@ const UserPage = () => {
         <div className='headline'>{`${user.username}'s Page`}</div>
         <div id='user-page-items-container'>
           <div className='user-page-container'>
-            <RecordingsContainer />
+            <RecordingsContainer userPage={user}/>
           </div>
           <div>
             <div className='user-page-container'>
