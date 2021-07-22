@@ -22,6 +22,10 @@ const DeleteRecording = ({id}) => {
         dispatch(getUsersRecordings(user_id))
     }, [dispatch, user_id])
 
+    useEffect(() => {
+        console.log('recordings change', recordings)
+    }, [recordings])
+
     return (
         <div>
                 <label htmlFor='delete-button-single-recording'></label>

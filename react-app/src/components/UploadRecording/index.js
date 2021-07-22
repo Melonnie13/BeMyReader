@@ -6,6 +6,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import { uploadRecording } from '../../store/recording';
 import './UploadRecording.css'
 import { renderCategories } from '../../store/category';
+let fs = require('fs');
 
 const UploadRecording = () => {
     const history = useHistory();
@@ -46,19 +47,30 @@ const UploadRecording = () => {
     const onUpload = () => {
         setFormOpen(!formOpen);
     }
-    const onSubmit = (e) => {
+    const onSubmit = async(e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('title', title);
-        formData.append('description', description);
-        formData.append('audio', recordingBlob);
-        console.log(recordingBlob, '************************************************blob')
-        formData.append('category', category);
+
+
+        formData.append('audio', recordingBlob.blob);
+        // console.log(recordingBlob, '************************************************blob')
 
         setAudioLoading(true);
 
-        dispatch(uploadRecording(formData));
-        setAudioLoading(false);
+        const res = await fetch('/api/recordings/new-audio', {
+            method: "POST",
+            body: formData
+        });
+
+        if(res.ok){
+            let audio = await res.json();
+            setAudioLoading(false);
+            const recording = dispatch(uploadRecording(audio, title, description, category, user.id));
+
+        } else {
+            setAudioLoading(false);
+        }
+
         setFormOpen(false);
         history.push(`/users/${user.id}`);
     }
