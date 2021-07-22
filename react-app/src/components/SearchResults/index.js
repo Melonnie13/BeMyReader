@@ -24,8 +24,8 @@ const SearchResults = ({category}) => {
                     <label htmlFor='search-results'></label>
                     {filteredRecs &&
                     <div name='search-results' className='search-container-items'>
-                        {filteredRecs.length ? filteredRecs.map(recording => (
-                            <Link className='search-container-items' to={`/recording/${recording.id}`} key={recording.id}><div>{recording.title}</div></Link>
+                        {filteredRecs.length ? filteredRecs?.map(recording => (
+                            <Link className='search-container-items' to={`/recording/${recording.id}`} key={recording.id}><div>{recording?.title}</div></Link>
                         )) : "Category Not Found"}
                     </div>
                     }
