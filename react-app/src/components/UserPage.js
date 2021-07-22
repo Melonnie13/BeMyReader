@@ -23,6 +23,8 @@ const UserPage = () => {
     dispatch(getOneUser(parseInt(id)))
   }, [dispatch, id]);
 
+  dispatch(getUsersRecordings(parseInt(id)))
+
   return (
 
       <div id='user-page'>
