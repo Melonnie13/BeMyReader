@@ -21,9 +21,8 @@ const UserPage = () => {
 
   useEffect(() => {
     dispatch(getOneUser(parseInt(id)))
+    // dispatch(getUsersRecordings(parseInt(id)))
   }, [dispatch, id]);
-
-  dispatch(getUsersRecordings(parseInt(id)))
 
   return (
 

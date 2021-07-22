@@ -17,7 +17,7 @@ def upload_audio():
 
     audio = request.files["audio"]
 
-    print('**************AUDIO OBJECT FROM RECORDING ROUTE******************', audio)
+    # print('**************AUDIO OBJECT FROM RECORDING ROUTE******************', audio)
 
     # if not allowed_file(audio.filename):
     #     return {"errors": "file type not permitted"}, 400
