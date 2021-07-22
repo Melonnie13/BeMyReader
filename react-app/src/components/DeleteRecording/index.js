@@ -9,7 +9,7 @@ const DeleteRecording = ({id}) => {
     const history = useHistory();
     const user = useSelector(state => state.session.user);
     const recordings = useSelector(state => state.recording)
-    const user_id = user.id;
+    // const user_id = user.id;
 
     const deleteARecording = async(e) => {
         e.preventDefault();
@@ -18,9 +18,9 @@ const DeleteRecording = ({id}) => {
         history.push(`/users/${user.id}`);
     };
 
-    useEffect(() => {
-        dispatch(getUsersRecordings(user_id))
-    }, [dispatch, user_id])
+    // useEffect(() => {
+    //     dispatch(getUsersRecordings(user_id))
+    // }, [dispatch, user_id])
 
     useEffect(() => {
         // console.log('recordings change', recordings)
