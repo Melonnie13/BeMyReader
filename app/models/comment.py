@@ -5,7 +5,7 @@ class Comment(db.Model):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    body = db.Column(db.Text)
+    body = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),

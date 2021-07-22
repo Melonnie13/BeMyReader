@@ -5,6 +5,7 @@ import AddFavorite from './AddFavorite';
 import FavoritesContainer from './FavoritesContainer';
 import { useParams } from 'react-router-dom';
 import { getOneUser } from '../store/user';
+import { getUsersRecordings } from '../store/recording';
 import './UserPage.css';
 
 const UserPage = () => {
@@ -15,6 +16,8 @@ const UserPage = () => {
   const user = useSelector(state => state.user)// user for the userPage
   // console.log(user, '&&&&&&&&&&&&&&&&&&&&&&user from userpage component')
   // const sessionUser = useSelector(state => state.session.user)// passed in as prop instead
+
+  dispatch(getUsersRecordings(parseInt(id)))
 
   useEffect(() => {
     dispatch(getOneUser(parseInt(id)))
