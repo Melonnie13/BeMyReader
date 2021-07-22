@@ -17,12 +17,13 @@ const UserPage = () => {
   // console.log(user, '&&&&&&&&&&&&&&&&&&&&&&user from userpage component')
   // const sessionUser = useSelector(state => state.session.user)// passed in as prop instead
 
-  dispatch(getUsersRecordings(parseInt(id)))
 
   useEffect(() => {
     dispatch(getOneUser(parseInt(id)))
-    // dispatch(getUsersRecordings(parseInt(id)))
+    dispatch(getUsersRecordings(parseInt(id)))
   }, [dispatch, id]);
+
+  // dispatch(getUsersRecordings(parseInt(id)))
 
   return (
 
