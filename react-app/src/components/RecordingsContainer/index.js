@@ -13,12 +13,15 @@ const RecordingsContainer = ({userPage}) => {
     const recordings = useSelector(state => Object.values(state.recording));
     // console.log(recordings, '***************RECORDINGS FROM RECORDINGS CONTAINER')
     // const userPage = useSelector(state => (state.user));
-    // console.log(userPage.id, "USERID FROM RECORDINGS CONTAINER**********")
+    console.log(userPage.id, "USERID FROM RECORDINGS CONTAINER**********")
     const user = useSelector(state => state.session.user)
     // console.log(user, "SESSION USER******!!!!!!!!!!!!!!!!!")
 
+
     useEffect(() => {
-        dispatch(getUsersRecordings(userPage.id))
+        if(userPage.id){
+            dispatch(getUsersRecordings(userPage.id))
+        }
     }, [dispatch, userPage.id])
 
     return (
