@@ -31,5 +31,5 @@ class Recording(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'comment_ids': [comment.id for comment in self.comments],
-            # 'user_id': self.users.id,
+            'user': self.users.to_dict(),
         }

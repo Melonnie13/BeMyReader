@@ -67,10 +67,13 @@
 
 #single-rec-username{
     color: #b4a7d6;
-    font-size: 3em;
+    font-size: 1em;
     font-weight: 800;
     text-align: center;
     margin: 20px 5px 5px 5px;
+}
+#single-rec-username:hover{
+    color:#8e7cc3
 }
 
 #single-rec-headline{
