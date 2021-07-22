@@ -39,7 +39,7 @@ const ASingleRecording = () => {
                     {recording.description}
                     </div>
                     <label htmlFor='recording-user'></label>
-                    <Link  to={`/users/${recording.user?.id}`} name='recording-user'>
+                    <Link id='single-rec-username' to={`/users/${recording.user?.id}`} name='recording-user'>
                     {recording.user?.username}
                     </Link>
                 </h3>
