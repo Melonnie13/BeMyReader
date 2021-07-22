@@ -13,8 +13,8 @@ const ASingleRecording = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const recording = useSelector((state) => state.recording);
-    console.log(recording.username, 'RECORDING USERNAME FROM A SINGLE RECORDING SESSION USER')
-    const recordingUsername = recording.username
+    // console.log(recording.username, 'RECORDING USERNAME FROM A SINGLE RECORDING SESSION USER')
+    const recordingUsername = recording.user?.username
     // const recordingUserId = recording.user_id
     console.log(recording, '****************** Recording from SingleRecording Component*****')
     const user = useSelector(state => state.session.user)
@@ -40,8 +40,8 @@ const ASingleRecording = () => {
                     {recording.description}
                     </div>
                     <label htmlFor='recording-user'></label>
-                    <Link id='single-rec-username' to={`/users/${recording?.user_id}`} name='recording-user'>
-                    {recordingUsername}
+                    <Link id='single-rec-username' to={`/users/${recording?.user?.id}`} name='recording-user'>
+                    {recording.user?.username}
                     </Link>
                 </h3>
                 <div id='single-recording-user-container'>
