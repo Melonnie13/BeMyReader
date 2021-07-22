@@ -6,7 +6,6 @@ import ReactAudioPlayer from 'react-audio-player';
 import { uploadRecording } from '../../store/recording';
 import './UploadRecording.css'
 import { renderCategories } from '../../store/category';
-let fs = require('fs');
 
 const UploadRecording = () => {
     const history = useHistory();
