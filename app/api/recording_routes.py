@@ -64,7 +64,7 @@ def get_one_recording(id):
 @recording_routes.route('/<int:id>', methods=['GET'])
 @login_required
 def get_users_recordings(id):
-    recordings = Recording.query.filter(Recording.user_id == id).order_by(Recording.title.desc()).all()
+    recordings = Recording.query.filter(Recording.user_id == id).all()
     return {recording.title: recording.to_dict() for recording in recordings}
 
 
