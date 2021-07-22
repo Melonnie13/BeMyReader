@@ -18,7 +18,7 @@ const UserPage = () => {
   // const sessionUser = useSelector(state => state.session.user)// passed in as prop instead
 
   dispatch(getUsersRecordings(parseInt(id)))
-  
+
   useEffect(() => {
     dispatch(getOneUser(parseInt(id)))
   }, [dispatch, id]);
