@@ -13,14 +13,19 @@ const AddComment = () => {
 
     const postComment = async (e) => {
         e.preventDefault();
+        if(body === ''){
+            alert("Field cannot be blank")
+        } else {
+            const formData = new FormData();
+            formData.append('body', body);
+            formData.append('recording_id', recording.id);
+            formData.append('user_id', user.id);
 
-        const formData = new FormData();
-        formData.append('body', body);
-        formData.append('recording_id', recording.id);
-        formData.append('user_id', user.id);
+            dispatch(addComment(formData));
+            setBody('');
 
-        dispatch(addComment(formData));
-        setBody('');
+        }
+
     };
 
     // useEffect(() => {
